@@ -1,49 +1,44 @@
 <template>
-  <div class="home">
-    <div class="home-top">top</div>
-    <div class="home-cneter">cneter</div>
+  <div class="home">    
+    <div class="home-cneter">
+      <!-- <div class="home-top">top{{ massg}}</div> -->
+      <router-view></router-view>
+    </div>
     <div class="home-footer">
       <ul>
-        <router-link to="/" tag="li">首页</router-link>
-        <router-link to="/" tag="li">大厅</router-link>
-        <router-link to="/" tag="li">开奖</router-link>
-        <router-link to="/" tag="li">聊彩</router-link>
-        <router-link to="/" tag="li">个人</router-link>
+        <router-link v-for="(navs,index) in navbat" :to="'/'+navs.pathbat" tag="li" >
+          <p><img src="../../assets/img/home/home.png" alt=""></p>
+          <span>{{navs.name}}</span>
+        </router-link>
       </ul>
     </div>
   </div>
 </template>
 <script>
+import one from './one.vue'
+import second from './second.vue'
+import three from './three.vue'
+import four from './four.vue'
+import five from './five.vue'
 export default {
   data() {
-    return {};
+    return {
+      massg:1,
+      navbat:[
+        {name:'首页',pathbat:'one'},
+        {name:'大厅',pathbat:'second'},
+        {name:'开奖',pathbat:'three'},
+        {name:'彩聊',pathbat:'four'},
+        {name:'个人',pathbat:'five'},
+      ]
+    };
+  },
+  components:{
+    one,second,three,four,five
   }
-};
+}
 </script>
 <style lang='scss'>
-*,body,html,ul,ol,dl{
-  padding: 0px;
-  margin: 0px;
-}
-.home{
-  display: flex;
-  flex-direction: column;
-  .home-footer{
-    & ul{
-      display: flex;
-      justify-content: space-between;
-      align-items:center;
-      border-top: 1px solid #ccc;
-      & li{
-        display: flex;
-        width: 20%;
-        height: 96px;
-        justify-content: center;
-        align-items: center;
-        color: #666;
-      }
-    }
-  }
-}
+@import "../../assets/scss/home.scss";
 </style>
 
