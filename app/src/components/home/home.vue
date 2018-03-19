@@ -7,7 +7,8 @@
     <div class="home-footer">
       <ul>
         <router-link v-for="(navs,index) in navbat" :to="'/'+navs.pathbat" tag="li" >
-          <p><img src="../../assets/img/home/home.png" alt=""></p>
+          <p></p>
+          <!-- <p><img src="../../assets/img/home/home.png" alt=""></p> -->
           <span>{{navs.name}}</span>
         </router-link>
       </ul>
@@ -40,5 +41,10 @@ export default {
 </script>
 <style lang='scss'>
 @import "../../assets/scss/home.scss";
+@import "../../assets/scss/one.scss";
+@import "../../assets/scss/second.scss";
+@import "../../assets/scss/three.scss";
+@import "../../assets/scss/four.scss";
+@import "../../assets/scss/five.scss";
 </style>
 
