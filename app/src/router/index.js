@@ -6,40 +6,75 @@ import second from '@/components/home/second'
 import three from '@/components/home/three'
 import four from '@/components/home/four'
 import five from '@/components/home/five'
+import login from '@/components/login/login'
+import registered from '@/components/login/registered'
+import reset from '@/components/login/reset'
+import lotto from '@/components/games/lotto'
+import reality from '@/components/games/reality'
+import electronic from '@/components/games/electronic'
+import sports from '@/components/games/sports'
 
 Vue.use(Router)
 
 export default new Router({
-    routes: [{
-        path: '/',
-        name: 'home',
-        redirect: 'one',
-        component: home,
-        children: [{
-                path: 'one',
-                name: 'one',
-                component: one
+  routes: [{
+      path: "/",
+      name: 'login',
+      component: login
+    },
+    {
+      path: '/home',
+      name: 'home',
+      redirect: 'one',
+      component: home,
+      children: [{
+          path: 'one',
+          name: 'one',
+          component: one
+        },
+        {
+          path: 'second',
+          name: 'second',
+          redirect: 'second/lotto',
+          component: second,
+          children: [{
+              path: 'lotto',
+              name: 'lotto',
+              component: lotto
             },
             {
-                path: 'second',
-                name: 'second',
-                component: second
+              path: 'reality',
+              name: 'reality',
+              component: reality
             },
             {
-                path: 'three',
-                name: 'three',
-                component: three
+              path: 'electronic',
+              name: 'electronic',
+              component: electronic
             },
             {
-                path: 'four',
-                name: 'four',
-                component: four
-            },
-            {
-                path: 'five',
-                name: 'five',
-                component: five
+              path: 'sports',
+              name: 'sports',
+              component: sports
             }
-        ]
-    }]
+          ]
+        },
+        {
+          path: 'three',
+          name: 'three',
+          component: three
+        },
+        {
+          path: 'four',
+          name: 'four',
+          component: four
+        },
+        {
+          path: 'five',
+          name: 'five',
+          component: five
+        }
+      ]
+    }
+  ]
 })

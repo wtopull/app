@@ -1,0 +1,47 @@
+.second {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    .second-top {
+        display: flex;
+        width: 100%;
+        height: 88px;
+        background: #FFD22C;
+        font-size: 18px;
+        justify-content: center;
+        align-items: center;
+        box-shadow: 0px 6px 6px #cecece;
+    }
+    .second-nav {
+        display: flex;
+        height: 132px;
+        align-items: center;
+        justify-content: space-between;
+        background: #fff;
+        border-bottom: 1px solid #e9e9e9;
+        margin: 20px 0px 6px;
+        @for $i from 1 through 4 {
+            & li:nth-child(#{$i}) {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                width: 100%;
+                & p {
+                    @include Bg('game.png', 58px, 59px);
+                }
+            }
+        }
+    }
+    .second-conter {
+        background: #fff;
+    }
+}
+
+.second .second-nav .router-link-exact-active.router-link-active {
+    background: none;
+    >p {
+        @include Bg('game1.png', 58px, 59px);
+    }
+}

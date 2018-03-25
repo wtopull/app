@@ -29,12 +29,19 @@
                 align-items: center;
                 width: 100%;
                 & p {
-                    @include Bg('home-nav'+$i+'.png', 35px, 33px);
+                    @include Bg('game.png', 58px, 59px);
                 }
             }
         }
     }
     .second-conter {
         background: #fff;
+    }
+}
+
+.second .second-nav .router-link-exact-active.router-link-active {
+    background: none;
+    >p {
+        @include Bg('game1.png', 58px, 59px);
     }
 }

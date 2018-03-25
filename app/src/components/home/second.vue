@@ -1,24 +1,33 @@
 <template>
   <div class="second">
-    <div class="second-top">大厅</div>
+    <!-- <div class="second-top">大厅</div> -->
+    <mt-header title="大厅"  class="second-top">
+      <router-link to="/" slot="left">
+        <mt-button icon="back"></mt-button>
+      </router-link>
+    </mt-header>
     <ul class="second-nav">
-      <li>
+      <router-link v-for="(navs,index) in secondNav" :to="'/second/'+navs.pathbat" tag="li" :key="index">
         <p></p>
-        <span>彩票中心</span>
-      </li>
-      <li>
-        <p></p>
-        <span>真人娱乐</span>
-      </li>
-      <li>
-        <p></p>
-        <span>电子游戏</span>
-      </li>
-      <li>
-        <p></p>
-        <span>体育投注</span>
-      </li>
+        <span>{{ navs.name}}</span>
+      </router-link>
     </ul>
-    <div class="second-conter">111</div>
+    <div class="second-conter">
+      <router-view></router-view>
+    </div>
   </div>
 </template>
+<script>
+  export default{
+    data(){
+      return{
+        secondNav:[
+          {name:'彩票中心',pathbat:'lotto'},
+          {name:'真人娱乐',pathbat:'reality'},
+          {name:'电子游戏',pathbat:'electronic'},
+          {name:'体育投注',pathbat:'sports'}
+        ]
+      }
+    }
+  }
+</script>

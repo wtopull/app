@@ -1,14 +1,12 @@
 <template>
   <div class="home">    
     <div class="home-cneter">
-      <!-- <div class="home-top">top{{ massg}}</div> -->
       <router-view></router-view>
     </div>
     <div class="home-footer">
       <ul>
-        <router-link v-for="(navs,index) in navbat" :to="'/'+navs.pathbat" tag="li" >
+        <router-link v-for="(navs,index) in navbat" :to="'/'+navs.pathbat" tag="li" :key="index">
           <p></p>
-          <!-- <p><img src="../../assets/img/home/home.png" alt=""></p> -->
           <span>{{navs.name}}</span>
         </router-link>
       </ul>
