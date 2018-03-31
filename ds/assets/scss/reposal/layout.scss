@@ -1,0 +1,178 @@
+.reposal-wrap{
+  padding-bottom: 40px;
+  border:1px solid #d6d6d7;
+  > .el-loading-mask{
+    .el-loading-spinner{
+      top: 300px;
+    }
+  }
+}
+
+.reposal-content{
+  margin-bottom: 20px;
+  & + div{
+    padding-right: 40px;
+    font-size: 14px;
+    color: $--color-text-secondary;
+    strong{
+      color: #f08200;
+      margin: 0 5px;
+    }
+    > span{
+      margin-left: 40px;margin-right: 20px;
+    }
+    .el-input__inner{
+      height: 29px;
+      width: 104px;
+      vertical-align: middle;margin-right: 10px;margin-left: 5px;
+    }
+    .el-button{
+      width: 134px;
+      border-radius: 4px;
+    }
+  }
+}
+
+.reposal-play-layout{
+  display: flex;
+  padding: 0 40px;
+  justify-content: space-between;
+}
+
+.reposal-odds-view{
+  margin-bottom: 0!important;
+  > div{
+    background: #ececec;line-height: 18px;
+    text-align: center;
+    color: $--color-text-secondary;
+    min-width: 46px;
+  }
+}
+
+// .reposal-play-top,
+.reposal-play-layout,
+.reposal-content-right,
+.reposal-play-special li
+{
+  h4{
+    line-height: 28px;
+    font-weight: normal;
+    text-align: center;margin-right: 5px;
+  }
+  > ul{
+    // display: flex;
+    ul{
+      display: flex;
+    }
+    > li{
+      // border-right:1px solid $--border-color-base;
+      // flex-basis:0;
+      // flex-grow: 1;
+      // text-align: center;
+      // &:first-child{
+      //   border-left:1px solid $--border-color-base;
+      // }
+      display: flex;
+      align-items: center;
+      margin-bottom: 5px;
+    }
+    .el-input__inner{
+      height: 20px;
+      width: 40px;
+      padding: 0 3px;
+      text-align: center;
+      color: $--color-primary-secondary;
+      box-shadow: 0 1px 1px rgba(#000,.15);
+    }
+  }
+}
+
+.reposal-play-layout > ul > li li,
+.reposal-content-right li:not(.reposal-odds-view),
+.reposal-play-special li li:not(.reposal-odds-view),
+.reposal-all5in1 > ul > li
+// .reposal-play-top li > div
+{
+  text-align: center;
+  margin: 0 2px;
+  padding: 6px 3px;
+  border-radius: 6px;
+  transition:.3s;
+  &:hover{
+    background: #fff7e1;
+  }
+  &.selected{
+    background: #ffe552;
+  }
+  > div{
+    // flex:1 100%;
+    // user-select: none;
+    // &:nth-child(2){
+    //   // color:$--color-danger;
+    // }
+    &:first-child{
+      font-size: 20px;
+      user-select: none;
+      cursor: pointer;line-height: 22px;
+    }
+    > img{
+      margin: 0 2px;
+    }
+  }
+  // &:last-child{
+  //   border-bottom:none;
+  // }
+  // &:only-child {
+  //   border-bottom:1px solid $--border-color-base;
+  // }
+}
+
+.reposal-content-right,
+.reposal-play-special li
+{
+  > ul{
+    display: flex;
+    > li:not(.reposal-odds-view){
+      display: block;
+      margin-bottom: 0;
+      padding-top: 0;
+      > div:first-child{
+        font-size: 16px;padding-top: 6px;
+      }
+    }
+    .reposal-odds-view{
+      display: block;
+    }
+  }
+}
+
+.reposal-content-right{
+  > ul{
+    > li:not(.reposal-odds-view){
+      margin-top: -8px;
+    }
+  }
+}
+
+// .reposal-play-col5{
+//   & > ul,> div > ul{
+//     flex-wrap: wrap;
+//     > li {
+//       flex: 0 0 20%;
+//       strong{
+//         color: $--color-primary;
+//       }
+//       &:nth-child(5n + 1){
+//         border-left:1px solid $--border-color-base;
+//       }
+//     }
+//   }
+// }
+
+// .reposal-play-col-auto{
+//   & > ul,> div > ul{
+//     > li {
+//       flex:1 0 0!important;
+//     }
+//   }
+// }

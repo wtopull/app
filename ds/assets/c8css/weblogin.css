@@ -1,0 +1,103 @@
+body{text-align: center;background: #F9FAFC;min-width: 1300px}
+.w_one{
+    background: url("../img/weblogin/w_loginb.jpg") no-repeat center top;
+    min-height: 960px;
+}
+.w_one h1{}
+.w_one .js{
+    width: 470px;
+    margin: 50px auto;
+    overflow: hidden;
+}
+.w_one .js .button{
+    width: 180px;
+    height: 60px;
+    float: left;
+    background: url('../img/weblogin/button.png') no-repeat center;
+}
+.w_one .js .button a{
+    display: block;
+    width: 100%;
+    line-height: 56px;
+    font-size: 18px;
+}
+.w_one .js .xza{
+    float: left;
+    text-align: left;
+    margin-left: 15px;
+}
+.w_one .js .xza a{
+    color: #ef5975;
+    font-size: 20px;
+    text-decoration: underline;
+}
+.w_one .js .xza .xza_js{
+    color: #999999;
+}
+.picjs{max-width: 640px;min-height: 407px;margin: 0 auto;padding-bottom: 110px;}
+.picjs img{}
+.w_one .w_one-con h1{font-size:73px;font-weight:100;padding: 90px 0 10px 0;color: #6fade1;}
+.w_one .w_one-con{
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.w_two{
+    background: url("../img/weblogin/w_loginb2.jpg") no-repeat center bottom #4893e1;
+    min-height: 845px;
+}
+.w_two .w_two-con{}
+.w_two .w_two-con h3{
+    font-size: 34px;
+    padding: 80px 0;
+    font-weight: 100;
+    color: #fff;
+}
+.w_two .w_two-con .use_list{
+    width: 562px;
+    height: 400px;
+    margin: 0 auto;
+}
+.w_two .w_two-con .use_list li{
+    display: none;
+}
+.w_two .w_two-con .d_list{
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.w_two .w_two-con .d_list li{
+    width: 315px;
+    float: left;
+    text-align: left;
+    position: relative;
+    color: #bddbfb;
+    margin: 0 42px;
+    cursor:pointer;
+}
+.w_two .w_two-con .d_list li span{
+    width: 38px;
+    height: 38px;
+    line-height: 35px;
+    background: #3a88d9;
+    display: block;
+    text-align: center;
+    border-radius: 50%;
+    position: absolute;
+    left: 0;
+    border: 2px solid #5ea5ee;
+}
+.w_two .w_two-con .d_list li.active span{background:#ff92a6;color:#fff}
+.w_two .w_two-con .d_list li .tip{
+    margin-top: 50px;
+}
+.w_two .w_two-con .d_list li:nth-child(1) span{
+    left: 120px;
+    top: 7px;
+}
+.w_two .w_two-con .d_list li:nth-child(2) span{
+    left: 146px;
+    top: 0;
+}
+.w_two .w_two-con .d_list li:nth-child(3) span{
+    left: 130px;
+    top: -23px;
+}

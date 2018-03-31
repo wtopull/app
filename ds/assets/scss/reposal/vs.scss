@@ -1,0 +1,52 @@
+.reposal-vs {
+  > ul {
+    justify-content: center;
+    border-bottom: none !important; //vs.scss combained common.css ,require use important
+    > li {
+      position: relative;
+      .title {
+        text-align: center;
+        color: $--color-text-secondary;
+        strong {
+          font-size: 14px;
+          font-weight: bold;
+          color: $--color-text-primary;
+          display: block;
+          & + div {
+            padding-top: 10px;
+          }
+        }
+        > div {
+          line-height: 1.3;
+        }
+      }
+      ul {
+        padding-top: 30px;
+      }
+      li {
+        margin: 5px 10px 5px!important;//after .reposal-play-layout>ul>li li in production mode 
+        > div:first-child {
+          margin-bottom: 5px;
+        }
+      }
+    }
+  }
+  .reposal-odds-view {
+    position: absolute;
+    display: flex;
+    left: 48px;
+    top: 12px;
+    > div {
+      font-size: 12px;
+      &:not(:first-child){
+        margin-left: 19px;
+      }
+    }
+  }
+  &.reposal-vs-only {
+    > ul {
+      > li {
+      }
+    }
+  }
+}

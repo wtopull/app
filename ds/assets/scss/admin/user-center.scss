@@ -1,0 +1,103 @@
+.x_con-li{
+    padding: 0px 30px;
+    width: 100%;
+    min-height: 700px;
+}
+.userinfo-title{
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 22px;
+    & .userinfo-title-one{
+        > div{
+            position: relative;
+            background: #ECECEC;
+            width: 250px;
+            height: 196px;
+            margin-bottom: 10px;
+            padding-left: 16px;
+            & .header{
+                & img{
+                    width: 95px;
+                    height: 95px;
+                    border-radius:50% ;
+                    border: 4px solid #fff;
+                    margin-left:60px;
+                    margin-top: 16px;
+                }
+            }
+            & .el-badge{
+                position: absolute;
+                top:19px;
+                right:24px;
+                & button{
+                    background: url(../../img/members/email.png) no-repeat;
+                    width: 34px;
+                    height: 23px;
+                }
+            }
+            & h2{
+                color: #444;
+                font-size: 16px;
+                margin-top: 15px;
+            }
+            & p{
+                font-size: 12px;
+                height: 20px;
+            }
+        }
+        > button{
+            border: none;
+            background: #E07700;
+            border-radius: 4px;
+            width: 250px;
+            height: 37px;
+            cursor: pointer;
+        }
+    }
+    & .userinfo-money{
+        width: 250px;
+        padding-left: 30px;
+        & p{
+            margin-top: 26px;
+            color: #9A9999;
+            font-size: 12px;
+        }
+        & h3{
+            color: #444;
+            font-size: 20px;
+            margin-top: 10px;
+        }
+        & div{
+            position: relative;
+            width:120px ;
+            height:120px;
+            margin-left: 30px;
+            margin-top: 39px;
+            & span{
+                position: absolute;
+                top:82px;
+                margin-left: 40px;
+                color: #fff;
+                font-size: 21px;
+            }
+        }
+        & .userinfo-money-charge{
+            background:#00ABA9 url(../../img/members/charge-button.png) no-repeat center 19px;
+            border-radius: 8px;
+        }
+        & .userinfo-money-withdraw{
+            background:#EC3F22 url(../../img/members/withdraw-button.png) no-repeat center 19px;
+            border-radius: 8px;
+        }
+        & .userinfo-money-withdraws{
+            background:#007CCA url(../../img/members/withdraws-button.png) no-repeat center 19px;
+            border-radius: 8px;
+        }
+    }
+}
+
+.members-withdraw-bank-select{
+    & ul{
+        margin-top: 10px !important;
+    }
+}

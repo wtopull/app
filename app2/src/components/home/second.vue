@@ -1,10 +1,8 @@
 <template>
   <div class="second">
-    <!--<mt-header title="大厅"  class="second-top">
-      <router-link to="/" slot="left">
-        <mt-button icon="back"></mt-button>
-      </router-link>
-    </mt-header>-->
+  	<div class="one-top">
+  		<van-nav-bar title="UU直播" right-text="按钮"></van-nav-bar>
+  	</div>
     <ul class="second-nav">
       <router-link v-for="(navs,index) in secondNav" :to="'/second/'+navs.pathbat" tag="li" :key="index">
         <p></p>

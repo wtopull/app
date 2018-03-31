@@ -1,0 +1,150 @@
+//$--border-color-base, assets\element-variables.scss:61
+//lighten http://sass-lang.com/documentation/Sass/Script/Functions.html#lighten-instance_method
+$platform-border-color-base: lighten($--border-color-base, 5%);
+$platform-border-base:$--border-width-base $--border-style-base
+$platform-border-color-base;
+
+.third-platform {
+  .bal {
+    display: flex;
+    padding: 0;
+    margin: 0;
+    margin-bottom: $grid-gutter-width/2;
+    & li {
+      display: flex !important;
+      flex-basis: 0;
+      flex-grow: 1;
+      margin-top: 30px;
+      & + li {
+//      border-left: 1px solid $platform-border-color-base;
+      }
+      > div {
+        display: flex !important;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start !important;
+        font-size: $font-size-base * 1.25;
+        & span{
+            font-size: 1.5em;
+            color: #444 !important;
+        }
+        & label{
+            color: #9A9999;
+            font-size: 12px;
+            margin: 30px 0px 12px 0px;
+        }
+      }
+      & a{
+          margin-left: 24px;
+          & .charge-button{
+              position: relative;
+              width: 120px;
+              height: 120px;
+              border-radius: 8px;
+              background: #07BDBB url(../../img/members/charge-button.png) no-repeat center 19px;
+              border: none;
+              & span{
+                  position: absolute;
+                  top:82px;
+                  margin-left: -20px;
+                  font-size: 20px;
+              }
+          }
+          & .withdraw-button{
+              position: relative;
+              width: 120px;
+              height: 120px;
+              border-radius: 8px;
+              background: #EC3F22 url(../../img/members/withdraw-button.png) no-repeat center 19px;
+              border: none;
+              & span{
+                  position: absolute;
+                  top:82px;
+                  margin-left: -20px;
+                  font-size: 20px;
+              }
+          }
+      }
+    }
+  }
+  .el-form{
+      margin-top: 20px;
+//  margin:auto;
+//  width: 600px;
+    & .el-form-firstnode{
+        display: flex;
+        flex-direction: row;
+        > div{
+            margin-right: 20px;
+            & .el-input.el-input--suffix{
+                width:162px;
+                & input{
+                    width: 162px;
+                }
+            }
+        }
+    }
+    & b{
+        font-weight: normal;
+        color: red;
+        margin-left: 14px;
+    }
+    & input{
+        color: #E07700;
+    }
+    & .el-form-item{
+        & input{
+            width: 102px;
+            height: 27px;
+        }
+        & .el-input.el-input--suffix{
+            width: 102px;
+            height: 29px;
+        }
+    }
+  }
+  div.el-select-dropdown{
+      background-color: red !important;
+  }
+  
+  .el-select-dropdown__item.selected{
+      color: #7B7B7B;
+  }
+  .el-radio-group{
+    display: block;
+    margin-top: 20px;
+  }
+  .el-input-number{
+    margin-right: 20px;width: 263px;
+  }
+  .el-input{
+    width: 263px;
+  }
+}
+
+.third-platform-list{
+  li{
+    padding-top: 20px;padding-bottom: 20px;
+    border: $platform-border-base;
+    margin-bottom: 5px;
+    margin-right: 5px;
+    & div{
+        display: flex;
+        flex-direction: column;
+    }
+    &:nth-child(4n+1){
+      border-left:1px solid $platform-border-color-base;
+    }
+  }
+  .col-3{
+      max-width: 24%;
+  }
+  h4{
+    display: inline-block;margin-right: 5px;
+  }
+}
+
+
+
+
+

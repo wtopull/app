@@ -1,0 +1,134 @@
+.play-layout {
+  min-height: 198px;
+  margin-top: 15px;
+  padding-right: 20px;
+  > li {
+    display: flex;
+    align-items: center;
+    padding-bottom: 10px;
+    border-bottom: 1px dashed #ccc;
+    margin-bottom: 10px;
+    ul {
+      display: flex;
+      align-items: center;
+      text-align: center;
+      padding: 0px 15px;
+    }
+    &:last-child{
+      border-bottom:none;
+    }
+  }
+  label {
+    min-width: 50px;
+    font-size: 12px;
+  }
+  &.k3-hezhi,
+  .kl8-renxuan {
+    .play-ball-list {
+      li {
+        margin-bottom: 8px;
+      }
+    }
+  }
+}
+.play-ball-list {
+  flex-wrap: wrap;
+  li {
+    display: flex;
+    width: 37px;
+    height: 37px;
+    border-radius: 50%;
+    justify-content: center;
+    align-items: center;
+    margin-right: 10px;
+    cursor: pointer;
+    background: white;
+    user-select: none;
+    font-size: 24px;
+    color: #4f4f4f;
+    box-shadow: 0 0 1px 1px #999, 0 0 4px 0px #e0e0e0;
+    &.selected {
+      background: linear-gradient(#ffc703, #f0a855, #ecc035);
+      color: #fff;
+      box-shadow: 0 0 0px 2px #f0ad4c;
+    }
+  }
+}
+
+.play-ball-text{
+  .play-ball-list li{
+    font-size: 16px;
+  }
+}
+
+.play-ball-tool {
+  margin-left: auto;
+  height: 25px;
+  background: #f3f3f3;
+  border-radius: 12.5px / 12.5px;
+  li {
+    display: flex;
+    width: 19px;
+    height: 19px;
+    font-size: 12px;
+    color: #7b7b7b;
+    border-radius: 12px;
+    justify-content: center;
+    align-items: center;
+    margin: 0 2px;
+    cursor: pointer;
+    user-select: none;
+    &:hover {
+      background: #e07700;
+      color: #fff;
+    }
+  }
+  &:empty {
+    display: none;
+  }
+}
+
+@import "k3";
+
+.play-textarea {
+  textarea {
+    width: 98%;
+    border-color: $--border-color-base;
+    min-height: 162px;
+    & + div {
+      font-size: 12px;
+      margin-top: 5px;
+    }
+  }
+  .el-button {
+    background: transparent;
+    & + .el-button {
+      margin-right: 10px;
+    }
+  }
+}
+
+.play-help {
+  height: 38px;
+  color: #e88620;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  .el-icon-info {
+    font-size: 16px;
+    margin-right: 5px;
+  }
+
+  span {
+    white-space: nowrap;
+  }
+
+  label {
+    white-space: nowrap;
+  }
+
+  .help-desc {
+    color: #000;
+    white-space: nowrap;
+  }
+}

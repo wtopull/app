@@ -39,12 +39,6 @@ dl {
         flex-direction: column;
         height: 100%;
         overflow: scroll;
-        & .home-top {
-            height: 40px;
-            // height: 0.4rem;
-            // font-size: 0.2rem;
-            // height: rem2px(40);
-        }
         & .one {
             height: 100%;
         }
@@ -61,15 +55,13 @@ dl {
                 & li:nth-child(#{$i}) {
                     display: flex;
                     width: 20%;
-                    height: 96px;
+                    height: 58px;
                     justify-content: center;
                     align-items: center;
                     color: #666;
                     flex-direction: column;
                     & p {
-                        @include Bg('home-nav'+$i+'.png',
-                        35px,
-                        33px);
+                        @include Bg('home-nav'+$i+'.png',35px,33px);
                     }
                 }
             }

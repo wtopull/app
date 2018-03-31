@@ -1,0 +1,229 @@
+/* nuxt app start */
+#cssload-loader {
+  display: none;
+}
+body {
+  background: #ecf1f5;
+}
+
+.navbar,
+.nav {
+  z-index: $--index-top - 1;
+  position: fixed;
+  left: 0;
+  right: 0;
+  > .container {
+    justify-content: space-between;
+    &,
+    > * {
+      height: 100%;
+      display: flex;
+      align-items: center;
+    }
+  }
+  li > a {
+    color: $--color-text-primary;
+
+    display: block;
+    transition: 0.3s;
+  }
+}
+
+.navbar {
+  height: $nav-bar-height;
+  background: $--color-primary;
+  top: 0;
+  .el-icon-time {
+  }
+  .icon {
+    width: 1.5em;
+    height: 1.5em;
+    vertical-align: -0.3em;
+  }
+  .el-icon-time {
+    font-size: 1.25em;
+    font-weight: bold;
+    margin-right: 5px;
+  }
+  li {
+    border-right: 1px solid #ddb72d;
+    > a,
+    > .el-dropdown {
+      padding-left: 15px;
+      padding-right: 15px;
+      line-height: $nav-bar-height;
+      &:hover,
+      &:focus {
+        color: #fff;
+        background: $--color-text-primary;
+      }
+    }
+    &:last-child {
+      border-right: none;
+      border-left: 1px solid $--color-primary;
+      margin-left: -1px;
+      padding-left: 10px;
+      height: $nav-bar-height;
+      display: flex;
+      align-items: center;
+      .el-button {
+        width: 130px;
+        border-radius: 5px;
+        padding-top: 8px;
+        padding-bottom: 8px;
+      }
+      .el-icon-caret-right {
+        margin-left: 3px;
+        font-size: 0.75em;
+      }
+    }
+    .el-dropdown {
+      color: #444;
+    }
+  }
+}
+
+.nav {
+  top: $nav-bar-height;
+  height: $nav-height;
+  background: #fff;
+  > .container {
+    height: 100%;
+  }
+  li {
+    text-align: center;
+    > a,
+    > div,
+    .lotto-nav-btn {
+      font-size: 16px;
+      padding-left: 20px;
+      padding-right: 20px;
+      padding-top: (70 - 40)/2 + 0px;
+      padding-bottom: (70 - 40)/2 + 0px;
+      div {
+        text-transform: uppercase;
+        font-size: 0.65em;
+      }
+      &:hover,
+      &:focus {
+        color: $--color-primary-secondary;
+      }
+    }
+  }
+}
+
+.nav-feature {
+  position: relative;
+  padding-right: 30px !important;
+  strong {
+    position: absolute;
+    top: 6px;
+    right: 2px;
+  }
+  .icon-medal {
+    top: 11px;
+  }
+}
+
+.page-container {
+  &,
+  .error-container {
+    padding-top: $nav-bar-height + $nav-height;
+  }
+}
+
+.currency-dropdown {
+  padding: 15px;
+  border-color: #ca6b00;
+  border-radius: 10px;
+  box-shadow: 0 1px 5px rgba(#000, 0.75);
+  .el-dropdown-menu__item {
+    padding: 0 10px;
+    border-bottom: 1px solid #e6e6e6;
+    line-height: 40px;
+    &:nth-last-of-type(1) {
+      border-bottom: none;
+    }
+  }
+  &.el-popper[x-placement^='bottom'] .popper__arrow {
+    border-bottom-color: #ca6b00;
+  }
+}
+
+.gamesSboxF {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding-bottom: 15px;
+  .gamesSboxFootUl {
+    display: flex;
+    padding: 0;
+    margin: 0;
+    margin-top: 22px;
+    li {
+      display: flex;
+      height: 12px;
+      align-items: center;
+      border-right: 1px solid #b5b5b5;
+      a {
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        color: #b5b5b5;
+        font-size: 12px;
+        padding: 0px 15px;
+      }
+    }
+    li:last-child {
+      border-right: 0px solid green;
+    }
+  }
+  p {
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    margin: 0;
+    margin-top: 15px;
+    color: #b5b5b5;
+    font-size: 12px;
+  }
+}
+// https://codepen.io/devatrox/pen/wztlx Flexbox Sticky Footer
+#__nuxt {
+  min-height: 100%;
+}
+#__nuxt,
+#__layout,
+#__layout > div {
+  display: flex;
+  flex-direction: column;
+}
+
+#__layout {
+  &,
+  & > div,
+  .page-container {
+    flex: 1 0 auto;
+  }
+}
+
+.footer {
+  display: flex;
+  justify-content: center;
+  height: 72px;
+  background: #1b1b1b;
+  ul {
+    display: flex;
+    margin: 0;
+    padding: 0;
+    li {
+      display: flex;
+      background: url(~assets/img/indexHome/_out_01.jpg) no-repeat;
+      height: 72px;
+      width: 1100px;
+    }
+  }
+}
+
+@import 'lotto-nav';

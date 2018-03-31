@@ -1,0 +1,15 @@
+.el-button{
+  &.el-button--default{
+    &:hover,&:focus{
+      color: $--button-default-hover-color;
+      border-color: $--button-default-hover-border;
+      background-color: $--button-default-hover-fill;
+    }
+  }
+}
+
+.el-button--primary{
+  a{
+    color: #fff;
+  }
+}

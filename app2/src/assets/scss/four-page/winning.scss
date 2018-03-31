@@ -1,0 +1,51 @@
+.winning{
+    margin-top: 46px;
+    background: #fff;
+    & ul{
+        & li{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0px 20px;
+            height: 60px;
+            border-bottom: 1px solid #345476;
+            & .winning-left{
+                display: flex;
+                & img{
+                    width: 30px;
+                    height: 30px;
+                    margin-right: 10px;
+                }
+                & .winning-xq{
+                    & p {
+                        font-size: 14px;
+                    }
+                }
+                & .winning-xq p:nth-child(1) {
+                    & :nth-child(1) {
+                        display: inline-block;
+                        width: 60px;
+                        color: blue;
+                    }
+                }
+                & .winning-xq p:nth-child(2) {
+                    & :nth-child(1) {
+                        display: inline-block;
+                        width: 60px;
+                    }
+                    & :nth-child(2) {
+                        color: red;
+                    }
+                }
+            }
+            & .winning-right{
+                display: flex;
+                width: 30px;
+                height: 30px;
+                justify-content: center;
+                align-items: center;
+                font-size: 16px;
+            }
+        }
+    }
+}
