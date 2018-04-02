@@ -1,7 +1,7 @@
 <template>
   <div class="winning">
-    <ul>
-      <router-link to="/pop" tag="li" v-for="(item,index) in haa">
+    <ul v-show="showFlag" >
+      <li v-for="(item,index) in haa" @click="selectFood(item,$event)">
         <div class="winning-left">
           <img src="../../assets/img/home/one/ah11x5.png" />
           <div class="winning-xq">
@@ -18,26 +18,40 @@
         <div class="winning-right">
           <span><i class="el-icon-arrow-right"></i></span>
         </div>
-      </router-link>
+      </li>
     </ul>
+    <pop :pop="selectedFood" @sonclick="haashow" ref="pop"></pop>
   </div>
 </template>
 <script>
+	import pop from './pop'
   export default {
     data() {
       return {
         haa: [
-        	{name:'你好haaaaaa1'},
-        	{name:'你好haaaaaa2'},
-        	{name:'你好haaaaaa3'},
-        	{name:'你好haaaaaa4'},
-        	{name:'你好haaaaaa5'},
-        	{name:'你好haaaaaa6'},
-        	{name:'你好haaaaaa7'},
-        	{name:'你好haaaaaa8'},
-        	{name:'你好haaaaaa9'},
-        	{name:'你好haaaaaa10'},
-        ]
+        	{name:'haaaa1'},
+        	{name:'haaaa2'},
+        	{name:'haaaa3'},
+        	{name:'haaaa4'},
+        	{name:'haaaa5'},
+        	{name:'haaaa6'},
+        	{name:'haaaa7'},
+        	{name:'haaaa8'},
+        	{name:'haaaa9'},
+        	{name:'haaaa10'},
+        ],
+        selectedFood: {},
+        showFlag: true
+      }
+    },
+    methods: {
+      selectFood(item, event) {
+      	this.showFlag = false;
+        this.selectedFood = item;
+        this.$refs.pop.show();
+      },
+      haashow(isshow){
+      	this.showFlag = !isshow.showF;
       }
     },
     filters: {
@@ -46,9 +60,12 @@
         let end = value.slice(-1);
         return `${start}***${end}`;
       }
+    },
+    components: {
+      pop
     }
   }
 </script>
-<style lang="scss">
+<style lang="scss" scoped>
   @import '../../assets/scss/four-page/winning.scss';
 </style>

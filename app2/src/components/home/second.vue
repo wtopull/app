@@ -1,30 +1,33 @@
 <template>
   <div class="second">
-  	<div class="one-top">
-  		<van-nav-bar title="UU直播" right-text="按钮"></van-nav-bar>
+  	<headers></headers>
+  	<div class="second-conter">
+  		<div class="second-conter-img">
+  			<p><a href="javascript:;">点击</a></p>
+  		</div>
+  		<div class="second-conter-foot">
+  			<div class="left">
+  				<span>UU快三</span>
+  				<span>UU直播现场购彩</span>
+  			</div>
+  			<div class="right">正在直播</div>
+  		</div>
   	</div>
-    <ul class="second-nav">
-      <router-link v-for="(navs,index) in secondNav" :to="'/second/'+navs.pathbat" tag="li" :key="index">
-        <p></p>
-        <span>{{ navs.name}}</span>
-      </router-link>
-    </ul>
-    <div class="second-conter">
-      <router-view></router-view>
-    </div>
   </div>
 </template>
 <script>
+	import headers from '../public/header'
   export default{
     data(){
       return{
-        secondNav:[
-          {name:'彩票中心',pathbat:'lotto'},
-          {name:'真人娱乐',pathbat:'reality'},
-          {name:'电子游戏',pathbat:'electronic'},
-          {name:'体育投注',pathbat:'sports'}
-        ]
       }
+    },
+    components:{
+    	headers
     }
   }
 </script>
+<style lang="scss" scoped>
+	@import "../../assets/scss/second.scss";
+</style>
+

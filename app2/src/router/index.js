@@ -41,7 +41,7 @@ export default new Router({
 	    {
 	      path: 'second',
 	      name: 'second',
-	      redirect: 'second/lotto',
+//	      redirect: 'second/lotto',
 	      component: second,
 	      children: [
 		      {

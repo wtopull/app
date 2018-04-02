@@ -4,6 +4,7 @@
     width: $width;
 }
 .van-nav-bar{
+    width: 100%;
     background: #dc3b40 !important;
 }
 .pop {
@@ -14,8 +15,25 @@
         width: 100%;
         position: fixed;
         background: #dc3b40 !important;
+        z-index: 2;
+        & .pop-top{
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 20px;
+            color: #fff;
+            position: relative;
+            & i{
+                position: absolute;
+                left: 16px;
+            }
+        }
     }
     & .pop-center {
+        position: fixed;
+        top: 0px;
+        z-index: 0;
         & .pop-center-top {
             height: 164px;
             & img {

@@ -1,5 +1,6 @@
 .four {
     position: relative;
+    height: 100%;
     .one-top {
         display: flex;
         justify-content: center;
@@ -8,6 +9,7 @@
         height: 46px;
         position: fixed;
         top: 0px;
+        background: #dc3b40;
         & ul {
             border: 1px solid #fff;
             display: flex;
@@ -26,5 +28,8 @@
                 color: #dc3b40;
             }
         }
+    }
+    & .four-conter{
+        height: 100%;
     }
 }

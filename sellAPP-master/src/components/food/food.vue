@@ -74,13 +74,13 @@ export default {
   data(){
 	  return{
 	    showFlag:false,   //显示/隐藏food;
-      selectType:ALL,   //选择评价的类型;
-      onlyContent:true,//定义是否只显示有内容的评价;
-      desc:{
-        all: '全部',
-        positive: '推荐',
-        negative: '吐槽'
-      }
+      	selectType:ALL,   //选择评价的类型;
+      	onlyContent:true,//定义是否只显示有内容的评价;
+      	desc:{
+        	all: '全部',
+        	positive: '推荐',
+        	negative: '吐槽'
+      	}
 	  }
   },
   props:{

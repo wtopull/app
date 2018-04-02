@@ -1,8 +1,6 @@
 <template>
   <div class="one">
-  	<div class="one-top">
-  		<van-nav-bar title="购彩大厅" right-text="按钮"></van-nav-bar>
-  	</div>
+  	<headers></headers>
     <el-carousel :interval="1800" arrow="always">
       <el-carousel-item v-for="item in 4" :key="item"> </el-carousel-item>
     </el-carousel>
@@ -21,9 +19,20 @@
   </div>
 </template>
 <script>
+	import headers from '../public/header'
   export default {
     data() {
-      return {};
+      return {
+      	content:[
+      		{title:'购彩大厅',show:'one'},
+      		{title:'UU直播',show:'second'},
+      		{title:'活动中心',show:'three'},
+      		{title:'我的账户',show:'five'},
+      	]
+      };
+    },
+    components:{
+    	headers
     }
   };
 </script>

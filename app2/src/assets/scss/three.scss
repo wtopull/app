@@ -1,0 +1,44 @@
+.three {
+    height: 100%;
+    ul {
+        & li {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #fff;
+            margin: 18px 0px;
+            height: 74px;
+            & .three-box {
+                display: flex;
+                & .icon {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    margin: 0px 14px 0px 20px;
+                    height: 40px;
+                    width: 40px;
+                    font-size: 18px;
+                    color: #fff;
+                    border-radius: 50%;
+                    background: hotpink;
+                }
+                & .cont {
+                    & .title {
+                        font-size: 16px;
+                    }
+                    & .msg {
+                        font-size: 12px;
+                        width: 220px;
+                        overflow: hidden;
+                        height: 18px;
+                        line-height: 18px;
+                    }
+                }
+            }
+            & i{
+                margin-right: 20px;
+                font-size: 16px;
+            }
+        }
+    }
+}

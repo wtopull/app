@@ -52,7 +52,6 @@
 <style lang='scss'>
   @import "../../assets/scss/home.scss";
   @import "../../assets/scss/one.scss";
-  @import "../../assets/scss/second.scss";
   @import "../../assets/scss/three.scss";
   @import "../../assets/scss/four.scss";
   @import "../../assets/scss/five.scss";

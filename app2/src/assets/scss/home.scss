@@ -14,7 +14,7 @@ html,
 #app {
     height: 100%;
     width: 100%;
-    background: #eee;
+    background: #efeef4;
 }
 
 *,
@@ -26,6 +26,10 @@ dl {
     padding: 0px;
     margin: 0px;
     list-style: none;
+}
+a{
+    text-decoration: none;
+    color:#000;
 }
 
 .home {
