@@ -27,9 +27,10 @@ dl {
     margin: 0px;
     list-style: none;
 }
-a{
+
+a {
     text-decoration: none;
-    color:#000;
+    color: #000;
 }
 
 .home {
@@ -65,7 +66,9 @@ a{
                     color: #666;
                     flex-direction: column;
                     & p {
-                        @include Bg('home-nav'+$i+'.png',35px,33px);
+                        @include Bg('home-nav'+$i+'.png',
+                        35px,
+                        33px);
                     }
                 }
             }
@@ -74,5 +77,9 @@ a{
 }
 
 .router-link-exact-active.router-link-active {
-    background: none;
+    background: hotpink;
+}
+
+.router-link-active {
+    background: hotpink;
 }

@@ -58,7 +58,7 @@
         this.showFlag = false;
       },
       haashow(isshow){
-      	this.showFlag = !isshow.showF;
+      	this.showFlag = !isshow.showPage;
       }
     },
     //  隐藏中间内容,以*代替
@@ -78,5 +78,5 @@
 
 </style>
 <style lang="scss" scoped>
-  @import '../../assets/scss/four-page/profit.scss';
+  @import '../../assets/scss/page-four/profit.scss';
 </style>

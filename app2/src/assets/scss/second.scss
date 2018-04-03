@@ -3,29 +3,29 @@
     flex-direction: column;
     height: 100%;
     width: 100%;
-    & .one-top{
+    & .one-top {
         color: #fff;
     }
     .second-conter {
         background: #fff;
         height: 210px;
-        margin-top: 10px;
-        & .second-conter-img{
+        margin-top: 56px;
+        & .second-conter-img {
             height: 180px;
             display: flex;
             justify-content: center;
             align-items: center;
-            background:url(../../assets/img/second/livelist.jpg) center center;
+            background: url(../../assets/img/second/livelist.jpg) center center;
             background-size: 100% 100%;
-            & p{
+            & p {
                 display: flex;
                 justify-content: center;
                 align-items: center;
                 height: 80px;
                 width: 80px;
                 border-radius: 50%;
-                background: rgba(0,0,0,.5);
-                & a{
+                background: rgba(0, 0, 0, .5);
+                & a {
                     text-align: center;
                     width: 40px;
                     height: 20px;
@@ -35,26 +35,26 @@
                 }
             }
         }
-        & .second-conter-foot{
+        & .second-conter-foot {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding:0px 10px;
+            padding: 0px 10px;
             height: 30px;
-            & .left{
-                color:#999; 
-                & :nth-child(1){
+            & .left {
+                color: #999;
+                & :nth-child(1) {
                     width: 50px;
                     padding-right: 10px;
                     font-size: 16px;
                 }
-                & :nth-child(2){
+                & :nth-child(2) {
                     font-size: 12px;
                     padding-left: 10px;
                     border-left: 1px solid #999;
                 }
             }
-            & .right{
+            & .right {
                 width: 80px;
                 height: 24px;
                 line-height: 24px;

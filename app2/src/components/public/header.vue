@@ -1,7 +1,7 @@
 <template>
   <div class="head-top">
     <div class="pop-top">
-      <p v-for="(contents,index) in content">{{contents.show === routerUrl ? contents.title : ''}}</p>
+      <p v-for="(contents,index) in content" :key="index">{{contents.show === routerUrl ? contents.title : ''}}</p>
     </div>
   </div>
 </template>
@@ -32,6 +32,9 @@
     height: 46px;
     width: 100%;
     background: #dc3b40 !important;
+    position: fixed;
+    top: 0px;
+    z-index: 11;
     & .pop-top {
     	height: 46px;
       width: 100%;

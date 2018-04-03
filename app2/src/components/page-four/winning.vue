@@ -67,5 +67,5 @@
   }
 </script>
 <style lang="scss" scoped>
-  @import '../../assets/scss/four-page/winning.scss';
+  @import '../../assets/scss/page-four/winning.scss';
 </style>

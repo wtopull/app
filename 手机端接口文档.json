@@ -1,0 +1,75 @@
+一、 购彩大厅
+1、 轮播图
+method: GET
+請求地址: XXX
+請求參數: XXXX
+回傳格式: {
+    "code": 1,
+    "message": "success",
+    "data": {
+        "list": [{
+            "image": "url...." //banner图
+        }]
+    }
+}
+2、 彩种展示
+method: GET
+請求地址: XXX
+請求參數: XXXX
+回傳格式: {
+    "code": 1,
+    "message": "success",
+    "data": {
+        "list": [{
+            //热门的，大厅展示的--采种
+            "hot": [{
+                "name": "江苏快３", //彩种名称
+                "image": "url...", //彩种LOGO
+                "number": "80", //每天多少期数
+            }],
+            //所有--彩种
+            "all": [{
+                "name": "江苏快３", //彩种名称
+                "image": "url...", //彩种LOGO
+                "number": "80", //每天多少期数
+            }],
+            //所有--快3
+            "k3": [{
+                "name": "江苏快３", //彩种名称
+                "image": "url...", //彩种LOGO
+                "number": "80", //每天多少期数
+            }],
+            //所有--时时彩
+            "ssc": [{
+                "name": "江苏快３", //彩种名称
+                "image": "url...", //彩种LOGO
+                "number": "80", //每天多少期数
+            }],
+            //所有--快乐彩
+            "klc": [{
+                "name": "江苏快３", //彩种名称
+                "image": "url...", //彩种LOGO
+                "number": "80", //每天多少期数
+            }],
+            //所有--11选5
+            "11&5": [{
+                "name": "江苏快３", //彩种名称
+                "image": "url...", //彩种LOGO
+                "number": "80", //每天多少期数
+            }]
+        }]
+    }
+}
+二、 发现页
+method: GET
+請求地址: XXX
+請求參數: XXXX
+回傳格式: {
+    "code": 1,
+    "message": "success",
+    "data": {
+        "list": [{
+            "image": "url...." //banner图
+        }]
+    }
+}

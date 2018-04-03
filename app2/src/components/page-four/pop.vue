@@ -1,5 +1,5 @@
 <template>
-  <div class="pop" v-show="isshow.showPage" ref="el">
+  <div class="pop" v-show="isshow.showPage">
     <div class="one-top">
       <div class="pop-top">
         <i class="el-icon-arrow-left" @click="hide"></i>
@@ -41,8 +41,7 @@
     data() {
       return {
         isshow: {
-          showPage: false,
-          showF: false
+          showPage: false
         }
       }
     },
@@ -58,20 +57,10 @@
       hide() {
         this.isshow.showPage = false;
         this.$emit('sonclick', this.isshow);
-      },
-      routerBack() {
-        let _this = this;
-        if(_this.$route.path === "/four/winning") {
-          //    		_this.$router.push({path:'winning',userid:'winning'})
-          //    		_this.$router.go('/four/winning')
-        }
-        if(_this.$route.path === "/four/profit") {
-          _this.$router.go('/four/profit')
-        }
       }
     }
   }
 </script>
 <style lang="scss">
-  @import '../../assets/scss/four-page/pop.scss';
+  @import '../../assets/scss/page-four/pop.scss';
 </style>

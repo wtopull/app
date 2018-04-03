@@ -1,6 +1,7 @@
 .three {
     height: 100%;
     ul {
+        margin-top: 56px;
         & li {
             display: flex;
             justify-content: space-between;
@@ -35,10 +36,28 @@
                     }
                 }
             }
-            & i{
+            & i {
                 margin-right: 20px;
                 font-size: 16px;
             }
         }
+    }
+}
+
+.three-title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    color: #fff;
+    position: fixed;
+    top: 0px;
+    height: 46px;
+    width: 100%;
+    background: #dc3b40;
+    z-index: 12;
+    & i {
+        position: absolute;
+        left: 16px;
     }
 }
