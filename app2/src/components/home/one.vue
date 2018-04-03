@@ -9,7 +9,7 @@
     </div>
     <div class="one-center">
     	<ul>
-    		<router-link v-for="(item,index) in 16" tag="li" to="/second/lotto">
+    		<router-link v-for="(item,index) in 16" :key="index" tag="li" to="/second/lotto">
     			<img src="../../assets/img/home/one/ah11x5.png" alt="images"/>
     			<h5>大发</h5>
     			<p>1分1期</p>

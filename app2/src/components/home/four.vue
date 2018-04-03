@@ -2,7 +2,7 @@
   <div class="four">
   	<div class="one-top">
   		<ul>
-  			<router-link v-for="(navs,index) in nav" :to="'/four/'+navs.pathurl" tag="li">{{navs.name}}</router-link>
+  			<router-link v-for="(navs,index) in nav" :to="'/four/'+navs.pathurl" tag="li" :key="index">{{navs.name}}</router-link>
   		</ul>
   	</div>
   	<div class="four-conter">

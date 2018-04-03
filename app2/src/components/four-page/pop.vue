@@ -30,7 +30,7 @@
       <div class="pop-center-bottom">
         <h3>Ta喜欢的彩票</h3>
         <ul>
-          <li v-for="(item,index) in 8"></li>
+          <li v-for="(item,index) in 8" :key="index"></li>
         </ul>
       </div>
     </div>

@@ -2,7 +2,7 @@
   <div class="three">
     <headers></headers>
     <ul>
-      <li v-for="(threeC,index) in threeContent">
+      <li v-for="(threeC,index) in threeContent" :key="index">
         <div class="three-box">
           <div class="icon"> {{index}} </div>
           <div class="cont">

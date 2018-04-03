@@ -1,7 +1,7 @@
 <template>
   <div class="profit">
     <ul v-show="showFlag">
-      <li v-for="(item,index) in haa" @click="selectFood(item,$event)">
+      <li v-for="(item,index) in haa" @click="selectFood(item,$event)" :key="index">
         <div class="profit-left">
           <img src="../../assets/img/home/one/ah11x5.png" />
           <div class="profit-xq">
