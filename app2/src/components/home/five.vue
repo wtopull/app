@@ -1,16 +1,18 @@
 <template>
   <div class="five">
-  	<headers></headers>
-		<div class="five-conter">
-			11111111
-		</div>
+    <headers></headers>
   </div>
 </template>
 <script>
-	import headers from '../public/header'
-	export default{
-		components:{
-			headers
-		}
-	}
+import headers from '../public/header'
+export default {
+  data() {
+    return {
+      pwd: false
+    }
+  },
+  components: {
+    headers
+  }
+}
 </script>

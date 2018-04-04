@@ -1,87 +1,72 @@
 <template>
   <div class="login">
-  	<div class="login-title">
-      <div class="login-title-left">
-        <router-link to="/" class="el-icon-close" tag="i"></router-link>
-      </div>
-      <div class="login-title-center">登陆</div>
-      <div class="login-title-right"></div>
+    <!-- <headers></headers> -->
+    <div class="login-title">
+      <router-link to="/one" tag="i" class="el-icon-arrow-left"></router-link>
+      <p>用户登录</p>
     </div>
-    <div class="login-center">
-      <el-form :model="ruleForm2" status-icon :rules="rules2" ref="ruleForm2" label-width="48px" class="demo-ruleForm">
-        <el-form-item label="账号" prop="name">
-          <el-input type="text" v-model.number="ruleForm2.name" placeholder="请输入账号"></el-input>
-        </el-form-item>
-        <el-form-item label="密码" prop="pass">
-          <el-input type="password" v-model="ruleForm2.pass" placeholder="请输入密码"></el-input>
-        </el-form-item>
-        <el-button type="primary" @click="submitForm('ruleForm2')">提交</el-button>
-        <div class="login-form">
-          <el-checkbox label="记住密码" name="type"></el-checkbox>
-          <a>忘记密码？</a>
-        </div>
-      </el-form>
-      <div class="login-footer">
-        <router-link to="" tag="a"><img src="../../assets/img/login/login-b1.jpg" alt=""></router-link>
-        <router-link to="/" tag="a"><img src="../../assets/img/login/login-b2.jpg" alt=""></router-link>
+    <div class="login-conter">
+      <div class="login-center-img">
+        <div></div>
       </div>
+      <div class="login-form">
+        <form>
+          <div class="login-user">
+            <i class="iconfont icon-accountfilling"></i>
+            <input type="text" v-model="username" placeholder="请输入用户名">
+          </div>
+          <div class="login-pwd">
+            <i class="iconfont icon-iconset0114"></i>
+            <input :type="pwd ? 'text' : 'password'" v-model="password" placeholder="请输入密码">
+            <i class="iconfont icon-buxianshimima" :class="pwd ? 'icon-buxianshimima' : 'icon-xianshimima1'" @click="pwd = !pwd"></i>
+          </div>
+          <div class="login-go">
+            <button @click="form">立即登陆</button>
+          </div>
+          <div class="login-live">
+            <router-link to="">立即注册</router-link>
+            <router-link to="">忘记密码</router-link>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="login-pop" v-show="pop" @click="pop = false">
+      <div>
+        <i class="iconfont icon-information"></i>{{content}}</div>
     </div>
   </div>
 </template>
 <script>
+import headers from '../public/header'
 export default {
-    data() {
-      var checkAge = (rule, value, callback) => {
-        if (value === '') {
-          callback(new Error('账号不能为空'));
-        }
-        setTimeout(() => {
-            if (value === '') {
-              callback(new Error('账号不能为空'));
-            } else {
-              callback();
-            }
-        }, 2000);
-      };
-      var validatePass = (rule, value, callback) => {
-        if (value === '') {
-          callback(new Error('请输入密码'));
-        } else {
-          if (this.ruleForm2.checkPass !== '') {
-            this.$refs.ruleForm2.validateField('checkPass');
-          }
-          callback();
-        }
-      };
-      return {
-        ruleForm2: {
-          pass: '',
-          checkPass: '',
-          name: ''
-        },
-        rules2: {
-          pass: [
-            { validator: validatePass, trigger: 'blur' }
-          ],
-          name: [
-            { validator: checkAge, trigger: 'blur' }
-          ]
-        }
-      };
-    },
-    methods: {
-      submitForm(formName) {
-        this.$refs[formName].validate((valid) => {
-          if (valid) {
-            this.$router.push({ path: '/' });
-          } else {
-            return false;
-          }
-        });
+  data() {
+    return {
+      pop: false,
+      pwd: false,
+      username: '',
+      password: '',
+      content: ''
+    }
+  },
+  methods: {
+    form() {
+      if (!this.username) {
+        this.content = '用户名不能为空'
+        this.pop = true
+      } else if (!this.password) {
+        this.content = '密码不能为空'
+        this.pop = true
+      } else if (this.username) {
+        this.content = '用户名必须包括：字母，数字，下划线'
+        this.$router.push('/one')
       }
     }
+  },
+  components: {
+    headers
   }
+}
 </script>
-<style lang="scss">
-  @import "../../assets/scss/login/login.scss";
+<style lang="scss" scopde>
+@import '../../assets/scss/login/login.scss';
 </style>

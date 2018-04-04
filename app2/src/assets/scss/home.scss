@@ -1,20 +1,20 @@
-$desw:750;
+$desw: 750;
 @function rem2px($px) {
-    @return $px*320/$desw/20+rem;
+  @return $px * 320 / $desw/20 + rem;
 }
 
 @mixin Bg($pic, $width, $height) {
-    background: url('../../assets/img/home/'+$pic) no-repeat;
-    height: $height;
-    width: $width;
+  background: url('../../assets/img/home/'+$pic) no-repeat;
+  height: $height;
+  width: $width;
 }
 
 body,
 html,
 #app {
-    height: 100%;
-    width: 100%;
-    background: #efeef4;
+  height: 100%;
+  width: 100%;
+  background: #efeef4;
 }
 
 *,
@@ -23,63 +23,61 @@ html,
 ul,
 ol,
 dl {
-    padding: 0px;
-    margin: 0px;
-    list-style: none;
+  padding: 0px;
+  margin: 0px;
+  list-style: none;
 }
 
 a {
-    text-decoration: none;
-    color: #000;
+  text-decoration: none;
+  color: #000;
 }
 
 .home {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-content: space-between;
+  height: 100%;
+  & .home-cneter {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    align-content: space-between;
     height: 100%;
-    & .home-cneter {
-        display: flex;
-        flex-direction: column;
-        height: 100%;
-        overflow: scroll;
-        & .one {
-            height: 100%;
-        }
+    overflow: scroll;
+    & .one {
+      height: 100%;
     }
-    & .home-footer {
-        & ul {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-top: 1px solid #ccc;
-            width: 100%;
-            background: #fff;
-            @for $i from 1 through 5 {
-                & li:nth-child(#{$i}) {
-                    display: flex;
-                    width: 20%;
-                    height: 58px;
-                    justify-content: center;
-                    align-items: center;
-                    color: #666;
-                    flex-direction: column;
-                    & p {
-                        @include Bg('home-nav'+$i+'.png',
-                        35px,
-                        33px);
-                    }
-                }
-            }
+  }
+  & .home-footer {
+    & ul {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1px solid #ccc;
+      width: 100%;
+      background: #fff;
+      @for $i from 1 through 5 {
+        & li:nth-child(#{$i}) {
+          display: flex;
+          width: 20%;
+          height: 58px;
+          justify-content: center;
+          align-items: center;
+          color: #666;
+          flex-direction: column;
+          & p {
+            @include Bg('home-nav' + $i + '.png', 35px, 33px);
+          }
         }
+      }
     }
+  }
 }
 
 .router-link-exact-active.router-link-active {
-    background: hotpink;
+  background: hotpink;
 }
 
 .router-link-active {
-    background: hotpink;
+  background: hotpink;
 }
