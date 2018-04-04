@@ -1,7 +1,9 @@
 <template>
   <div class="head-top">
     <div class="pop-top">
+      <router-link class="el-icon-arrow-left" to="/one" tag="i" v-show="routerUrl === 'five'"></router-link>
       <p v-for="(contents,index) in content" :key="index">{{contents.show === routerUrl ? contents.title : ''}}</p>
+      <router-link to="/one" tag="span" v-show="routerUrl === 'five'">客服</router-link>
     </div>
   </div>
 </template>
@@ -47,6 +49,10 @@
       & i {
         position: absolute;
         left: 16px;
+      }
+      & span{
+        position: absolute;
+        right: 12px;
       }
     }
   }
