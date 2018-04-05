@@ -1,4 +1,7 @@
 <template>
+	<div class="reset">
+		<p>修改密码</p>
+	</div>
 	
 </template>
 

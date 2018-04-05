@@ -18,6 +18,7 @@ import profit from '@/components/page-four/profit'
 import pop from '@/components/page-four/pop'
 Vue.use(Router)
 export default new Router({
+//	mode: 'history',
     routes: [{
             path: "/login",
             name: 'login',
