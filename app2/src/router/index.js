@@ -96,7 +96,7 @@ export default new Router({
         {
             path: '/pop',
             name: 'pop',
-            component: pop
+            component: resolve => require(['@/components/page-four/pop'],resolve)
         }
     ]
 })
