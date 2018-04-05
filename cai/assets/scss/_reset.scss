@@ -1,0 +1,25 @@
+a:not([href]):not([tabindex]) {
+  color:$--link-color;
+  text-decoration: none;
+
+  @include hover-focus {
+    color:$--link-hover-color;
+    text-decoration: none;
+  }
+
+  &:focus {
+    outline: 0;
+  }
+}
+
+button:focus{
+  outline: 0;
+}
+
+strong{
+  font-weight: normal;
+}
+
+label{
+  margin-bottom: 0;
+}

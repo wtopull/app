@@ -1,0 +1,35 @@
+.el-table.el-table--striped{
+  font-size:$font-size-base;
+  th,td{
+    text-align: center;
+  }
+  th{
+
+  }
+  .cell{
+    padding-left: 10px;
+    padding-right: 10px;
+    //fix td height
+    height: 23px;
+  }
+  td{
+    border-bottom:none;
+    height:34px;
+    .el-button--text{
+      min-width: 60px;
+      padding-top: 0;padding-bottom: 0;
+    }
+    .el-button{
+      font-size:$font-size-base;
+    }
+  }
+  tr{
+    td:first-child{
+      .el-button{
+        color:$--color-text-primary;
+        cursor: default;
+      }
+    }
+  }
+}
+

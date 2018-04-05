@@ -1,0 +1,79 @@
+.active-wrap{
+    border: 1px solid #eee;
+    border-radius: 5px;
+    max-width: 1546px;
+    overflow: hidden;
+}
+.head{
+    height: 73px;
+    border-bottom: 1px solid #eee;
+}
+.head .menu{
+    margin-left: 20px;
+    width: 120px;
+    border-bottom: 3px solid #6fade1;
+    text-align: center;
+    font-size: 18px;
+    line-height: 70px;
+}
+.head .menu i{margin:0 5px}
+
+.con{overflow: hidden;
+    margin: 15px;}
+.active_list{max-height: 800px;
+display: flex;
+}
+.active_list ul{
+
+}
+.active_list .el-collapse-item{
+    margin-bottom: 20px;
+    border-radius: 5px 5px 0 0;
+}
+.active_list .el-collapse-item{
+  
+    position:relative;/* max-width: 750px; *//* max-height: 305px; */overflow: hidden;/* border-radius: 5px; */}
+.active_list .el-collapse-item .a_show{border-radius: 5px 5px 0 0;overflow:hidden;}
+.active_list ul{width: 48%;float: left;margin: 1%;}
+.active_list .el-collapse-item .a_show img{
+    text-align: center;
+    width: 750px;height: 209px;
+}
+.active_list .el-collapse-item .a_show .name{}
+.active_list .el-collapse-item .a_show .name{
+    padding: 22px;
+    overflow: hidden;
+    background: #ecf1f5;
+}
+.active_list .el-collapse-item .a_show .name .title{float: left;}
+.active_list .el-collapse-item .a_show .name .title .tc{
+    font-size: 25px;
+    color: #248fe9;
+}
+.active_list .el-collapse-item .a_show .name .title .tip{}
+.active_list .el-collapse-item .a_show .name>a{
+    background: #248FE9;
+    padding: 10px 25px;
+    border-radius: 3px;
+    float: right;
+    margin-top: 5px;
+}
+.active_list .el-collapse-item .a_hide{
+    background: #ecf1f5;
+    border-top: 1px solid #E5E8EB;
+    width: 100%;
+    top: 305px;
+    left: 0;
+    border-radius: 0 0 10px 10px;
+}
+.active_list .el-collapse-item .a_hide .a_con{
+    line-height: 25px;
+    padding: 20px;
+}
+.active_list .el-collapse-item .a_hide .a_con .rq{}
+.active_list .el-collapse-item .a_hide .a_con .dx{}
+.active_list .el-collapse-item .a_hide .a_con .nr{}
+.active_list .el-collapse-item .a_hide .a_con .gz{}
+@media screen and (max-width:768px){
+    .active_list ul{width:100%}
+}

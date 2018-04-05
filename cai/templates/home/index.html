@@ -1,0 +1,187 @@
+<div>
+    <!-- 最愛的彩票
+  <ul>
+      <li v-for="like in likes" :key="like.name">
+          {{like.name}} <button @click="updateLikes({lotto:like,operate:'subtract'})">刪除</button>
+      </li>
+  </ul>
+  <button @click="updateLikes({server:true})">確認</button>
+  <button @click="revertLikes">取消</button>
+  <ul class="advertisements">
+    <li v-for="ad in advertisements" :key="ad.img_des">
+      <a :href="ad.img_link_url">
+        <img :src="ad.img_path" :alt="ad.img_des">
+      </a>
+    </li>
+  </ul> -->
+    <div class="content">
+        <div class="index_page">
+            <div class="in_left">
+                <div class="left_min_one">
+                    <div class="one_l bo">
+                        <div class="l_focus">
+                            <div class="swiper-container swiper1" v-swiper:mySwiper="swiperOption">
+                                <div class="swiper-wrapper">
+                                    <div class="swiper-slide" v-for="ad in advertisements" :key="ad.img_des">
+                                        <div class="main2-center">
+                                            <a :href="ad.img_link_url">
+                                                <img :src="ad.img_path" :alt="ad.img_des">
+                                            </a>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="swiper-pagination"></div>
+                        </div>
+                        <div class="l_mont">
+                            <ul>
+                                <li>
+                                    <div class="dz"><i class="icon iconfont">&#xe67a;</i>存款到账</div>
+                                    <div class="sj"></div>
+                                </li>
+                                <li>
+                                    <div class="dz"><i class="icon iconfont">&#xe680;</i>取款到账</div>
+                                    <div class="sj"></div>
+                                </li>
+                                <li>
+                                    <div class="dz"><i class="icon iconfont">&#xe69e;</i>银行支持</div>
+                                    <div class="sj"></div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="zjxx">
+                            <div class="zj_named">
+                                <ul class="list">
+                                    <li>恭喜 cp***88 会员在韩国1.5分彩<span>喜中 6,300.00 元</span></li>
+                                    <li class="color">恭喜　g**k 会员在重庆时时彩 <span>喜中　1200元</span></li>
+                                    <li>恭喜　小**9 会员在新疆时时彩 <span>喜中　234元</span></li>
+                                    <li>恭喜　h**z 会员在广东11选5 <span>喜中　428元</span></li>
+                                    <li>恭喜　蒙**2 会员在山东11选5 <span>喜中　336元</span></li>
+                                    <li>恭喜　w**哥 会员在福彩3D <span>喜中　3828元</span></li>
+                                    <li>恭喜　g**g 会员在排列三 <span>喜中　1726元</span></li>
+                                    <li>恭喜　n**h 会员在北京PK拾 <span>喜中　596元</span></li>
+                                    <li>恭喜　天**芳 会员在北京幸运28 <span>喜中　336元</span></li>
+                                    <li>恭喜　迷**g 会员在分分彩 <span>喜中　865元</span></li>
+                                    <li>恭喜　l**l 会员在三分彩 <span>喜中　177元</span></li>
+                                    <li>恭喜　小**星 会员在五分彩 <span>喜中　772元</span></li>
+                                    <li>恭喜　S**W 会员在台湾5分彩 <span>喜中　1200元</span></li>
+                                    <li>恭喜　王**鸟 会员在天津时时彩 <span>喜中　234元</span></li>
+                                    <li>恭喜　教**名 会员在安徽11选5 <span>喜中　428元</span></li>
+                                    <li>恭喜　李**无 会员在江西11选5 <span>喜中　336元</span></li>
+                                    <li>恭喜　w**g 会员在上海11选5 <span>喜中　1726元</span></li>
+                                    <li>恭喜　f**d 会员在安徽快3 <span>喜中　596元</span></li>
+                                    <li>恭喜　崩**天 会员在湖北快3 <span>喜中　3828元</span></li>
+                                    <li>恭喜　陈**峰 会员在吉林快3 <span>喜中　336元</span></li>
+                                    <li>恭喜　江**陈 会员在首尔1.5分彩 <span>喜中　865元</span></li>
+                                    <li>恭喜　a**l 会员在新德里1.5分彩 <span>喜中　177元</span></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="one_r">
+                        <div class="r_top bo">
+                            <div class="g_header hd"><i class="icon iconfont">&#xe67f;</i>彩种已开奖期</div>
+                            <div class="g_con">
+                                <div class="qiehuan">
+                                    <ul>
+                                        <li v-for="open in openList" :key="open.issue_no">
+                                            <i :class="open.lottery_info_identifier.toLowerCase()"></i>
+                                            <div class="cz">
+                                                <div class="ne">{{open.lottery_info_name}} <span>第{{open.issue_no}}期</span></div>
+                                                <div class="hao">開獎号码：{{open.win_number.split(',').join(' ')}}</div>
+                                            </div>
+                                            <router-link :to="`/lottery/${open.lottery_info_identifier.toLowerCase()}`">立即投注</router-link>
+                                        </li>
+
+                                    </ul>
+                                    <ul>
+                                        <li v-for="open in openList" :key="open.issue_no">
+                                            <i></i>
+                                            <div class="cz">
+                                                <div class="ne">{{open.lottery_info_name}} <span>第{{open.issue_no}}期</span></div>
+                                                <div class="hao">開獎号码：{{open.win_number}}</div>
+                                            </div>
+                                            <router-link :to="`/lottery/${open.lottery_info_identifier.toLowerCase()}`">立即投注</router-link>
+                                        </li>
+
+                                    </ul>
+                                    <ul>
+                                        <li v-for="open in openList" :key="open.issue_no">
+                                            <i></i>
+                                            <div class="cz">
+                                                <div class="ne">{{open.lottery_info_name}} <span>第{{open.issue_no}}期</span></div>
+                                                <div class="hao">開獎号码：{{open.win_number}}</div>
+                                            </div>
+                                            <router-link :to="`/lottery/${open.lottery_info_identifier.toLowerCase()}`">立即投注</router-link>
+                                        </li>
+
+                                    </ul>
+
+                                </div>
+                                <div class="p_n">
+                                    <span class="c_prev">
+                              <i class="icon iconfont">&#xe6a0;</i>
+                              </span> ·
+                                    <span class="c_next">
+                              <i class="icon iconfont">&#xe691;</i>
+                              </span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- <div class="r_bot bo">
+                      <div class="qb"><i class="icon iconfont">&#xe675;</i></div>
+                      <div class="jc"><div class="bt">本期奖池金额 (￥)</div><div class="sz"></div></div>
+                  </div> -->
+                    </div>
+                </div>
+                <div class="left_min_two bo">
+                    <div class="t_left">
+                        <div class="tl_header hd"><i class="icon iconfont">&#xe694;</i>新手指南</div>
+                        <div class="tl_con">
+                            <ul>
+                                <li>
+                                    <i class="icon iconfont">&#xe69a;</i>
+                                    <h6>注册用户</h6>
+                                    <p>输入基本信息成为会员</p>
+                                </li>
+                                <li>
+                                    <i class="icon iconfont">&#xe668;</i>
+                                    <h6>进行存款</h6>
+                                    <p>通过线上手机存款获取游戏筹码</p>
+                                </li>
+                                <li>
+                                    <i class="icon iconfont">&#xe683;</i>
+                                    <h6>开始投注</h6>
+                                    <p>选择喜欢的彩种开始投注</p>
+                                </li>
+                                <li>
+                                    <i class="icon iconfont">&#xe684;</i>
+                                    <h6>提取现金</h6>
+                                    <p>您玩到足够的额度可申请取款</p>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="t_right">
+                        <div class="tr_t">
+                            <div class="d_but">
+                                <a href="javascript:void(0)" class="down_btn"><i class="icon iconfont">&#xe67b;</i>苹果下载端</a>
+                                <a href="javascript:void(0)" class="down_btn"><i class="icon iconfont">&#xe667;</i>安卓下载端</a>
+                            </div>
+                            <div class="er_wei"><img src="~/assets/img/index/erweima.jpg" alt=""></div>
+                        </div>
+                        <div class="tr_b">扫描官方二维码,参与更多精彩活动</div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="in_right bo">
+                <div class="g_header hd"><i class="icon iconfont">&#xe616;</i>通知公告</div>
+                <div class="notice_list">
+                    <News />
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

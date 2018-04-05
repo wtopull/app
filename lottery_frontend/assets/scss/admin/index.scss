@@ -1,0 +1,58 @@
+// @import '../../element-variables';
+// @import '../variables';
+@import "~bootstrap/scss/mixins";
+
+@import 'patch';
+.el-form-item__content{
+  .el-slider__button-wrapper{
+    line-height:$line-height-base;
+  }
+}
+
+.manager{
+  .el-breadcrumb{
+    
+    margin-bottom: 20px;
+    border:1px solid $--input-border-color;
+    padding: 10px 15px;
+  }
+  .el-breadcrumb__item__inner{
+      color:$--color-primary;
+  }
+  .el-breadcrumb__item:last-child .el-breadcrumb__item__inner{
+      color: $--color-text-primary;
+  }
+}
+
+
+.card-id .bankicon {
+  width: 75px;
+  height: 70px;
+  background: url('~/assets/img/manager/icon_banks.png') no-repeat;
+  &.cmb{
+    background-position: 0 -88px;
+  }
+}
+
+.card-id {
+  clear: both;
+  background: #ecf1f5;
+  border-radius: 5px;
+  overflow: hidden;
+  padding: 2px 5px;
+}
+
+
+.bank_yuansu{
+  .bank_name{
+    margin-top: 5px;margin-bottom: 10px;
+    span{
+      &:first-child{
+        margin-right: 15px;
+        
+      }
+      
+    }
+  }
+}
+

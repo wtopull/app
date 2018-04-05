@@ -1,0 +1,82 @@
+.reposal-order{
+  .el-dialog__body{
+    text-align: center;
+    padding-bottom: 10px;padding-top: 10px;
+    .el-scrollbar__wrap{
+      max-height: 400px;
+      margin-bottom: 20px;
+      overflow-x: hidden;
+    }
+
+  }
+
+  table{
+    width: 100%;
+    line-height: 26px;
+    font-size: 12px;
+    margin-bottom: 20px;
+    .el-icon-close{
+      color:#ff5574;font-size: 14px;
+    }
+  }
+  tr{
+    //transition: .3s;
+    > td{
+      &:last-child{
+        cursor: pointer;
+        &:hover{
+          color: #FE5200;
+        }
+      }
+    }
+  }
+  th{
+    font-weight:bold;
+    height: 30px;
+  }
+  td{
+    height: 35px;
+    //.form-control{
+    //  text-align: center;
+    //}
+    .el-input__inner{
+      text-align: center;
+      display: inline-block;
+    }
+  }
+  strong{
+    color: #FE5200;
+    margin-left: 5px;
+    margin-right: 5px;
+  }
+  // .el-checkbox{
+  //   margin-left: 10px;
+  // }
+  .el-autocomplete{
+    vertical-align: middle;
+  }
+  .el-dialog__footer{
+    .el-input__inner{
+      width: 100px;
+    }
+  }
+  .el-scrollbar{
+    margin-bottom: 17px;
+  }
+  .el-input__inner{
+    height: 28px;
+    width: 80px;
+    vertical-align: middle;
+  }
+  .el-button--primary {
+    margin-left: 10px;
+  }
+  .el-scrollbar__bar{
+    opacity: 1;
+  }
+}
+
+.reposal-order-suggestions{
+  width: 100px!important;
+  z-index: 3000!important;
+}

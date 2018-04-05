@@ -1,0 +1,70 @@
+.lotto-chase {
+  .el-dialog__header {
+    h3 {
+      display: inline-block;
+      margin-right: 5px;
+    }
+  }
+  .el-form {
+    > .el-radio-group {
+      display: block;
+      margin-bottom: 10px;
+    }
+    & + div {
+      margin-bottom: 10px;
+    }
+    .el-input-number{
+      width:90px;
+      &.is-controls-right .el-input__inner{
+        padding-left:7px;
+        padding-right: 40px;
+      }
+    }
+  }
+  .el-form-item {
+    margin-bottom: 10px;
+    .el-radio-button__inner{
+      width: 40px;
+      color:transparent;
+    }
+  }
+  .chase-options{
+    display: inline-block;
+  }
+  .el-form-item__content{
+    .el-radio-button{
+      &:before{
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%,-50%);
+
+        font-size: 18px;
+        z-index: 1;
+      }
+      &.is-active{
+        &:before{
+          color:#fff;
+        }
+      }
+    }
+  }
+  .el-dialog__body {
+    padding-top: 10px;
+  }
+  .el-checkbox + .el-button {
+    margin-left: 10px;
+  }
+  .el-table {
+    td,th{
+      padding: 0;
+    }
+    .cell {
+      height: 38px;
+      line-height: 38px;
+    }
+    .el-input-number {
+      width: 80px;
+    }
+  }
+}

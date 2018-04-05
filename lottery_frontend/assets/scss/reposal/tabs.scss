@@ -1,0 +1,27 @@
+.reposal-tabs{
+  > .el-tabs__header{
+    background: #ecf1f5;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    position: relative;
+    z-index: 10;
+    height: 40px;
+    margin-bottom: 50px;
+    .el-tabs__nav{
+      border:none;
+      .el-tabs__item{
+        border-radius: 3px;padding: 0 10px;
+        min-width: 60px;
+        text-align: center;
+        border-left: none;
+        &.is-active{
+          color:#fff;
+          background: #6fade1;
+        }
+      }
+    }
+  }
+  .el-tabs__item{
+    transition: .3s cubic-bezier(.645,.045,.355,1)!important;
+  }
+}

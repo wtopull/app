@@ -1,0 +1,60 @@
+.lotto-play-note{
+  background:#f7f7f7;
+}
+
+.lottery .lottery_top .t_l .c_pic{
+  width: 100px;
+  height: 70px;
+  background: url("~/assets/img/lottery/tz_03.png") no-repeat 30px 0;
+}
+
+.lottery .lottery_top .t_l .c_pic{
+  &.s1min{
+    background-position: -40px -39px;
+  }
+  &.flb15{
+    background-position: -195px -215px;
+  }
+  &.txffc{
+    background-position: -710px -41px;
+  }
+  &.cqssc{
+    background-position: -40px -129px;
+  }
+  &.xjssc{
+    background-position: -202px -129px;
+  }
+  &.tjssc{
+    background-position: -363px -129px;
+  }
+  &.sh11x5{
+    background-position: -1060px -316px;
+  }
+  &.sd11x5{
+    
+  }
+  &.ah11x5{
+    background-position: -30px -310px;
+  }
+  &.bj11x5{
+    background-position: -537px -316px;
+  }
+  &.bjpk10{
+    background-position: -35px -698px;
+  }
+  &.bjkl8{
+    background-position: -195px -784px;
+  }
+  &.jskl3{
+    background-position: -195px -505px;
+  }
+}
+
+.lottery_top{
+  .el-loading-mask{
+    z-index: 1000!important;
+  }
+}
+
+@import 'lotto/code';
+

@@ -1,0 +1,51 @@
+<div class="active-wrap">
+    <div class="head">
+        <div class="menu"><i class="icon iconfont">&#xe69b;</i>优惠活动</div>
+    </div>
+    <div class="con">
+        <div class="active_list">
+            <el-collapse @change="change">
+                <el-collapse-item class="li_con" v-for="event in events" :key="event.id" :name="event.id">
+                    <template slot="title">
+                        <div class="a_show">
+                                <img :src="event.web_img_url" alt="">
+                                <div class="name">
+                                    <div class="title">
+                                        <div class="tc">{{event.title}}</div>
+                                        <div class="tip">{{event.description}}</div>
+                                    </div>
+                                    <a href="javascript:void(0)">查看详情</a>
+                                </div>
+                        </div>
+                    </template>
+                    <div class="a_hide">
+                        <div class="a_con">
+                            <div class="rq">活动日期：<span>{{event.start_time}} - {{event.end_time}}</span> </div>
+                            <div class="dx">活动对象：<span>久发首次注册会员及代理</span> </div>
+                            <div class="nr">活动内容：<span>{{event.description}}</span> </div>
+                            <div class="gz">活动规则</div>
+                            <p>1.同一姓名、卡号、ip地址的用户只能参与一次。</p>
+                            <p>2.严禁玩家恶意注册多个账户，一经发现，将永久冻结账户。</p>
+                            <p>3.每天派送名额为2000个，先到先得，派送完为止。</p>
+                            <p>4.本活动最终解释权归久发国际所有。</p>
+                        </div>
+                    </div>
+                </el-collapse-item>
+            </el-collapse>
+        </div>
+    </div>
+</div>
+
+
+<!-- <script>
+    $('.name a').click(function () {
+        $(this).parents('.li_con').find('.a_hide').stop().slideToggle();
+    });
+    $(".active_list").niceScroll({
+        cursorcolor: "#444F69",
+        mousescrollstep: 40,
+        scrollspeed: 100,
+        autohidemode: "hidden",
+        cursorborder: "0px solid #fff",
+    });
+</script> -->

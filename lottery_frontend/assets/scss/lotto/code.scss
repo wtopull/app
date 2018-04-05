@@ -1,0 +1,22 @@
+.lotto-code-pk10{
+  
+  li{
+    float: left;
+    a{
+      width: 67px;
+      height: 30px;
+      background: url(~/assets/img/lottery/pk10_ball.png) no-repeat;
+      line-height: 30px;
+      text-align: center;
+      font-size: 0;
+    }
+  }
+  @for $i from 1 through 10 {
+    .lotto-pk10-#{$i} {
+      a{
+        background-position:-100px -#{$i * 30 - 30}px; 
+      }
+    }
+  }
+}
+

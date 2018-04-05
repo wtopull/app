@@ -1,0 +1,218 @@
+<div class="transfer">
+    <div class="trD trDa">
+        <ul>
+            <li>
+                <h3>账户总额<span>￥ <i>52613.3497</i></span></h3>
+                <el-button type="primary">充值</el-button>
+            </li>
+            <li>
+                <h3>可提金额<span>￥ <i>52613.3497</i></span></h3>
+                <el-button type="primary">提款</el-button>
+            </li>
+        </ul>
+    </div>
+
+    <div class="trD">
+        <ul>
+            <li>
+                <div>
+                    <b>AG真人</b>
+                    <p>余额：0</p>
+                </div>
+                <div>
+                    <el-button type="warning">进入</el-button>
+                </div>
+            </li>
+            <li>
+                <div>
+                    <b>AGIN真人</b>
+                    <p>余额：未注册</p>
+                </div>
+                <div>
+                    <el-button type="warning">注册</el-button>
+                </div>
+            </li>
+            <li>
+                <div>
+                    <b>AGEXT</b>
+                    <p>余额：未连接</p>
+                </div>
+                <div>
+                    <el-button type="warning" disabled>未连接</el-button>
+                </div>
+            </li>
+            <li>
+                <div>
+                    <b>BBIN真人</b>
+                    <p>余额：未注册</p>
+                </div>
+                <div>
+                    <el-button type="warning">注册</el-button>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <div class="trD">
+        <ul>
+            <li>
+                <div>
+                    <b>PT电子游艺</b>
+                    <p>余额：0</p>
+                </div>
+                <div>
+                    <el-button type="warning">进入</el-button>
+                </div>
+            </li>
+            <li>
+                <div>
+                    <b>GG电子游艺</b>
+                    <p>余额：未注册</p>
+                </div>
+                <div>
+                    <el-button type="warning" plain disabled>注册</el-button>
+                </div>
+            </li>
+            <li>
+                <div>
+                    <b>HY真人</b>
+                    <p>余额：未连接</p>
+                </div>
+                <div>
+                    <el-button type="warning" plain disabled>未连接</el-button>
+                </div>
+            </li>
+            <li>
+                <div>
+                    <b>XP金融</b>
+                    <p>余额：未注册</p>
+                </div>
+                <div>
+                    <el-button type="warning" plain disabled>注册</el-button>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <div class="trD">
+        <ul>
+            <li>
+                <div>
+                    <b>VR彩票</b>
+                    <p>余额：未注册</p>
+                </div>
+                <div>
+                    <el-button type="warning" plain disabled>注册</el-button>
+                </div>
+            </li>
+            <li>
+                <div>
+                    <b>AMEBA电子游艺</b>
+                    <p>余额：未开放</p>
+                </div>
+                <div>
+                    <el-button type="warning" plain disabled>未开放</el-button>
+                </div>
+            </li>
+            <li>
+                <div>
+                    <b>CQ电子游艺</b>
+                    <p>余额：未开放</p>
+                </div>
+                <div>
+                    <el-button type="warning" plain disabled>未开放</el-button>
+                </div>
+            </li>
+            <li>
+                <div>
+                    <b>沙巴体育</b>
+                    <p>余额：未开放</p>
+                </div>
+                <div>
+                    <el-button type="warning">未开放</el-button>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <div class="trD">
+        <ul>
+            <li>
+                <div>
+                    <b>NVR彩票</b>
+                    <p>余额：0</p>
+                </div>
+                <div>
+                    <el-button type="warning">进入</el-button>
+                </div>
+            </li>
+            <li>
+                <div>
+                    <b>IM电子竞技</b>
+                    <p>余额：未注册</p>
+                </div>
+                <div>
+                    <el-button type="warning">注册</el-button>
+                </div>
+            </li>
+            <li>
+                <div>
+                    <b>KY棋牌</b>
+                    <p>余额：49</p>
+                </div>
+                <div>
+                    <el-button type="warning">进入</el-button>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <div class="trFo">
+        <ul>
+            <li>
+                <label>转出账户：
+                    <select>
+                        <option v-for="(option,index) in options2" :disabled="option.disabled">
+                            {{ option.label}}
+                        </option>
+                    </select>
+                </label>
+            </li>
+            <li>
+                <label>转入账户：
+                  <select>
+                    <option v-for="(option,index) in options2" :disabled="option.disabled">
+                      {{ option.label}}
+                  </option>
+              </select>
+          </label>
+            </li>
+            <li>
+                <label>转入金额：
+                    <el-input-number 
+                        v-model="num8" 
+                        controls-position="right" 
+                        :min="50">
+                    </el-input-number>最低转入50元
+                    <div class="trFoJ">
+                        <button v-for="(jinbi,index) in jinbis" @click="jinbiC(index)">{{ jinbi }}</button><button>全部余额</button>
+                    </div>
+                </label>
+            </li>
+            <li>
+                <label>
+                    <el-form :model="numberValidateForm" ref="numberValidateForm" label-width="74px" class="demo-ruleForm">
+                        <el-form-item prop="age" label="资金密码：" :rules="[
+                            { required: true, message: '资金密码不能为空'},
+                            { type: 'number', message: '必须为数字值'}]">
+                            <el-input type="age" v-model.number="numberValidateForm.age" auto-complete="off"  placeholder="请输入资金密码"></el-input>
+                        </el-form-item>
+                    </el-form>
+                </label>
+            </li>
+            <li>
+                <el-button type="primary">确认提交</el-button>
+            </li>
+        </ul>
+    </div>
+</div>

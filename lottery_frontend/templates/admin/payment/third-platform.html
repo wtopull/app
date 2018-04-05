@@ -1,0 +1,63 @@
+<div class="third-platform">
+    <ul class="bal">
+        <li>
+            <div class="d-flex align-items-center">
+                <label>账户总额</label>
+                <span class="text-danger">￥<strong>{{totalBal | defaultRound}}</strong></span>
+            </div>
+            <nuxt-link to="/admin/payment">
+                <el-button type="primary">充值</el-button>
+            </nuxt-link>
+        </li>
+        <li>
+            <div class="d-flex align-items-center">
+                <label>可提金额</label>
+                <span class="text-danger">￥<strong>{{bal | defaultRound}}</strong></span>
+            </div>
+            <nuxt-link to="/admin/payment/withdraw">
+                <el-button type="primary">提款</el-button>
+            </nuxt-link>
+        </li>
+    </ul>
+    <!-- container-fluid make-container() ,bootstrap\scss\mixins\_grid.scss:5-->
+    <div class="container-fluid">
+        <ul class="row third-platform-list">
+            <li class="col-3 d-flex align-items-center justify-content-between" v-for="(item,index) in list" :key="item.id">
+                <div>
+                    <h4>{{item.name}}</h4><span v-if="getStatus(item) === '进入'">
+                        余额：{{availableGames[item.prefix].balance | defaultRound}}
+                    </span>
+                </div>
+                <el-button type="primary" :disabled="getStatus(item) === '未开放'" :loading="!!loadings[index]" @click="sign(item,index)">{{getStatus(item)}}</el-button>
+            </li>
+        </ul>
+    </div>
+    <transition name="el-fade-in">
+        <el-form :model="form" :rules="rules" ref="form" label-width="100px" v-if="transInList.length > 1">
+            <el-form-item label="转出账户：" prop="transOut">
+                <el-select v-model="form.transOut" @change="change(null,'out')">
+                    <el-option v-for="item in transOutList" :label="item.name" :value="item.prefix" :key="item.prefix" :disabled="item.disabled" />
+                </el-select>
+            </el-form-item>
+            <el-form-item label="转入账户：" prop="transIn">
+                <el-select v-model="form.transIn" @change="change(null,'in')">
+                    <el-option v-for="item in transInList" :label="item.name" :value="item.prefix" :key="item.prefix" :disabled="item.disabled" />
+                </el-select>
+            </el-form-item>
+            <el-form-item label="转入金额：">
+                <el-input-number v-model="form.amount" @change="amountChange" controls-position="right" :min="50">
+                </el-input-number>最低转入50元
+                <el-radio-group v-model="hotAmount" size="small" @change="hotAmountChange">
+                    <el-radio-button v-for="amount in hotAmounts" :label="amount" :key="amount"></el-radio-button>
+                </el-radio-group>
+            </el-form-item>
+            <el-form-item label="登录密码：" prop="pw">
+                <el-input type="password" v-model="form.pw" @keyup.native.enter="sumbit"></el-input>
+            </el-form-item>
+            <el-form-item>
+                <el-button type="primary" @click="sumbit" :loading="loading">确认</el-button>
+                <el-button @click="reset">重置</el-button>
+            </el-form-item>
+        </el-form>
+    </transition>
+</div>

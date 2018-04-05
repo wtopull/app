@@ -1,0 +1,85 @@
+
+<div class="domain-main">
+    <div class="domain-head">
+        <div class="h1">
+            <div class="dh_l">
+                <a href="#">设为首页</a>
+                <a href="#">加入收藏</a>
+            </div>
+            <div class="dh_r">
+                <div class="ymyz">
+                    <div class="y1">
+                        <span>域名</span><input type="text">
+                    </div>
+                    <div class="y2">
+                        <span>验证码</span><input type="text" name="" id=""><img src="~/assets/img/login/login_code.jpg" alt=""><i class="icon iconfont">&#xe682;</i>
+                    </div>
+                    <a href="">提交</a>
+                </div>
+                <div class="y_tip">为了帮助您更好的识别本平台的真实域名，您只需要在上面输入框中输入要验证的域名，便可轻松辨别真伪。</div>
+            </div>
+        </div>
+    </div>
+    <div class="do_con">
+        <div class="main_content">
+            <div class="wxts">
+                <div class="w_l">
+                    <h1>线路检测</h1>
+                    <span>【温馨提示：反应时间越小，网站速度越快】</span>
+                </div>
+                <div class="w_r">
+                    <div class="shuaxin">
+                        <a class="main_resh" href="javascript:void(0)" @click="check">重新检测</a>
+                    </div>
+                </div>
+            </div>
+            <div class="domain_con">
+                <div class="ul">
+                    <ul>
+                        <li v-for="(item,index) in list" :key="index">
+                            <div class="li_c">
+                                <div class="cs">
+                                    <div class="domain_speed">{{item.value}}ms</div>
+                                    <div class="link">{{item.domain}}</div>
+                                    <a :href="item.domain" target="_blank">立即进入</a>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="xljcbot">
+                <div class="xljcb1">
+                    <div class="h2">浏览器推荐</div>
+                    <div class="text">
+                        为了保证最佳使用体验请保证您的屏幕分辨率
+                        在1280及以上<br>
+                        推荐您使用以下浏览器：
+                    </div>
+                    <div class="bo">
+                        <a href=""></a>
+                        <a href=""></a>
+                        <a href=""></a>
+                    </div>
+                </div>
+                <div class="xljcb1">
+                    <div class="h2">如果检测后不能登录请按以下方式操作：</div>
+                    <div class="text">
+                        ★ 打开IE浏览器:<br>
+                        打开IE浏览器，选择：工具-> Internet选项-> 在选择 (删除历史
+                        浏览记录)-> 删除-> 重启IE
+                    </div>
+                </div>
+                <div class="xljcb1">
+                    <div class="h2">如果您体验过程中出现卡顿：</div>
+                    <div class="text">
+                        请在您打开本界面选择其它线路看看。
+                        如果您在访问我们域名时被跳转到其它网站，
+                        那是您当地电信运营商dns被劫持，
+                        您可以通过修改电脑本地dns来解决。
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

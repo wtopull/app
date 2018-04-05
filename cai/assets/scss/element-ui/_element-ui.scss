@@ -1,0 +1,15 @@
+@import "tooltip";
+@import "form";
+@import "table";
+
+.el-table{
+  a.el-button--text,.el-button.el-button--text{
+    &,&:hover,&:focus{
+      color:#248fe9;
+    }
+  }
+  a.el-button--text{
+    cursor: pointer
+  }
+}
+

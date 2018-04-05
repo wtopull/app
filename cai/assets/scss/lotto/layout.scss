@@ -1,0 +1,97 @@
+.play-layout {
+  min-height: 198px;
+  > li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+    ul {
+      display: flex;
+    }
+  }
+  label {
+    min-width: 60px;
+  }
+  &.kl8 {
+    .play-ball-list {
+      li {
+        margin-bottom: 8px;
+      }
+    }
+  }
+}
+.play-ball-list {
+  flex-wrap: wrap;
+  li {
+    display: flex;
+    width: 35px;
+    height: 35px;
+    border: 1px solid #acc9e3;
+    border-radius: 50%;
+    justify-content: center;
+    align-items: center;
+    margin-right: 4px;
+    cursor: pointer;
+    background: #f0f5fa;
+    user-select: none;
+    &.selected {
+      &.selected {
+        background: url(~/assets/img/lottery/lottery_ball.png) no-repeat;
+        color: #fff;
+      }
+    }
+  }
+}
+
+.play-ball-tool {
+  margin-left: auto;
+  li {
+    display: flex;
+    width: 32px;
+    height: 32px;
+    border: 1px solid $--border-color-base;
+    border-radius: 4px;
+    justify-content: center;
+    align-items: center;
+    margin: 0 2px;
+    cursor: pointer;
+    font-size: 13px;
+    user-select: none;
+    &:hover {
+      background: $--color-primary;
+      color: #fff;
+    }
+  }
+  &:empty {
+    display: none;
+  }
+}
+
+.play-textarea {
+  textarea {
+    width: 98%;
+    border-color: $--border-color-base;
+    min-height: 162px;
+    & + div {
+      font-size: 12px;
+      margin-top: 5px;
+    }
+  }
+  .el-button {
+    background: transparent;
+    & + .el-button {
+      margin-right: 10px;
+    }
+  }
+}
+
+.play-help {
+  height: 38px;
+  color: $--color-danger;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  .el-icon-question {
+    font-size: 16px;
+    margin-right: 3px;
+  }
+}

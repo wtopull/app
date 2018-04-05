@@ -1,0 +1,64 @@
+.el-radio-button{
+  margin-bottom: 0;
+}
+
+.table-tool-bar{
+  &.el-form--inline{
+    .el-input__inner{
+      width: 120px;
+    }
+    .el-cascader{
+      .el-input__inner{
+        width: 160px;
+      }
+    }
+    .el-date-editor{
+      width: 270px;
+      .el-range-input{
+        width: 90px;
+      }
+    }
+  }
+  .el-form-item__label{
+    padding-right: 0px;
+    margin-top: 3px;
+  }
+  .el-input,.el-form-item__label,.el-cascader__label{
+    font-size:$--font-size-base;
+  }
+  .el-cascader__label{
+    line-height: 31px;
+    height: 31px;
+    top: 4px;
+    color: $--input-color;
+  }
+  .el-date-editor .el-input__icon{
+    font-size:14px;
+  }
+  //.el-date-editor--datetimerange.el-input
+  .el-date-editor--daterange.el-input
+  {
+    width: 200px;
+  }
+  .el-cascader{
+    .el-input__icon{
+      &:before{
+        vertical-align: -3px;
+      }
+    }
+  }
+
+
+}
+
+.el-date-editor{
+  .el-range-separator {
+    box-sizing: content-box;
+  }
+}
+
+.el-scrollbar-show{
+  .el-scrollbar__bar.is-vertical{
+    opacity: 1;
+  }
+}

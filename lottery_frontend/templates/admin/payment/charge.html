@@ -1,0 +1,110 @@
+<div class="x_con-li">
+    <div class="account-recharge">
+        <div class="recharge_tit">账户余额：</div>
+        <div class="recharge_con"><span class="c_balance">{{bal | defaultRound}}</span></div>
+    </div>
+    <div class="account-recharge">
+        <div class="recharge_tit">付款方式：</div>
+        <div class="recharge_con recharge_con2">
+            <ul class="xz">
+                <li v-for="(type,index) in types" :key="index" @click="typeIndex = index,payIndex = step= 0">
+                    <a :class="{active:typeIndex == index}">{{type.content.name}}</a>
+                </li>
+            </ul>
+            <div class="process-steps">
+                <div class="step step1" :class="{active:step == 0}">
+                    <span class="n">1</span>
+                    <span>选择银行并输入金额</span>
+                    <b class="x"></b>
+                </div>
+                <div class="step step2" :class="{active:step == 1}">
+                    <span class="n">2</span>
+                    <span>确认充值信息</span>
+                    <b class="x"></b>
+                </div>
+                <div class="step step3" :class="{active:step == 2}">
+                    <span class="n">3</span>
+                    <span>登录网上银行充值</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="bz_one" v-if="step === 0">
+        <div class="account-recharge">
+            <div class="recharge_tit">合作银行：</div>
+            <div class="recharge_con">
+                <div class="bank_list">
+                    <li :class="{active:payIndex === index}" v-for="(bank,index) in bankList" :key="index" @click="payIndex = index">
+                        {{bank.name || bank.display_name}}
+                    </li>
+                </div>
+            </div>
+        </div>
+        <div class="account-recharge">
+            <div class="recharge_tit">充值金额：</div>
+            <div class="recharge_con">
+                <div class="cznr">
+                    <div class="czin">
+                        <el-form ref="form" :model="form" :action="form.link" :rules="rules" status-icon @submit.native.prevent>
+                            <input name="data" type="hidden" :value="form.data">
+                            <input name="signature" type="hidden" :value="form.signature">
+                            <el-form-item prop="amount">
+                                <el-input v-model="form.amount" type="number" placeholder="请输入充值金额" @keyup.native.enter="submit"></el-input>
+                            </el-form-item>
+                        </el-form>
+
+                    </div>
+                </div>
+                <div class="cznr_tip">
+                    <p>* 充值金额：单笔最低充值金额为 50 元，最高 50000 元</p>
+                    <p>* 充值收取手续费：0%</p>
+                    <p>* 充值限时：请在30分钟内完成充值。</p>
+                </div>
+
+            </div>
+        </div>
+        <div class="account-recharge" v-if="isTransfer">
+            <div class="recharge_tit">附言：</div>
+            <div class="czin"><input type="text" placeholder="请输入转账附言" v-model="note"></div>
+        </div>
+        <div class="account-recharge">
+            <div class="recharge_tit"></div>
+            <div class="trued"><a href="javascript:void(0)" @click="submit">下一步</a></div>
+
+        </div>
+
+    </div>
+    <div class="bz_two" v-else>
+        <div class="p1">尊敬的客户您好，请根据以下信息进一步完成您的存款（如：以充值成功，请点击下方确认完成存款）</div>
+        <div class="account-recharge">
+            <div class="recharge_tit">充值金额：</div>
+            <div class="recharge_con"><span class="c_balance">{{form.amount}}</span></div>
+        </div>
+        <div class="account-recharge">
+            <div class="recharge_tit">充值银行：</div>
+            <div class="recharge_con">{{payItem && (payItem.name || payItem.display_name)}}</div>
+        </div>
+        <!-- <div class="account-recharge">
+            <div class="recharge_tit">充值金额：</div>
+            <div class="recharge_con">
+                <span class="czje fl_l">5000.000</span>
+                <div class="sjdz fl_l">手续费：<span class="sjdz_je">0% </span></div>
+                <div class="sjdz fl_l">实际到账：<span class="sjdz_je">5000.000</span></div>
+            </div>
+        </div> -->
+        <div class="account-recharge">
+            <div class="recharge_tit">订单编号：</div>
+            <div class="recharge_con">
+                <span class="czje ddbh fl_l">{{chargeId}}</span>
+            </div>
+        </div>
+        <div class="button">
+            <a class="btnn" href="javascript:void(0);" @click="step = 0">上一步</a>
+            <a class="btnn" href="javascript:void(0);" @click="$form.submit(),step = 2">进入第三方支付付款</a>
+            <a class="btnn" href="javascript:void(0);">查看充值记录</a>
+            <a class="btnn" href="javascript:void(0);">前往转账中心</a>
+            <a class="btnn" href="javascript:void(0);">联系客服</a>
+            <a class="btnn" href="javascript:void(0);">进入游戏</a>
+        </div>
+    </div>
+</div>

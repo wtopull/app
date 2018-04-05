@@ -1,0 +1,50 @@
+
+<div class="regist">
+    <div class="l_top">
+        <div class="l_logo"><img src="../../assets/img/login/login_logo.png" alt=""></div>
+    </div>
+    <div class="l_min">
+        <div class="yhzc"><nuxt-link to="/login"><i class="icon iconfont">&#xe62a;</i><br>已<br>有<br>账<br>号<br>!<br> <span>立<br>即<br>登<br>录<br><i class="icon iconfont">&#xe68d;</i></span></nuxt-link></div>
+        <div class="dlk">
+            <div class="dlk_l">
+                <form class="loginform" action="" @submit.prevent>
+                    <div class="username"><input type="text" placeholder="请输入用户名" v-model="form.name"><div class="help-inline">例如：facai666</div></div>
+                    <div class="username"><input type="text" placeholder="请输入昵称" v-model="form.nickName"><div class="help-inline">例如：发财666</div></div>
+                    <div class="username"><input type="text" placeholder="请输入真实名字" v-model="form.realName"><div class="help-inline">例如：发财666</div></div>
+                    <div class="password"><input type="password" placeholder="请输入密码" v-model="form.pw"><div class="help-inline">数字、字母</div></div>
+                    <!-- <div class="password"><input type="password" placeholder="确认密码" v-model="form.pw"><div class="help-inline">手动输入，粘贴无效。</div></div> -->
+                    <!-- <div class="password"><input type="email" placeholder="邮箱"><div class="help-inline">邮箱格式，例ued@163.com</div></div> -->
+                    <!-- <div class="code"><input class="xcode" type="text" placeholder="请输入验证码"><img src="../../assets/img/login/login_code.jpg" alt=""></div> -->
+                    <div class="submite" @click="submit" style="cursor: pointer;"><a>立即注册</a></div>
+                </form>
+            </div>
+            <div class="dlk_r">
+
+                <div class="swiper-container" v-swiper:mySwiper="swiperOption">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <div class="main2-center">
+                                <a href="#">
+                                    <img src="~/assets/img/login/login_focus1.jpg" alt="">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="main2-center">
+                                <a href="#">
+                                    <img src="~/assets/img/login/login_focus2.jpg" alt="">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-pagination"></div>
+                </div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+                <div class="tip">有问题咨询在线客服? <a href="">联系客服</a> </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+

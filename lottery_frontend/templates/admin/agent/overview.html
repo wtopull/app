@@ -1,0 +1,43 @@
+<div class="x_con-li">
+    <div class="Team_member">
+        <div class="menber_head">
+            <div class="t">
+                <ul>
+                    <li><i class="icon iconfont">&#xe687;</i><span class="js">团队成员</span><span class="td">{{member_count[1]}}人（在线人数{{member_count[0]}}人）</span></li>
+                    <li><i class="icon iconfont">&#xe698;</i><span class="js">直属下级</span><span class="td">{{proxy_count[1]}}人</span></li>
+                    <li><i class="icon iconfont">&#xe669;</i><span class="js">非直属下级</span><span class="td">{{no_proxy_count[1]}}人</span></li>
+                    <li><i class="icon iconfont">&#xe675;</i><span class="js">彩票总余额</span><span class="td">{{team_total_balance | defaultRound}}元</span></li>
+                </ul>
+            </div>
+            <div class="d">
+                <div class="dt">
+                    <div class="kx fl_l">
+                        <el-button :type="dayIndex === index ? 'primary' : ''" v-for="(item,index) in daysRange" :key="index" @click="getDaysRange(item[1],index)">{{item[0]}}
+                        </el-button>
+                        <el-date-picker v-model="date" type="daterange" start-placeholder="开始日期" end-placeholder="结束日期" :range-separator="rangeSeparator" @change="handlePicker" ref="datepicker" :picker-options="pickerOpt" @focus="handleFocus" align="right">
+                        </el-date-picker>
+                        <el-button type="primary" @click="get">查询</el-button>
+                    </div>
+
+                </div>
+                <div class="dd">
+                    <ul>
+                        <li v-for="(item,index) in chartOpt" :key="index" v-if="index < 5">
+                            <i class="icon iconfont" v-html="icons[index]"></i> {{item.name}}
+                            <span>{{item.data | sum }}</span>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+            <div v-loading="loading.on" :element-loading-text="loading.text" class="chart-wrap">
+                <!--use v-if on chart ref make echar mount on .text-center div,use v-show at there-->
+                <div class="chart" id="chart" ref="chart" v-show="chartOpt.length"></div>
+                <div class="chart-empty align-items-center justify-content-center" v-show="chartText">
+                    {{chartText}}
+                </div>
+                <el-checkbox :indeterminate="isIndeterminate" v-model="legendCheckAll" @change="legendAllChange" v-show="chartOpt.length" class="chart-check-all">全选</el-checkbox>
+            </div>
+        </div>
+    </div>
+</div>

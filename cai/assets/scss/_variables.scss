@@ -1,0 +1,50 @@
+@import '../element-variables';
+
+$theme-colors: () !default;
+$theme-colors: map-merge((
+  "primary": $--color-primary,
+  "success": $--color-success,
+  "info": $--color-info,
+  "warning": $--color-warning,
+  "danger":$--color-danger,
+  "muted":$--color-text-secondary,
+  "disabled":$--color-text-placeholder
+), $theme-colors);
+
+$enable-hover-media-query:  false !default;
+
+$grid-breakpoints: (
+  xs: 0,
+  // sm: 576px,
+  // md: 768px,
+  // lg: 992px,
+  // xl: 1200px
+) !default;
+
+$font-family-base:      -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol" !default;
+
+$font-size-base:              12px !default;
+$font-weight-base:            400 !default;
+$font-weight-bold:            700 !default;
+
+$line-height-base:            1.5 !default;
+
+$body-bg:                   $--color-white !default;
+$body-color:                $--color-text-primary !default;
+
+$link-color:                $--link-color;
+$link-decoration:           none !default;
+$link-hover-color:          $--link-hover-color;
+$link-hover-decoration:     none !default;
+
+$spacer: 1rem !default;
+
+$text-muted:                  $--color-text-secondary !default;
+
+$headings-margin-bottom:      ($spacer / 2) !default;
+$paragraph-margin-bottom:   1rem !default;
+
+$dt-font-weight:              $font-weight-bold !default;
+
+$table-cell-padding:          .75rem !default;
+$table-cell-padding-sm:       .3rem !default;

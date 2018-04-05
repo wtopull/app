@@ -1,0 +1,37 @@
+@import 'tabs';
+@import 'options';
+@import 'layout';
+
+.el-autocomplete-suggestion{
+  width:auto!important;
+  min-width: 65px;
+  li{
+    line-height: 24px;
+    padding: 0 12px;
+    &.highlighted{
+      background:$--color-primary;
+      color: #fff;
+    }
+    &:hover{
+      background: #ecf1f5;  
+    }
+    
+  }
+  //node_modules/element-ui/packages/autocomplete/src/autocomplete.vue:39,visible-arrow
+  //node_modules/element-ui/packages/dropdown/src/dropdown.vue:48,visibleArrow
+  .popper__arrow{
+    display: none;
+  }
+  &.el-popper[x-placement^=bottom]{
+    margin-top: 0px;
+  }
+  .el-autocomplete-suggestion__wrap{
+    padding: 5px 0;
+  }
+}
+
+.vs-autocomplete-suggestion{
+  min-width: 75px;
+}
+
+@import 'order'

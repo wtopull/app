@@ -1,0 +1,64 @@
+.reposal-vs{
+  > ul{
+    justify-content: center;
+    border-bottom: none!important;//vs.scss combained common.css ,require use important
+    > li {
+      flex: 0 0 25%!important;
+      ul{
+        display: flex;
+      }
+      li{
+        flex: 1 100%;
+        display: block!important;
+        padding: 10px 0;
+        &:last-child{
+          border-bottom:1px solid $--border-color-base!important;
+        }
+        > div{
+          display: inline-block;
+          width: 45%;
+          &:nth-child(2){
+            color:$--color-danger;
+          }
+        }
+        .el-autocomplete{
+          width: 100%;
+          .el-input__inner{
+            width: 75px;margin-left: 0;
+          }
+        }
+        &:first-child{
+          > div:first-child{
+            color:$--color-danger;
+          }
+        }
+        &:nth-child(2){
+          > div:first-child{
+            color:$--color-success;
+          }
+        }
+        &:last-child{
+          > div:first-child{
+            color:$--color-primary;
+          }
+        }
+      }
+    }
+  }
+  &.reposal-vs-only{
+    > ul{
+      > li{
+        .el-autocomplete{
+          .el-input__inner{
+            width: 100px;
+          }
+        }
+      }
+    }
+  }
+  &.reposal-vs-shortcut{
+    li li > div{
+      width: 100%;
+    }
+  }
+}

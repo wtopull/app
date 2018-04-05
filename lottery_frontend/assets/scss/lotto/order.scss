@@ -1,0 +1,12 @@
+.betting-list{
+  li {
+    > span{
+      font-size: 12px;
+    }
+  }
+  .el-input-number{
+    width: 20%;
+    float:left;
+    margin-top: 5px;
+  }
+}

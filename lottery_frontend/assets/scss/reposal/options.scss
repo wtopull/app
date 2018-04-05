@@ -1,0 +1,27 @@
+.reposal-options{
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 47px;
+  display: flex;
+  align-items: center;
+  .el-slider{
+    display: inline-block;
+    width: 180px;
+    margin-left: 5px;margin-right: 15px;
+  }
+  .el-radio-button--small .el-radio-button__inner{
+    font-size: 14px;
+    font-weight: normal;
+    padding: 7px 12px;
+  }
+
+  .el-button--primary{
+    padding: 7px 12px;margin-left: 10px;
+  }
+  .el-radio-group{
+    & + .el-button{
+      vertical-align: middle;
+    }
+  }
+}

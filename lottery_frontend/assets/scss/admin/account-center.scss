@@ -1,0 +1,52 @@
+.account-center{
+  // .el-input,.el-slider{
+  //   width: 280px;
+  // }
+  max-width: 1200px;
+  .el-form-item__content{
+    > .el-input,.is-controls-right{
+      width: 280px;
+    }
+  }
+  .el-slider{
+    display: inline-block;
+    padding-top: 40px;
+    position: relative;
+    & + * {
+      margin-left: 20px;
+    }
+    .el-input-number{
+      float:none;
+      &:before{
+        position: absolute;
+        content: '奖金组：';
+        left: -4em;margin-left: -12px;
+      }
+    }
+  }
+  .el-slider__runway{
+    width: 276px;
+    position: absolute;
+    top: 0;
+
+  }
+  .help-inline{
+   color:$--color-danger;
+   display: inline-block;
+   vertical-align: middle;margin-left: 5px;
+  }
+  .el-form{
+    margin-top: 20px;
+    .el-form-item{
+      &:nth-last-child(2){
+        margin-top: -15px;
+        .el-form-item__error{
+          margin-top: -5px;
+        }
+      }
+    }
+  }
+  .el-table.el-table--fit td .el-button--text{
+    min-width: inherit;
+  }
+}

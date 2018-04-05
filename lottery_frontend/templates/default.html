@@ -1,0 +1,90 @@
+<div>
+    <div class="top" id="top">
+        <div class="mobliem">
+
+        </div>
+        <div class="logo">
+            <span class="logo_b1"></span>
+            <span class="logo_b2"></span>
+            <span class="logo_b3"></span>
+            <img src="~/assets/img/common/logo.png" alt="">
+        </div>
+        <div class="nav">
+            <span class="n_bg"></span>
+            <nuxt-link to="/home" class="active">首页</nuxt-link>
+            <nuxt-link to="/lottery">彩票大厅</nuxt-link>
+            <nuxt-link to="/events">优惠活动</nuxt-link>
+            <nuxt-link to="/admin/user">用户中心</nuxt-link>
+            <!-- https://github.com/vuejs/vuex/issues/978 don't use v-if="isAgent" -->
+            <nuxt-link to="/admin/agent" v-show="isAgent">代理中心</nuxt-link>
+            <!-- <nuxt-link to="/admin/report/dsadasdasd">下载中心</nuxt-link> -->
+            <nuxt-link to="/domains">线路检测</nuxt-link>
+            <!-- <nuxt-link to="/test">API測試</nuxt-link>
+            <nuxt-link to="/issues">文档</nuxt-link> -->
+            <!-- <nuxt-link to="/test">幫助中心</nuxt-link> -->
+        </div>
+        <div class="user_info">
+            <div class="user_icon">
+                <nuxt-link to="/admin/message"><i class="icon iconfont">&#xe615;</i><span v-if="unreadCount > 0">{{unreadCount}}</span></nuxt-link>
+                <nuxt-link :to="`/news/${news.length ? news[0].id : ''}`"><i class="icon iconfont">&#xe616;</i><span v-if="news.length">{{news.length}}</span></nuxt-link>
+                <nuxt-link to="/admin/payment/withdraw"><i class="icon iconfont">&#xe685;</i><span>￥</span></nuxt-link>
+                <nuxt-link to="/admin/payment"><i class="icon iconfont">&#xe666;</i><span>￥</span></nuxt-link>
+            </div>
+            <div class="user_header">
+                <div class="header_pic">
+                    <img :src="avatarImgSrc" alt="">
+                </div>
+                <div class="nb">
+                    <div class="name">{{username}}</div>
+                    <div class="balance">余额<span>{{bal}}</span>元
+                        <i class="el-icon-refresh" :class="{'bal-refresh':refreshing}" @click="getBal"></i>
+                    </div>
+                </div>
+                <div class="go_out"><a title="登出" @click="logout"><i class="icon iconfont">&#xe688;</i></a></div>
+            </div>
+        </div>
+    </div>
+    <div class="an-nav" id="an-nav">
+        <div class="nav_menu">
+            <ul>
+                <li v-for="(type,index) in lottoTypes" :key="type.identifier" @click="navIndex = index">
+                    <a href="javascript:void(0);"><i :class="`lotto-${type.type}`"></i><h6>{{type.name}}</h6></a>
+                </li>
+                <li><a href="javascript:void(0);"><i style="background-position: -372px -2px;"></i><h6>在线客服</h6></a></li>
+            </ul>
+        </div>
+        <div class="nav_list">
+            <h3>官方彩票</h3>
+            <ul class="an_in">
+                <li v-for="(type,i) in lottoTypes" :key="type.identifier" :class="{active:navIndex === i}">
+                    <nuxt-link v-for="(lotto,key,index) in type.infos" :key="key" :to="`/lottery/${key}`">{{lotto.name}}</nuxt-link>
+                </li>
+            </ul>
+            <h3>
+                信用彩票
+            </h3>
+            <ul class="an_in">
+                <li v-for="(type,i) in lottoTypes" :key="type.identifier" :class="{active:navIndex === i}">
+                    <nuxt-link v-for="(lotto,key,index) in type.infos" :key="key" :to="`/reposal/${key}`">{{lotto.name}}</nuxt-link>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!-- <div class="nav">
+  <ul class="lotto-list">
+        <li v-for="type in lottoTypes" :key="type.identifier">
+            <h4>{{type.name}}</h4>
+            <ul>
+                <li v-for="(lotto,key) in type.infos" :key="key">
+                    <nuxt-link :to="`/lottery/${key}`">{{lotto.name}}</nuxt-link>
+                    &nbsp;&nbsp;
+                    <label><input type="checkbox" @change="addLike($event,lotto)">喜歡</label>
+                </li>
+            </ul>
+        </li>
+    </ul>
+</div> -->
+    <div class="page-box">
+        <nuxt/>
+    </div>
+</div>

@@ -1,0 +1,30 @@
+<div class="manager">
+    <div class="m_header">
+        <ul class="gn_ul">
+            <li>
+                <nuxt-link to="/admin/user"><i class="icon iconfont">&#xe693;</i>个人中心</nuxt-link>
+            </li>
+            <li>
+                <nuxt-link to="/admin/payment"><i class="icon iconfont">&#xe65f;</i>财务中心</nuxt-link>
+            </li>
+            <!-- https://github.com/vuejs/vuex/issues/978 don't use v-if="isAgent" -->
+            <li v-show="isAgent">
+                <nuxt-link to="/admin/agent"><i class="icon iconfont">&#xe660;</i>代理中心</nuxt-link>
+            </li>
+            <li>
+                <nuxt-link to="/admin/report"><i class="icon iconfont">&#xe65e;</i>报表记录</nuxt-link>
+            </li>
+            <li>
+                <nuxt-link to="/admin/message"><i class="icon iconfont">&#xe663;</i>消息中心</nuxt-link>
+            </li>
+            <li>
+                <nuxt-link to="/admin/playhelp"><i class="icon iconfont">&#xe658;</i>玩法介绍</nuxt-link>
+            </li>
+        </ul>
+    </div>
+    <div class="m_content">
+        <div class="mc_list">
+            <nuxt-child/>
+        </div>
+    </div>
+</div>

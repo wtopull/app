@@ -1,0 +1,62 @@
+//$--border-color-base, assets\element-variables.scss:61
+//lighten http://sass-lang.com/documentation/Sass/Script/Functions.html#lighten-instance_method
+$platform-border-color-base: lighten($--border-color-base, 5%);
+$platform-border-base:$--border-width-base $--border-style-base
+$platform-border-color-base;
+
+.third-platform {
+  .bal {
+    display: flex;
+    border: $platform-border-base;
+      margin-bottom: $grid-gutter-width/2;
+    li {
+      flex-basis: 0;
+      padding: 20px;
+      flex-grow: 1;
+      display: flex;
+      justify-content: space-between;
+      & + li {
+        border-left: 1px solid $platform-border-color-base;
+      }
+      > div {
+        font-size: $font-size-base * 1.25;
+      }
+      strong{
+        font-size: 1.5em;
+      }
+    }
+  }
+  .el-form{
+    margin:auto;
+    width: 600px;
+  }
+  .el-radio-group{
+    display: block;
+    margin-top: 20px;
+  }
+  .el-input-number{
+    margin-right: 20px;width: 263px;
+  }
+  .el-input{
+    width: 263px;
+  }
+}
+
+.third-platform-list{
+  li{
+    padding-top: 20px;padding-bottom: 20px;
+    border: $platform-border-base;
+    border-left:none;
+    margin-bottom: $grid-gutter-width/2;
+    &:nth-child(4n+1){
+      border-left:1px solid $platform-border-color-base;
+    }
+  }
+  h4{
+    display: inline-block;margin-right: 5px;
+  }
+}
+
+
+
+

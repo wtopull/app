@@ -1,0 +1,83 @@
+<div>
+    <div class="login" @mouseenter="jQueryRun">
+        <div class="l_top">
+            <div class="l_logo fl_l">
+                <img src="~/assets/img/login/login_logo.png" alt="">
+
+            </div>
+            <div class="l_button fl_r">
+                <a class="down_btn" href="javascript:void(0)">手机端下载</a>
+                <a target="_blank">电脑端下载</a>
+            </div>
+        </div>
+        <div class="l_min">
+            <div class="yhzc"><nuxt-link to="/sign-up/65"><i class="icon iconfont">&#xe699;</i><br>在<br>线<br>客<br>服<br></nuxt-link></div>
+            <div class="dlk">
+                <div class="dlk_l">
+                    <form class="loginform" action="">
+                        <div class="username"><i class="icon iconfont">&#xe693;</i><input type="text" placeholder="请输入用户名" v-model="form.name"></div>
+                        <div class="password"><i class="icon iconfont">&#xe679;</i><input type="password" placeholder="请输入密码" v-model="form.password"></div>
+                        <div class="code"><i class="icon iconfont">&#xe69d;</i><input class="xcode" type="text" placeholder="測試中無需填寫"><img src="~/assets/img/login/login_code.jpg" alt=""></div>
+                        <div class="submite"><a @click="login">立即登录</a></div>
+                        <div class="mima">
+                            <a href=""><i class="icon iconfont">&#xe613;</i> 记住密码</a>
+                            <a class="remember" href="#">忘记密码？</a>
+                        </div>
+                    </form>
+                </div>
+                <div class="dlk_r">
+                    <div class="tip">有问题咨询在线客服? <a href="">联系客服</a> </div>
+                    <div class="swiper-container" v-swiper:mySwiper="swiperOption">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <div class="main2-center">
+                                    <a href="#">
+                                        <img src="~/assets/img/login/login_focus1.jpg" alt="">
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="main2-center">
+                                    <a href="#">
+                                        <img src="~/assets/img/login/login_focus2.jpg" alt="">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-pagination"></div>
+                    </div>
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-button-next"></div>
+                </div>
+            </div>
+        </div>
+        <img class="qrcode" :src="qrImgSrc" alt="qrcode">
+    </div>
+    <div class="box-shade animated zoomIn" id="box-shade1">
+        <div class="two_code android_tu">
+            <ul>
+                <li>
+                    <h4>安卓手机扫码安装</h4>
+                </li>
+                <li>
+                    <i class="androids-box"><img class="androids" src="~/assets/img/download/erweima_03.png"/></i>
+                </li>
+                <li>
+                    <p>在打开的页面 <a href="#">直接安装</a></p>
+                </li>
+            </ul>
+            <ul>
+                <li>
+                    <h4>苹果手机扫码安装</h4>
+                </li>
+                <li>
+                    <i class="ios-box"><img class="ioss" src="~/assets/img/download/erweima_03.png"/></i>
+                </li>
+                <li>
+                    <p>在打开的页面 <a href="#">直接安装</a></p>
+                </li>
+            </ul>
+            <span class="close_list"></span>
+        </div>
+    </div>
+</div>

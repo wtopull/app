@@ -1,0 +1,12 @@
+@import '../../element-variables';
+
+.admin-team{
+  
+  .el-dialog{
+    .el-form-item__content{
+      > .el-input,.is-controls-right{
+        width: 240px;
+      }
+    }
+  }
+}
