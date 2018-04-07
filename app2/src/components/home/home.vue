@@ -6,7 +6,7 @@
     <div class="home-footer">
       <ul>
         <router-link v-for="(navs,index) in navbat" :to="'/'+navs.pathbat" tag="li" :key="index">
-          <p></p>
+          <i class="iconfont" :class="navs.icon"></i>
           <span>{{navs.name}}</span>
         </router-link>
       </ul>
@@ -15,7 +15,6 @@
 </template>
 <script>
 import one from './one.vue'
-import second from './second.vue'
 import three from './three.vue'
 import four from './four.vue'
 import five from './five.vue'
@@ -24,27 +23,30 @@ export default {
     return {
       navbat: [
         {
-          name: '彩票大厅',
+        	icon:'icon-shouye',
+          name: '首页',
           pathbat: 'one'
         },
         {
+        	icon:'icon-liwu',
           name: '活动',
           pathbat: 'three'
         },
         {
+        	icon:'icon-faxian1',
           name: '发现',
           pathbat: 'four'
         },
         {
+        	icon:'icon-wode',
           name: '我的',
-          pathbat: 'login'
+          pathbat: 'five'
         }
       ]
     }
   },
   components: {
     one,
-    second,
     three,
     four,
     five
@@ -56,5 +58,4 @@ export default {
 @import '../../assets/scss/one.scss';
 @import '../../assets/scss/three.scss';
 @import '../../assets/scss/four.scss';
-@import '../../assets/scss/five.scss';
 </style>

@@ -14,7 +14,8 @@
         height: 46px;
         width: 100%;
         position: fixed;
-        background: #dc3b40 !important;
+//      background: #dc3b40 !important;
+        background: linear-gradient(to right, #f75f5b , #fead50) !important;
         z-index: 2;
         & .pop-top{
             width: 100%;

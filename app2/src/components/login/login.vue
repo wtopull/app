@@ -1,6 +1,5 @@
 <template>
   <div class="login">
-    <!-- <headers></headers> -->
     <div class="login-title">
       <router-link to="/one" tag="i" class="el-icon-arrow-left"></router-link>
       <p>用户登录</p>
@@ -12,13 +11,13 @@
       <div class="login-form">
         <form>
           <div class="login-user">
-            <i class="iconfont icon-accountfilling"></i>
+            <van-icon name="contact"/>
             <input type="text" v-model="username" placeholder="请输入用户名">
           </div>
           <div class="login-pwd">
-            <i class="iconfont icon-iconset0114"></i>
+            <i class="iconfont icon-mima"></i>
             <input :type="pwd ? 'text' : 'password'" v-model="password" placeholder="请输入密码">
-            <i class="iconfont icon-buxianshimima" :class="pwd ? 'icon-buxianshimima' : 'icon-xianshimima1'" @click="pwd = !pwd"></i>
+            <i class="iconfont" :class="pwd ? 'icon-guanbi' : 'icon-buxianshimima'" @click="pwd = !pwd"></i>
           </div>
           <div class="login-go">
             <button @click="form">立即登陆</button>

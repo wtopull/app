@@ -1,7 +1,7 @@
 <template>
   <div class="one">
   	<headers></headers>
-    <el-carousel :interval="1800" arrow="always">
+    <el-carousel :interval="1800">
       <el-carousel-item v-for="item in 4" :key="item"> </el-carousel-item>
     </el-carousel>
     <div class="add">
@@ -9,10 +9,9 @@
     </div>
     <div class="one-center">
     	<ul>
-    		<router-link v-for="(item,index) in 16" :key="index" tag="li" to="/second/lotto">
-    			<img src="../../assets/img/home/one/ah11x5.png" alt="images"/>
+    		<router-link v-for="(item,index) in 16" :key="index" tag="li" to="/one">
+    			<img src="../../assets/img/one/中宏时时彩.png" alt="images"/>
     			<h5>大发</h5>
-    			<p>1分1期</p>
     		</router-link>
     	</ul>
     </div>

@@ -17,8 +17,7 @@
 				nav:[
 					{name:'中奖信息',pathurl:'winning'},
 					{name:'昨日盈利榜',pathurl:'profit'}
-				],
-				to:0
+				]
 			}
 		}
 	}

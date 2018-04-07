@@ -1,44 +1,28 @@
 .three {
     height: 100%;
+    width: 100%;
+    background: #fff;
     ul {
         margin-top: 56px;
+        width: 100%;
         & li {
             display: flex;
-            justify-content: space-between;
+            flex-direction: column;
             align-items: center;
-            background: #fff;
-            margin: 18px 0px;
-            height: 74px;
-            & .three-box {
-                display: flex;
-                & .icon {
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    margin: 0px 14px 0px 20px;
-                    height: 40px;
-                    width: 40px;
-                    font-size: 18px;
-                    color: #fff;
-                    border-radius: 50%;
-                    background: hotpink;
-                }
-                & .cont {
-                    & .title {
-                        font-size: 16px;
-                    }
-                    & .msg {
-                        font-size: 12px;
-                        width: 220px;
-                        overflow: hidden;
-                        height: 18px;
-                        line-height: 18px;
-                    }
-                }
+            height: 120px;
+            padding: 0px 15px;
+            margin-bottom: 10px;
+            & img{
+                height: 90px;
+                width:100%;
             }
-            & i {
-                margin-right: 20px;
-                font-size: 16px;
+            & .three-box{
+                display: flex;
+                width: 92%;
+                height: 30px;
+                justify-content: space-between;
+                align-items: center;
+                color: #666;
             }
         }
     }

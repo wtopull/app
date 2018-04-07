@@ -38,6 +38,7 @@
           background: #fff;
           & i {
             color: #c6c6c6;
+            font-size: 20px;
           }
           & input {
             width: 100%;
@@ -59,7 +60,7 @@
         width: 100%;
         border: none;
         height: 45px;
-        background: #dc3b40;
+        background: #fd4f42;
         font-size: 18px;
         color: #fff;
         border-radius: 6px;
@@ -138,7 +139,8 @@
   top: 0px;
   height: 46px;
   width: 100%;
-  background: #dc3b40;
+//background: #dc3b40;
+  background: linear-gradient(to right, #f75f5b , #fead50);
   z-index: 12;
   & i {
     position: absolute;

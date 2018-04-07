@@ -9,7 +9,8 @@
         height: 46px;
         position: fixed;
         top: 0px;
-        background: #dc3b40;
+//      background: #dc3b40;
+        background: linear-gradient(to right, #f75f5b , #fead50);
         & ul {
             border: 1px solid #fff;
             display: flex;
