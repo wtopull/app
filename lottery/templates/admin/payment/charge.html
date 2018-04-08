@@ -1,0 +1,75 @@
+<div class="members-record">
+	<div>
+	  <p class="members-record-total">账户总额</p>
+	  <p class="members-record-show">￥{{bal | round3}}</p>
+	</div>
+	<div class="members-record-title">
+    <div class="step step1" :class="{active:step == 0}"></div>
+    <div class="step step2" :class="{active:step == 1}"></div>
+    <div class="step step3" :class="{active:step == 2}"></div>
+	</div>
+	<div class="members-record-banks">
+	  <div class="members-record-bank-title">
+	  	<span><img src="../../../assets/img/members/pay.png"/>付款方式：</span>
+	  	<ul>
+	  		<li v-for="(type,index) in types" :key="index" @click="typeIndex = index,payIndex = step= 0">
+            <a :class="{active:typeIndex == index}">{{type.content.name}}</a>
+        </li>
+	  		<!--<li v-for="(game_accs,index) in game_acc">
+          <a :class="{active:payIndexs === index}" href="javascript:void(0)" @click="payIndexs = index">{{game_accs.name}}</a>
+       </li>-->
+	  	</ul>
+	  </div>
+	  <div class="members-record-bank-select" >
+	    <p>银行卡选择：</p>
+	    <ul> 
+	      <li :class="{active:payIndex === index}" v-for="(bank,index) in bankList" :key="index" @click="payIndex = index"></li>
+	    </ul>
+	  </div>
+	</div>
+	<div  v-if="step === 0">
+		<div class="members-record-bank-details">
+		  <div><i class="el-icon-warning"></i></div>
+		  <ul>
+		    <li><span>*</span>充值金额：单笔最低充值金额为50元，最高50000元</li>
+		    <li><span>*</span>充值收取手续费：<span>0%</span></li>
+		    <li><span>*</span>充值限时：请在30分钟内完成充值</li>
+		  </ul>
+		</div>
+		<div class="members-record-bank-operation">
+		  <ul>
+		    <li>充值金额：</li>
+		    <li><input type="text" v-model="num8"><span>∧</span>&nbsp;元
+		    </li>
+		    <li><button @click="submit">下一步</button></li>
+		  </ul>
+		  <div class="">
+		  	<ul>
+		  		<li v-for="(jinbi,index) in jinbis" @click="jinbiC(index)">{{ jinbi }}</li>
+		  	</ul>
+		  </div>
+		</div>
+	</div>
+	<div class="bz_two" v-else>
+    <div class="p1">尊敬的客户您好，请根据以下信息进一步完成您的存款</div>
+    <div class="account-recharge">
+        <div class="recharge_tit">充值金额：</div>
+        <div class="recharge_con"><span class="c_balance">{{form.amount}}100000</span>元</div>
+    </div>
+    <div class="account-recharge">
+        <div class="recharge_tit">充值银行：</div>
+        <div class="recharge_con">{{payItem && (payItem.name || payItem.display_name)}}</div>
+    </div>
+    <div class="account-recharge">
+        <div class="recharge_tit">订单编号：</div>
+        <div class="recharge_con">
+            <span class="czje ddbh fl_l">{{chargeId}}</span>
+        </div>
+    </div>
+    <div class="button">
+    		<a class="btnn" href="javascript:void(0);" @click="$form.submit(),step = 2">进入第三方支付付款</a>
+        <a class="btnn" href="javascript:void(0);" @click="step = 0">上一步</a>
+        <a class="btnn" href="javascript:void(0);">查看充值记录</a>
+    </div>
+	</div>
+</div>

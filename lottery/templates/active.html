@@ -1,0 +1,95 @@
+<div class="active-wrap">
+        <ad></ad>
+        <div class="preferential">
+            <div class="menu">
+                <ul>
+                	<li :class="{events:eventsactive === index}" v-for="(menus,index) in menu" @click="eventsactive = index">{{menus.name}}</li>
+                </ul>
+            </div>
+            <ul class="list">
+                <li  v-for="(show,index) in 4">
+                    <div class="list-box">
+                        <div class="list-top">
+                            <div class="active-list-left">
+                                <img src="../assets/img/active/active1.jpg"/>
+                                <div>
+                                    <h1>彩票返水</h1>
+                                    <p>投注快乐彩与时时彩，派彩快，赔率高，中奖频。不论输赢，周周返水，投多返多，就是不封顶。立即参加！</p>
+                                </div>
+                            </div>
+                            <div class="active-list-right">
+                                <div>
+                                    <p><span>剩余时间</span><span>333天18小时</span></p>
+                                    <p><span>流水倍数</span><span>10X</span></p>
+                                </div> 
+                                <a href="javascript:;">详细活动<i class="el-icon-caret-right"></i></a>
+                                <!--<a href="javascript:;" @click="clickshow(index)">详细活动<i :class="[isshow ? 'el-icon-caret-bottom' : 'el-icon-caret-right']"></i></a>-->
+                            </div>
+                        </div>
+                        <div class="list-bottom"> 
+                            <p class="list-bottom-title">特定的优惠规则和条款</p>
+                            <ol>
+                                <li>fdsaf楳工模压模压 鞋柜在霜期 </li>
+                                <li>fdsaf楳工模压模压 鞋柜在霜期 </li>
+                                <li>fdsaf楳工模压模压 鞋柜在霜期 </li>
+                            </ol>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+      <!--<div class="head">
+        <div class="menu">
+          <i class="icon iconfont">&#xe69b;</i>优惠活动</div>
+      </div>
+      <div class="con">
+        <div class="active_list">
+          <el-collapse @change="change">
+            <el-collapse-item class="li_con" v-for="event in events" :key="event.id" :name="event.id">
+              <template slot="title">
+                <div class="a_show">
+                  <img :src="event.web_img_url" alt="">
+                  <div class="name">
+                    <div class="title">
+                      <div class="tc">1{{event.title}}</div>
+                      <div class="tip">1{{event.description}}</div>
+                    </div>
+                    <a href="javascript:void(0)">查看详情</a>
+                  </div>
+                </div>
+              </template>
+              <div class="a_hide">
+                <div class="a_con">
+                  <div class="rq">活动日期：
+                    <span>1{{event.start_time}} - {{event.end_time}}</span>
+                  </div>
+                  <div class="dx">活动对象：
+                    <span>久发首次注册会员及代理</span>
+                  </div>
+                  <div class="nr">活动内容：
+                    <span>{{event.description}}</span>
+                  </div>
+                  <div class="gz">活动规则</div>
+                  <p>1.同一姓名、卡号、ip地址的用户只能参与一次。</p>
+                  <p>2.严禁玩家恶意注册多个账户，一经发现，将永久冻结账户。</p>
+                  <p>3.每天派送名额为2000个，先到先得，派送完为止。</p>
+                  <p>4.本活动最终解释权归久发国际所有。</p>
+                </div>
+              </div>
+            </el-collapse-item>
+          </el-collapse>
+        </div>
+      </div>-->
+    </div>
+    <!-- <script>
+        $('.name a').click(function () {
+            $(this).parents('.li_con').find('.a_hide').stop().slideToggle();
+        });
+        $(".active_list").niceScroll({
+            cursorcolor: "#444F69",
+            mousescrollstep: 40,
+            scrollspeed: 100,
+            autohidemode: "hidden",
+            cursorborder: "0px solid #fff",
+        });
+    </script> -->

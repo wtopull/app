@@ -1,0 +1,20 @@
+.icon {
+  width: 1.25em;
+  height: 1.25em;
+  vertical-align: -0.25em;
+  // @include icon-alignment;
+  fill: currentColor;
+  overflow: hidden;
+  margin-right: 0.25em;
+
+}
+
+.icon-hot{
+  width: 21px;height: 30px;
+  background-image: url(../img/icon/hot.png);
+}
+
+.icon-medal{
+width: 27px;height: 23px;
+background-image: url(../img/icon/medal.png);
+}

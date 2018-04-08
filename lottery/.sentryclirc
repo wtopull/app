@@ -1,0 +1,5 @@
+[defaults]
+url=https://sentry.io/
+
+[auth]
+token=e16f8215bc2c4d949e3b44c77919383728a5cf5385334d84afd6ccc192984529

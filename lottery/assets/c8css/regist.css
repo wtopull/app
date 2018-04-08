@@ -1,0 +1,135 @@
+/*login*/
+body{background: url('../img/login/login_bg.jpg') no-repeat center 0px  #CEEBFD;background-attachment: fixed;}
+.regist{max-width: 1210px;margin: 0px auto 0 auto;/* height:100px; */}
+.l_top{
+    overflow: hidden;
+    padding-top: 80px;
+    padding-bottom: 15px;
+}
+.l_top .l_logo{
+    text-align: center;
+}
+.l_top .l_button{
+    margin-top: 20px;
+}
+.l_top .l_button a{
+    padding: 10px 25px;
+    background: #ff92a6;
+    border-radius: 3px;
+    box-shadow: 0px 2px 4px 0px #ACACAC;
+    margin-left: 15px;
+}
+.l_top .l_button a:nth-child(1){}
+.l_top .l_button a:nth-child(2){}
+.l_min{
+    background: #fff;
+    border-radius: 5px;
+    margin-right: 50px;
+    padding: 40px 20px;
+    position: relative;
+    min-height: 450px;
+    box-shadow: 0px 16px 47px -7px #3E82BC;
+    border: 5px solid #6FADE1;
+}
+.l_min .yhzc{
+    position: absolute;
+    right: -57px;
+    top: 0px;
+    width: 52px;
+    background: #6FADE1;
+    padding: 100px 0px;
+    color: #fff;
+    border-radius: 0px 5px 5px 0px;
+    text-align: center;
+    box-shadow: 1px 1px 6px 0px #167DD4;
+}
+.l_min .yhzc span{color: #fef672;}
+.l_min .dlk{
+    overflow: hidden;
+    padding: 0 0 20px 0;
+}
+.l_min .dlk .dlk_l{
+    width: 50%;
+    float: left;
+    margin-left: 15px;
+}
+.l_min .dlk .dlk_r{
+    float: right;
+    width: 460px;
+    margin: 0px 43px 0px 0;
+    position: relative;
+}
+.l_min .dlk .dlk_r .tip{text-align: left;line-height: 35px;margin-top: 10px;}
+.l_min .dlk .dlk_r .tip a{color: #FF92A6;}
+.loginform{
+    width: 100%;
+}
+.loginform>div{
+    margin-bottom: 10px;
+    position: relative;
+}
+.loginform>div>i{
+    position: absolute;
+    top: 13px;
+    left: 12px;
+    color: #D0D0D0;
+}
+.loginform input{
+    height: 43px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    padding-left: 9px;
+    width: 55%;
+}
+.loginform .help-inline{float:right;line-height: 45px;width: 45%;overflow: hidden;text-indent: 25px;}
+.loginform input.xcode{width: 160px;}
+.loginform .username{}
+.loginform .code{
+    position: relative;
+}
+.loginform .code img{
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-left: 5px;
+    position: absolute;
+    left: 177px;
+    top: 0;
+    cursor: pointer;
+}
+.loginform .submite{margin-top: 35px;}
+.loginform .submite a{
+    text-align: center;
+    background: #FF92A6;
+    padding: 13px;
+    border-radius: 4px;
+    display:block;
+    width: 55%;
+}
+.loginform .mima{
+    width: 55%;
+}
+.loginform .mima a{
+    color: #999;
+    float: left;
+}
+.loginform .mima a:nth-child(2){
+
+    float: right;
+}
+.main2-center{height:350px}
+.main2-center a{display:block;width:100%;height:350px;border-radius:5px}
+.swiper-button-next, .swiper-button-prev{top: 97%;width: 35px;height: 35px;border-radius: 50%;background-color: #6FADE1;background-size: 35%;background: url('../img/login/pn.png') no-repeat 3px 3px #6FADE1;}
+.swiper-button-next{background-color: #FF92A6;background: url('../img/login/pn.png') no-repeat -24px 3px #FF92A6;}
+.swiper-container {
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    width: 460px;
+    height: 350px;
+}
+@media screen and (max-width:790px){
+    .l_min .dlk .dlk_l{width: 97%;margin: 10px;}
+    .loginform{margin:1px;width:98%}
+    .loginform input.xcode{width:120px}
+}

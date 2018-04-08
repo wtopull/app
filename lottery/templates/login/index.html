@@ -1,0 +1,63 @@
+<div>
+  <div class="login-bg d-flex justify-content-center align-items-center">
+    <div class="login-form">
+      <el-tabs v-model="activeLoginModel" @tab-click="handleTabClick">
+        <el-tab-pane label="密码登录" name="form">
+          <el-form :model="form" :rules="rules" ref="form">
+            <div class="input-area">
+              <el-form-item prop="name">
+                <el-input v-model="form.name" placeholder="请输入用户名" @blur="validateGA">
+                  <i slot="prefix" class="username-icon icon"></i>
+                </el-input>
+              </el-form-item>
+              <el-form-item prop="password">
+                <el-input v-model="form.password" type="password" placeholder="请输入密码" @keyup.native.enter="login">
+                  <i slot="prefix" class="password-icon icon"></i>
+                </el-input>
+              </el-form-item>
+              <el-form-item prop="GAKey" v-if="isBindGA">
+                <el-input v-model="form.GAKey" class="username" placeholder="请输入Google验证码"></el-input>
+            </el-form-item>
+              <el-form-item v-if="show" prop="captcha">
+                <div class="code">
+                  <el-input v-model="form.captcha" placeholder="请输入验证码">
+                    <i slot="prefix" class="captcha-icon icon"></i>
+                  </el-input>
+                  <img :src="capatchaCode" alt="">
+                </div>
+              </el-form-item>
+            </div>
+            <div class="d-flex justify-content-between password-area">
+              <el-form-item>
+                <el-checkbox v-model="rememberPw" @change="toggleStorePw">记住密码</el-checkbox>
+              </el-form-item>
+              <el-button type="text" @click="handleForgetPassword">忘记密码?</el-button>
+            </div>
+            <el-button type="primary" @click="login">立即登录</el-button>
+          </el-form>
+        </el-tab-pane>
+        <el-tab-pane label="扫码登录" name="qrcode" v-loading="loading.on" element-loading-text="二维码创建中">
+          <div class="d-flex justify-content-center">
+            <div v-if="qrImgSrc" class="qrcode">
+              <img :src="qrImgSrc" alt="qrcode">
+              <p>请使用手机扫码</p>
+            </div>
+          </div>
+        </el-tab-pane>
+        <div class="bottom-area d-flex justify-content-between align-items-center">
+          <el-button type="text" class="warning" @click="playDemo">免费试玩</el-button>
+          <!-- <span>有问题谘询在线客服？
+            <nuxt-link to="/sign-up/65" class="link">联系客服</nuxt-link>
+          </span> -->
+        </div>
+      </el-tabs>
+    </div>
+  </div>
+  <el-dialog :visible.sync="visible" width="30%">
+    <span slot="title">
+      <i class="header-icon"></i>
+      {{dialogTitle}}
+    </span>
+    <component :is="view" :visible.sync="visible" ref="dialogForm" @checkSuccess="setPassword" v-bind={questionList} />
+  </el-dialog>
+</div>

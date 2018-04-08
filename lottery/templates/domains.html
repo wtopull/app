@@ -1,0 +1,77 @@
+<div class="domain-main" v-show="close">
+  <div class="domains-box">
+    <div class="domains-title">
+      <div class="domains-title-left">
+        <span></span>
+        <p>线路检测</p>
+      </div>
+      <i class="el-icon-close" @click="close = false"></i>
+    </div>
+    <div class="domains-content">
+      <p>温馨提示：反应时间越小，网站速度越快，越快的网址排在越上面。</p>
+      <ul>
+        <li v-for="(item,index) in list" :key="index">
+          <div class="domains-lines">
+            <p>{{item.value}}/s</p>
+            <div class="">{{item.domain}}</div>
+          </div>
+          <a :href="item.domain" target="_blank">立即访问</a>
+        </li>
+        <li v-for="(item,index) in list" :key="index">
+          <div class="domains-lines">
+            <p>{{item.value}}/s</p>
+            <div class="">{{item.domain}}</div>
+          </div>
+          <a :href="item.domain" target="_blank">立即访问</a>
+        </li>
+        <li v-for="(item,index) in list" :key="index">
+          <div class="domains-lines">
+            <p>{{item.value}}/s</p>
+            <div class="">{{item.domain}}</div>
+          </div>
+          <a :href="item.domain" target="_blank">立即访问</a>
+        </li>
+        <li v-for="(item,index) in list" :key="index">
+          <div class="domains-lines">
+            <p>{{item.value}}/s</p>
+            <div class="">{{item.domain}}</div>
+          </div>
+          <a :href="item.domain" target="_blank">立即访问</a>
+        </li>
+        <li v-for="(item,index) in list" :key="index">
+          <div class="domains-lines">
+            <p>{{item.value}}/s</p>
+            <div class="">{{item.domain}}</div>
+          </div>
+          <a :href="item.domain" target="_blank">立即访问</a>
+        </li>
+        <li v-for="(item,index) in list" :key="index">
+          <div class="domains-lines">
+            <p>{{item.value}}/s</p>
+            <div class="">{{item.domain}}</div>
+          </div>
+          <a :href="item.domain" target="_blank">立即访问</a>
+        </li>
+      </ul>
+      <div class="domain-footer">
+        <div class="domain-footer-left">
+          <p>推荐您使用以下浏览器：</p>
+          <ul>
+            <li>
+              <a href="javascript:;"></a>
+            </li>
+            <li>
+              <a href="javascript:;"></a>
+            </li>
+            <li>
+              <a href="javascript:;"></a>
+            </li>
+          </ul>
+        </div>
+        <div class="domain-footer-right">
+          <a href="javascript:void(0)" @click="check">重新检测</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

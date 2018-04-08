@@ -1,0 +1,233 @@
+<div>
+  <div class="home">
+    <div class="block">
+      <el-carousel trigger="click" height="500px">
+        <el-carousel-item v-for="ad in advertisements" :key="ad.img_des">
+          <a :href="ad.img_link_url">
+            <img :src="ad.img_path" :alt="ad.img_des">
+        	</a>
+        </el-carousel-item>
+      </el-carousel>
+    </div>
+    <!-- <div class="bannerAdv">
+        <div class="container">
+      <div class="bannerAdvC">
+        <div class="bannerAdvConL">
+          <img src="../../assets/img/indexHome/adv.png" />最新公告： </div>
+        <div class="bannerAdvConR" id="bannerAdvConR">
+              <div class="scroll_begin" id="scroll_begin">申博太阳城即日起公司入款享受1%返利优惠，线上支付享受0.6%返利，优惠无上限，全天24小时不限次数提款0手续费!&nbsp;&nbsp;&nbsp;&nbsp;</div>
+              <div class="scroll_end" id="scroll_end"></div>
+          </div>
+        </div>
+        
+      </div>
+    </div> -->
+    <div class="notice">
+      <div class="container">
+          <nuxt-link class="row no-gutters" :to="`/news/${news[0] ? news[0].id : ''}`">
+              <div class="col col-auto">
+                  <svg class="icon" aria-hidden="true">
+                      <use xlink:href="#icon-notice"></use>
+                  </svg>最新公告：
+                </div>
+                <div class="marquee3k col" 
+                  data-speed="0.25"
+                  data-pausable="true">
+                  <div>
+                      {{notice}}
+                  </div>
+                </div>
+          </nuxt-link>
+      </div>
+    </div>
+    <div class="result">
+      <div class="container">
+        <div class="container-left">
+          <b>&nbsp;&nbsp;热门彩票&nbsp;&nbsp;</b>
+          <span>POPULAR LOTTERY</span>
+          <div class="content-left">
+            <ul>
+              <li v-for="lottoType in lottoTypes" :key="lottoType.name">
+                <p>{{lottoType.name}}</p>
+                <div class="flex-wrap">
+                  <span v-for="lotto in Object.keys(lottoType.infos)">
+                    <nuxt-link :to="`/lottery/${lotto}`">
+                      {{lottoType.infos[lotto].name}}
+                    </nuxt-link>
+                  </span>
+                </div>
+              </li>
+              <li>
+                <p>PC蛋蛋</p>
+                <div class="flex-wrap">
+                  <span>北京28</span>
+                  <span>幸运28</span>
+                </div>
+              </li>
+              <li>
+                <p>六合彩</p>
+                <div class="flex-wrap">
+                  <span>六合彩</span>
+                  <span>极速六合彩</span>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="container-right">
+          <b>&nbsp;&nbsp;开奖公告&nbsp;&nbsp;</b>
+          <span>LOTTERY ANNOUNCEMENT</span>
+          <div class="content-right">
+              <el-scrollbar tag="ul">
+              <li v-for="open in openList" :key="open.lottery_info_identifier">
+                <div class="open-result">
+                  <p>
+                    <b>{{open.lottery_info_name}}</b>
+                    <span>第{{open.issue_no}}期</span>
+                  </p>
+                  <div>
+                    <span>开奖结果</span>
+                    <ul class="flex-wrap d-flex">
+                      <li v-for="result in open.win_number.split(',')">{{result}}</li>
+                    </ul>
+                  </div>
+                </div>
+                <el-button type="primary">
+                  <router-link :to="`/lottery/${open.lottery_info_identifier}`">立即投注</router-link>
+                </el-button type="primary">
+              </li>
+            </el-scrollbar>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+    <div class="games">
+      <div class="gamesF">
+        <div class="gamesFbox">
+        	<!--真人-->
+        	<div class="gameCon" v-show="bgopacitys === 0">
+            <div class="gameTopZr"></div>
+            <div class="gameTitle">
+              <b>真人娱乐</b>
+              <span>LIVE ENTERTAINMENT</span>
+            </div>
+            <div class="gameConSize">
+              <p>目前最具创意及创新的合法博彩平台，2018年始大胆革新的思维使其
+                <br>迅速在市场上占得一席之地，全球首创VIP包桌及咪牌百家乐</p>
+            </div>
+            <div class="ganmeBut">
+              <ul class="ganmeButZr">
+                <li>
+                  <a href="javacrpit:;"></a>
+                </li>
+                <li>
+                  <a href="javacrpit:;"></a>
+                </li>
+                <li>
+                  <a href="javacrpit:;"></a>
+                </li>
+              </ul>
+            </div>
+            <div class="gameRightZr"> </div>
+          </div>
+          <!--体育-->
+          <div class="gameCon" v-show="bgopacitys === 1">
+            <div class="gameTopSt"></div>
+            <div class="gameTitle">
+              <b>体育投注</b>
+              <span>LOTTERY TICKET</span>
+            </div>
+            <div class="gameConSize">
+              <p>目前最具创意及创新的合法博彩平台，2018年始大胆革新的思维使其
+                <br>迅速在市场上占得一席之地</p>
+            </div>
+            <div class="ganmeBut">
+              <ul class="ganmeButSt">
+                <li>
+                  <a href="javacrpit:;"></a>
+                </li>
+                <li>
+                  <a href="javacrpit:;"></a>
+                </li>
+              </ul>
+            </div>
+            <div class="gameRightSt"> </div>
+          </div>
+          <!--彩票-->
+          <div class="gameCon" v-show="bgopacitys === 2">
+            <div class="gameTopLot"></div>
+            <div class="gameTitle">
+              <b>彩票游戏</b>
+              <span>LOTTERY TICKET</span>
+            </div>
+            <div class="gameConSize">
+              <p>目前最具创意及创新的合法博彩平台，2018年始大胆革新的思维使其
+                <br>迅速在市场上占得一席之地</p>
+            </div>
+            <div class="ganmeBut">
+              <ul class="ganmeButLot">
+              	<nuxt-link to="/lottery/cqssc" tag="li"></nuxt-link>
+              	<nuxt-link to="/lottery/xjssc" tag="li"></nuxt-link>
+              	<nuxt-link to="/lottery/sh11x5" tag="li"></nuxt-link>
+              </ul>
+              <ul class="ganmeButLots">
+              	<nuxt-link to="/lottery/bjkl8" tag="li"></nuxt-link>
+              	<nuxt-link to="/lottery/jskl3" tag="li"></nuxt-link>
+              	<nuxt-link to="/lottery/bjpk10" tag="li"></nuxt-link>
+              </ul>
+            </div>
+            <div class="gameRightLot"> </div>
+          </div>
+        	<!--电子-->
+          <div class="gameCon" v-show="bgopacitys === 3">
+            <div class="gameTop"></div>
+            <div class="gameTitle">
+              <b>电子游戏</b>
+              <span>SLOTS GAME</span>
+            </div>
+            <div class="gameConSize">
+              <p>目前最具创意及创新的合法博彩平台，2018年始大胆革新的思维使其
+                <br>迅速在市场上占得一席之地</p>
+            </div>
+            <div class="ganmeBut">
+              <ul class="ganmeButf">
+                <li>
+                  <a href="javacrpit:;"></a>
+                </li>
+                <li>
+                  <a href="javacrpit:;"></a>
+                </li>
+              </ul>
+              <ul class="ganmeButUls">
+                <li>
+                  <a href="javacrpit:;"></a>
+                </li>
+                <li>
+                  <a href="javacrpit:;"></a>
+                </li>
+                <li>
+                  <a href="javacrpit:;"></a>
+                </li>
+              </ul>
+            </div>
+            <div class="gameRight"> </div>
+          </div>
+        </div>
+      </div>
+      <div class="gamesS">
+        <div class="gamesSbox">
+          <ul class="gamesSboxT">
+          	<li v-for="(kk,index) in 4" @click="opacity(index)">
+          		<a href="javascript:;" :class="{active:index === bgopacitys}"></a>
+          	</li>
+          </ul>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,74 @@
+.play-options {
+  color: #7b7b7b;
+  margin-top: 15px;
+  &,
+  &+div {
+    display: flex;
+    align-items: center;
+  }
+  >div {
+    margin: 0 5px;
+    height: 28px;
+  }
+  .el-input__inner {
+    height: 28px;
+    width: 105px;
+  }
+  .el-input-number {
+    width: 100px;
+    line-height: 22px;
+    .el-input-number__decrease,
+    .el-input-number__increase {
+      width: 20px;
+      height: 20px;
+      color: #4f4f4f;
+      background: $--border-color-base;
+    }
+    .el-input-number__decrease {}
+    .el-input__inner {
+      padding-left: 22px;
+      padding-right: 22px;
+      height: 22px;
+      border-color: $--border-color-base transparent;
+      color: #e07700;
+    }
+  }
+  &,
+  &~div {
+    strong {
+      color: #e07700;
+      font-weight: normal;
+      font-size: 14px;
+    }
+  }
+
+  .el-slider {
+    display: inline-block;
+    width: 100px;
+    margin: -12px 15px 0 10px;
+  }
+}
+
+.play-count {
+  margin-right: 3px;
+  color: #e07700;
+}
+
+.play-amount-unit {
+  // display:flex;
+  // align-items: center;
+  button {
+    padding: 4px;
+    font-size: 12px;
+    border-color: #bebebe;
+    border-radius: 0;
+    background: #ececec;
+    width: 28px;
+    height: 28px;
+    font-size: 15px;
+    &.selected {
+      background: $--color-primary;
+      color: #fff;
+    }
+  }
+}

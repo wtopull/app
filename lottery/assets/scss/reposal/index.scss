@@ -1,0 +1,30 @@
+@import 'tabs';
+@import 'options';
+@import 'layout';
+
+.el-autocomplete-suggestion{
+  li{
+    line-height: 24px;
+    padding: 0 15px;
+    &.highlighted{
+      // color: #fff;
+    }
+    &:hover{
+      color: #fff;
+    }
+  }
+  //node_modules/element-ui/packages/autocomplete/src/autocomplete.vue:39,visible-arrow
+  //node_modules/element-ui/packages/dropdown/src/dropdown.vue:48,visibleArrow
+  // .popper__arrow{
+  //   display: none;
+  // }
+  // &.el-popper[x-placement^=bottom]{
+  //   margin-top: 0px;
+  // }
+  // .el-autocomplete-suggestion__wrap{
+  //   padding: 5px 0;
+  // }
+}
+
+
+@import 'order'

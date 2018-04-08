@@ -1,0 +1,17 @@
+<div class="notice">
+    <div class="head">
+        <div class="menu"><i class="icon iconfont">&#xe686;</i>通知公告</div>
+    </div>
+    <div class="con" v-if="news.length">
+        <div class="cont_left fl_l">
+            <News :change="change" :detail="true" :id="id" />
+        </div>
+        <div class="cont_right fl_l">
+            {{content}}
+        </div>
+    </div>
+    <div v-else>
+        没有公告！
+    </div>
+</div>
+

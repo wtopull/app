@@ -1,0 +1,37 @@
+<div class="sidebar-box">
+	<div class="sidebar-round" v-show="show" @click="isshow">
+		<p>》</p>
+		<p>更多信息</p>
+	</div>	
+	
+	<div class="sidebar" v-show="hide">
+		<ul>
+			<!--<nuxt-link to="" tag="li"></nuxt-link>
+			<nuxt-link to="" tag="li">
+				<div class="sidebar-left">
+					<p class="active"></p>
+					<p></p>
+				</div>
+				<div class="sidebar-left">
+					
+				</div>
+			</nuxt-link>
+			<nuxt-link to="" tag="li"></nuxt-link>
+			<nuxt-link to="" tag="li"></nuxt-link>
+			<nuxt-link to="" tag="li"></nuxt-link>-->
+			
+			<li></li>
+			<li>
+				<div class="sidebar-left">
+					<p :class="{active:icon}" @click="isicon"></p>
+					<p :class="{active:icons}" @click="isicon"></p>
+				</div>
+				<div class="sidebar-left" :class="{active:icon}"></div>
+				<div class="sidebar-left" :class="{active:icons}"></div>
+			</li>
+			<li></li>
+			<nuxt-link to="/domains" tag="li"></nuxt-link>
+			<li @click="isshow"></li>
+		</ul>
+	</div>
+</div>

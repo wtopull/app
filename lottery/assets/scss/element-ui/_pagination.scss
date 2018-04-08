@@ -1,0 +1,11 @@
+.pagination-wrap .el-pagination{
+  &.is-background{
+    .el-pager{
+      li{
+        border-radius: 0;
+        background-color:#fff;
+        border:1px solid $--border-color-base;
+      }
+    }
+  }
+}

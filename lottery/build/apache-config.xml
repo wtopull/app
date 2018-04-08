@@ -1,0 +1,22 @@
+<VirtualHost *:80>
+# https://www.1and1.com/cloud-community/index.php?id=1430#id6
+# http://www.codingtricks.biz/run-nodejs-application-apache/
+ServerName alpha
+
+ProxyRequests Off
+ProxyPreserveHost On
+ProxyVia Full
+<Proxy *>
+  Require all granted
+</Proxy>
+DocumentRoot /home/ubuntu/new-top-sky-alpha-front-v2/
+<Location />
+  ProxyPass http://127.0.0.1:3200/
+  ProxyPassReverse http://127.0.0.1:3200/
+</Location>
+
+<Directory "/home/ubuntu/new-top-sky-alpha-front-v2/">
+AllowOverride All
+</Directory>
+
+</VirtualHost>

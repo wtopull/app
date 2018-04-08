@@ -1,0 +1,820 @@
+.login {
+    display: flex;
+    background-color: #FFD22C;
+    height: 42px;
+    justify-content: center;
+    .loginBox {
+        display: flex;
+        width: 1100px;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .loginTime {
+        font-size: 12px;
+    }
+    .l_min {
+        display: flex;
+        align-items: center;
+        .dlk_s {
+            display: flex;
+            align-items: center;
+            line-height: 32px;
+            ul {
+                display: flex;
+                color: #000;
+                li {
+                    padding: 0px 10px;
+                    cursor: pointer;
+                    height: 42px;
+                    line-height: 42px;
+                    border-right: 1px solid #DDB72D;
+                    position: relative;
+                    .dlk_sTop {
+                        position: absolute;
+                        background: url(~assets/img/indexHome/top11.png) no-repeat;
+                        width: 139px;
+                        height: 199px;
+                        left: -24px;
+                        ul {
+                            display: flex;
+                            flex-direction: column;
+                            width: 100%;
+                            height: 100%;
+                            padding-top: 32px;
+                            li {
+                                display: flex;
+                                justify-content: center;
+                                align-items: center;
+                                align-content: center;
+                                flex-direction: column;
+                                padding: 0;
+                                margin: 0;
+                                margin-bottom: 2px;
+                                background: none;
+                                border: none;
+                                width: 100%;
+                                height: 39px;
+                                a {
+                                    display: flex;
+                                    align-items: center;
+                                    justify-content: center;
+                                    width: 110px;
+                                    height: 32px;
+                                    color: #444;
+                                }
+                                a.active {
+                                    display: flex;
+                                    align-items: center;
+                                    justify-content: center;
+                                    background: #ECC233;
+                                    color: #fff;
+                                    width: 110px;
+                                    height: 32px;
+                                }
+                            }
+                        }
+                    }
+                    .dlk_sTops {
+                        position: absolute;
+                        background: url(~assets/img/indexHome/top22.png) no-repeat;
+                        width: 199px;
+                        height: 293px;
+                        left: -6px;
+                        ul {
+                            display: flex;
+                            flex-direction: column;
+                            width: 100%;
+                            height: 100%;
+                            padding-top: 32px;
+                            li {
+                                display: flex;
+                                justify-content: center;
+                                align-items: center;
+                                align-content: center;
+                                flex-direction: column;
+                                padding: 0;
+                                margin: 0;
+                                margin-bottom: 2px;
+                                background: none;
+                                border: none;
+                                width: 100%;
+                                height: 39px;
+                                a {
+                                    display: flex;
+                                    align-items: center;
+                                    justify-content: center;
+                                    width: 158px;
+                                    height: 32px;
+                                    color: #444;
+                                }
+                                a.active {
+                                    display: flex;
+                                    align-items: center;
+                                    justify-content: center;
+                                    background: #ECC233;
+                                    color: #fff;
+                                    width: 158px;
+                                    height: 32px;
+                                }
+                            }
+                        }
+                    }
+                }
+                li.active {
+                    color: #fff;
+                    background: #444;
+                }
+                li:nth-child(8) {
+                    border: none;
+                }
+                li:nth-child(1) {
+                    background: url(~assets/img/indexHome/n1.png) no-repeat 6px center;
+                    padding-left: 26px;
+                }
+                li:nth-child(2) {
+                    background: url(~assets/img/indexHome/n2.png) no-repeat 6px center;
+                    padding: 0 16px 0px 26px;
+                }
+                li:nth-child(3) {
+                    background: url(~assets/img/indexHome/n3.png) no-repeat 6px center;
+                    padding: 0 16px 0px 26px;
+                }
+                li:nth-child(8) {
+                    background: url(~assets/img/indexHome/n4.png) no-repeat 6px center;
+                    padding-left: 26px;
+                }
+                li:nth-child(1).active {
+                    background: #444444 url(~assets/img/indexHome/h1.png) no-repeat 6px center;
+                    padding-left: 26px;
+                }
+                li:nth-child(2).active {
+                    background: #444444 url(~assets/img/indexHome/h2.png) no-repeat 6px center;
+                    padding: 0 16px 0px 26px;
+                }
+                li:nth-child(3).active {
+                    background: #444444 url(~assets/img/indexHome/h3.png) no-repeat 6px center;
+                    padding: 0 16px 0px 26px;
+                }
+                li:nth-child(8).active {
+                    background: #444444 url(~assets/img/indexHome/h4.png) no-repeat 6px center;
+                    padding-left: 26px;
+                }
+                .dlk_sbutt {
+                    background: url(~assets/img/indexHome/OUT.png) no-repeat center center;
+                    width: 131px;
+                    height: 42px;
+                    border: none;
+                    margin-left: 6px;
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+    .loginform {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        &>div {
+            margin-right: 5px;
+        }
+        &>.iconBox {
+            display: flex;
+            position: relative;
+            align-items: center;
+            &>input {
+                padding-left: 20px;
+                padding-right: 4px;
+                height: 32px;
+                width: 148px;
+            }
+            &>.iconLogin {
+                position: absolute;
+                left: 2px;
+            }
+        }
+        &>.code {
+            position: relative;
+            &>.xcode {
+                height: 32px;
+                width: 128px;
+                padding-left: 8px;
+            }
+            &>.verif {
+                position: absolute;
+                width: 66px;
+                height: 24px;
+                top: 1px;
+                right: 1px;
+            }
+        }
+        &>.submite {
+            width: 131px;
+            height: 32px;
+            background: url(~assets/img/indexHome/in.png) no-repeat;
+        }
+        &>.reCe button {
+            width: 70px;
+            height: 32px;
+            border-radius: 4px;
+            background: #5E5E5E;
+            border: none;
+            color: #fff;
+        }
+        &>.mima {
+            display: flex;
+            align-self: flex-end;
+            &>.remember {
+                font-size: 12px;
+                text-decoration: underline;
+                color: #5E5E5E;
+            }
+        }
+    }
+}
+.el-carousel__item h3 {
+    background: url(~assets/img/indexHome/banner1.jpg) no-repeat center center;
+    height: 500px;
+    width: 100%;
+    margin: 0;
+}
+.el-carousel__item img {
+    height: 500px;
+    width: 100%;
+    margin: 0;
+}
+.el-carousel__item:nth-child(2n) {
+    background-color: #99a9bf;
+}
+
+.el-carousel__item:nth-child(2n+1) {
+    background-color: #d3dce6;
+}
+
+ul.el-carousel__indicators {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 38px;
+    align-items: center;
+}
+
+li.el-carousel__indicator {
+    border-radius: 50%;
+    width: 14px;
+    height: 14px;
+    padding: 0;
+    margin-right: 4px;
+}
+
+.el-carousel__indicator.is-active {}
+
+.el-carousel__indicator button {
+    border-radius: 50%;
+    width: 14px;
+    height: 14px;
+}
+
+.el-carousel__button {
+    background: #fff;
+}
+
+.bannerAdv-box{
+    display: flex;
+    justify-content: center;
+    height: 35px;
+    width: 100%;
+}
+.bannerAdv {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 35px;
+//  background: #F3F3F3;
+    .bannerAdvC {
+        display: flex;
+        align-items: center;
+        width: 1100px;
+        height: 35px;
+        font-weight: bold;
+        img {
+            margin-right: 12px;
+        }
+        .bannerAdvConR {
+            display: flex;
+            align-items: center;
+            height: 33px;
+            width: 980px;
+            white-space: nowrap;
+            overflow: hidden;
+            font: 12px/33px "微软雅黑";
+            color: #8C8C8C;
+            .scroll_begin {
+                display: inline-block;
+                height: 33px;
+            }
+            .scroll_end {
+                display: inline-block;
+                height: 33px;
+            }
+        }
+    }
+}
+@mixin aBg($pic, $width, $height) {
+    background: url('../../img/indexHome/'+$pic) no-repeat;
+    height: $height;
+    width: $width;
+}
+.games {
+    padding-top: 77px;
+    background: #F3F3F3;
+    border-top: 1px solid #E1E1E1;
+    .gamesF {
+        background: #F5F5F5;
+        .gamesFbox {
+            display: flex;
+            justify-content: center;
+            background: #ECC233;
+            height: 392px;
+            position: relative;
+            @for $i from 1 through 4 {
+                > div.active:nth-child(#{$i}){
+                    display: block;
+                }
+            }
+            & .gameCon {
+                width: 1100px;
+                position: absolute;
+                padding-top: 57px;
+                & .gameTop {
+                    background: url(~assets/img/indexHome/five-game-platform.jpg) no-repeat;
+                    width: 273px;
+                    height: 114px;
+                    position: absolute;
+                    top: -57px;
+                }
+                & .gameTopZr,
+                & .gameTopSt,
+                & .gameTopLot {
+                    background: url(~assets/img/indexHome/six-game-platform.jpg) no-repeat;
+                    width: 273px;
+                    height: 114px;
+                    position: absolute;
+                    top: -57px;
+                }
+                & .gameTitle {
+                    display: flex;
+                    align-items: center;
+                    font-size: 24px;
+                    height: 64px;
+                    & b {
+                        display: flex;
+                        height: 64px;
+                        line-height: 64px;
+                        border-bottom: 2px solid #474443;
+                        margin-right: 13px;
+                        color: #161616;
+                    }
+                    & span {
+                        display: flex;
+                        font-size: 14px;
+                        color: #262626;
+                    }
+                }
+                & .gameConSize {
+                    position: relative;
+                    z-index: 2;
+                    font-size: 14px;
+                    margin: 16px 0px 6px;
+                    color: #3C2924;
+                }
+                & .ganmeBut {
+                    & ul {
+                        display: flex;
+                        margin: 0;
+                        padding: 0;
+                        & li {
+                            display: flex;
+                            cursor: pointer;
+                        }
+                    }
+                    & .ganmeButUls {
+                        margin-left: 52px;
+                    }
+                }
+                & .gameRight {
+                    position: absolute;
+                    top: -76px;
+                    right: -90px;
+                    background: url(~assets/img/indexHome/gameRight.jpg) no-repeat;
+                    width: 816px;
+                    height: 468px;
+                }
+                & .gameRightZr {
+                    position: absolute;
+                    top: -77px;
+                    right: -90px;
+                    background: url(~assets/img/indexHome/zr_game.jpg) no-repeat;
+                    width: 816px;
+                    height: 468px;
+                }
+                & .gameRightSt {
+                    position: absolute;
+                    top: -76px;
+                    right: -90px;
+                    background: url(~assets/img/indexHome/st_game.jpg) no-repeat;
+                    width: 816px;
+                    height: 468px;
+                }
+                & .gameRightLot {
+                    position: absolute;
+                    top: -76px;
+                    right: -90px;
+                    background: url(~assets/img/indexHome/lot_game.jpg) no-repeat;
+                    width: 816px;
+                    height: 468px;
+                }
+            }
+        }
+    }
+    .gamesS {
+        display: flex;
+        justify-content: center;
+        .gamesSbox {
+            width: 1100px;
+            .gamesSboxT {
+                display: flex;
+                margin: 0;
+                padding: 0;
+                @for $i from 1 through 4 {
+                    & li:nth-child(#{$i}) {
+                        display: flex;
+                        @include aBg('game'+$i+'.jpg',275px,136px);
+                        width: 275px;
+                        height: 136px;
+                        cursor: pointer; 
+                        & a{
+                            display: flex;
+                            background: url(../../img/indexHome/btn_h.png) no-repeat;
+                            width: 275px;
+                            height: 136px;
+                            display: none;
+                        }
+                    }
+                    & li:nth-child(#{$i}):hover {
+                        display: flex;
+//                      background: url('../../img/indexHome/game'+$i+'.png') no-repeat,url('../../img/indexHome/btn_h.png') no-repeat;
+                        @include aBg('game'+$i+'.jpg',275px,136px);
+                        width: 275px;
+                        height: 136px;
+                        & a{
+                            display: flex;
+                            background: url(../../img/indexHome/btn_h.png) no-repeat;
+                            width: 275px;
+                            height: 136px;
+                            display: block;
+                        }
+                    }
+                }
+                & li a.active{
+                    display: block;
+                }
+            }
+        }
+    }
+}
+
+@mixin Bg($pic, $width, $height) {
+    background: url('../../img/indexHome/'+$pic) no-repeat;
+    height: $height;
+    width: $width;
+}
+
+.ganmeButZr {
+    position: relative;
+    z-index: 101;
+    @for $i from 1 through 3 {
+        & li:nth-child(#{$i}) {
+            @include Bg('zr_game'+$i+'.jpg',
+            114px,
+            114px);
+            margin: 34px 20px 0px 0px;
+        }
+        & li:nth-child(#{$i}):hover {
+            @include Bg('zr_game_'+$i+'.jpg',
+            114px,
+            114px);
+        }
+    }
+}
+
+.ganmeButSt {
+    @for $i from 1 through 2 {
+        & li:nth-child(#{$i}) {
+            @include Bg('st_game'+$i+'.jpg',
+            114px,
+            114px);
+            margin: 34px 30px 0px 0px;
+        }
+        & li:nth-child(#{$i}):hover {
+            @include Bg('st_game_'+$i+'.jpg',
+            114px,
+            114px);
+        }
+    }
+}
+
+.ganmeButLot {
+    @for $i from 1 through 3 {
+        & li:nth-child(#{$i}) {
+            @include Bg('lot_game'+$i+'.jpg',
+            94px,
+            94px);
+            margin: 0px 30px 0px 0px;
+        }
+        & li:nth-child(#{$i}):hover {
+            @include Bg('lot_game_'+$i+'.jpg',
+            94px,
+            94px);
+        }
+    }
+}
+
+.ganmeButLots {
+    @for $i from 1 through 3 {
+        & li:nth-child(#{$i}) {
+            @include Bg('lot_games'+$i+'.jpg',
+            94px,
+            94px);
+            margin: 4px 30px 0px 0px;
+        }
+        & li:nth-child(#{$i}):hover {
+            @include Bg('lot_games_'+$i+'.jpg',
+            94px,
+            94px);
+        }
+    }
+}
+
+.ganmeButf {
+    @for $i from 1 through 2 {
+        & li:nth-child(#{$i}) {
+            @include Bg('dz_game_'+$i+'.jpg',
+            94px,
+            94px);
+            margin: 0px 20px 0px 0px;
+        }
+        & li:nth-child(#{$i}):hover {
+            @include Bg('dz_game'+$i+'.jpg',
+            94px,
+            94px);
+        }
+    }
+}
+
+.ganmeButUls {
+    @for $i from 1 through 3 {
+        & li:nth-child(#{$i}) {
+            @include Bg('dz_games_'+$i+'.jpg',
+            94px,
+            94px);
+            margin: 0px 20px 0px 0px;
+        }
+        & li:nth-child(#{$i}):hover {
+            @include Bg('dz_games'+$i+'.jpg',
+            94px,
+            94px);
+        }
+    }
+}
+
+
+.one_r .g_con ul {
+    float: left;
+}
+
+.one_r .g_con {
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    min-height: 400px;
+}
+
+.one_r .g_con ul {
+    float: left;
+    width: 33.33%;
+}
+
+.qiehuan {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.p_n {
+    width: 70px;
+    text-align: center;
+    line-height: 30px;
+    padding: 10px 0;
+    color: #cbcbcb;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    margin-left: -25px;
+}
+
+.p_n .c_prev {
+    color: #6fade1;
+}
+
+.g_con .qiehuan {
+    .cqssc {
+        background-position: -198px -58px;
+    }
+    .sd11x5 {
+        background-position: -133px -192px;
+    }
+    .sh11x5 {
+        background-position: -133px -188px;
+    }
+    .plsw {
+        background-position: -133px -320px;
+    }
+    .bjpk10 {
+        background-position: 0 -382px;
+    }
+    .txffc {
+        background-position: -463px -252px;
+    }
+}
+
+.home {
+    width: 100%;
+    // height: 320px;
+    position: relative;
+    /*** 热门采种，开奖公告 ***/
+    .result {
+        display: flex;
+        justify-content: center;
+        height: 440px;
+        background: #fff;
+        .container {
+            display: flex;
+            // width: 1100px;
+            margin-top: 10px;
+            // padding-left: 0px;
+        }
+        .container-right {
+            width: 432px;
+            b {
+                height: 35px;
+                line-height: 35px;
+                border-bottom: 2px solid #D99400;
+                color: #D99400;
+                font-size: 20px;
+            }
+            span {
+                font-size: 12px;
+                color: #3E3E3E;
+            }
+        }
+        .content-right {
+            border: 1px solid #E0E0E0;
+            background: #FFFFFF;
+            height: 372px;
+            width: 432px;
+            margin-top: 2px;
+            overflow: auto;
+            .el-scrollbar__wrap {
+                max-height: 373px;
+            }
+            .el-scrollbar__view {
+                height: 100%;
+                overflow: auto;
+                >li {
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    padding: 10px 10px;
+                    border-bottom: 1px dotted #DADBDD;
+                    min-height: 90px;
+                    .open-result {
+                        p {
+                            display: flex;
+                            align-items: center;
+                            b {
+                                display: flex;
+                                font-size: 14px;
+                                color: #595757;
+                                margin-right: 28px;
+                                border: none;
+                                width: 70px;
+                            }
+                            span {
+                                display: flex;
+                                color: #898989;
+                                font-size: 12px;
+                            }
+                        }
+                        div {
+                            display: flex;
+                            align-items: center;
+                            span {
+                                display: flex;
+                                color: #898989;
+                                font-size: 12px;
+                                margin-right: 10px;
+                                width: 70px;
+                            }
+                            ul {
+                                width: 155px;
+                                li {
+                                    display: flex;
+                                    justify-content: center;
+                                    align-items: center;
+                                    border: 0;
+                                    background: url(~assets/img/indexHome/lott.png) no-repeat;
+                                    height: 25px;
+                                    width: 25px;
+                                    color: #fff;
+                                    font-weight: bold;
+                                    margin: 0 6px 7px 0;
+                                }
+                            }
+                        }
+                    }
+                    .el-button {
+                        width: 135px;
+                        border-radius: 4px;
+                        a {
+                            font-size: 16px;
+                        }
+                    }
+                }
+            }
+        }
+        .container-left {
+            width: 656px;
+            margin-right: 12px;
+            b {
+                height: 35px;
+                line-height: 35px;
+                border-bottom: 2px solid #D99400;
+                color: #D99400;
+                font-size: 20px;
+            }
+            span {
+                font-size: 12px;
+                color: #3E3E3E;
+            }
+        }
+        .content-left {
+            border: 1px solid #E0E0E0;
+            border-left: 0px;
+            border-bottom: 0px;
+            background: #F3F3F3;
+            height: 374px;
+            width: 656px;
+            margin-top: 2px;
+            ul {
+                display: flex;
+                flex-wrap: wrap;
+                width: 100%;
+                height: 100%;
+                li {
+                    display: flex;
+                    flex-direction: column;
+                    width: 50%;
+                    padding: 13px 0 0 20px;
+                    border-left: 1px solid #E0E0E0;
+                    border-bottom: 1px solid #E0E0E0;
+                    transition: background .3s;
+                    &:hover {
+                        background: white;
+                    }
+                    p {
+                        font-size: 14px;
+                        font-weight: bold;
+                    }
+                    div {
+                        display: flex;
+                        span {
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            width: 90px;
+                            height: 30px;
+                            background: #fff;
+                            border: 1px solid #E0E0E0;
+                            margin-top: 5px;
+                            margin-right: 8px;
+                            cursor: pointer;
+                            a {
+                                color: #333;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
