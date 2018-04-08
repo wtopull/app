@@ -20,15 +20,15 @@
 
 // import request from 'superagent'
 //localhost f5 refresh ECONNREFUSED error,but Ubuntu success
-const check = async (context,{ page = 0, limit_type = 1, identify = 'alpha' } = {}) =>
-  (await context.$axios.$get('/sys-report', {
+const check = (context,{ page = 0, limit_type = 1, identify = 'alpha' } = {}) =>
+  context.$axios.$get('/sys-report', {
     params: {
       identify,
       page,
       limit_type
     },
     baseURL:'/'
-  })).data
+  })
 
   // request.get('/sys-report').query({
   //   identify,
@@ -41,7 +41,7 @@ export default {
   layout: 'empty',
   async asyncData({app}) {
     if(process.server) return {list:[]}
-    return await check(app)
+    return (await check(app)).data
     // return (await check()).body.data //superagent use body
   },
   created(){
@@ -51,7 +51,8 @@ export default {
   },
   methods: {
     async check() {
-      Object.assign(this, await check(this))
+      // Object.assign(this, (await check()).data.data)
+      Object.assign(this, (await check(this)).data)
     }
   }
 }

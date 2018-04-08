@@ -231,7 +231,7 @@
 .el-tree {
   cursor: default;
   background: #fff;
-  color: #5a5e66; }
+  color: #666; }
   .el-tree__empty-block {
     position: relative;
     min-height: 60px;
@@ -243,7 +243,7 @@
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
-    color: #877971; }
+    color: #cf8b16; }
 
 .el-tree-node {
   white-space: nowrap;
@@ -251,7 +251,7 @@
   .el-tree-node:focus {
     /* focus */ }
     .el-tree-node:focus > .el-tree-node__content {
-      background-color: #f5f7fa; }
+      background-color: #f1f1f1; }
   .el-tree-node__content {
     display: -ms-flexbox;
     display: flex;
@@ -264,10 +264,10 @@
     .el-tree-node__content > .el-checkbox {
       margin-right: 8px; }
     .el-tree-node__content:hover {
-      background-color: #f5f7fa; }
+      background-color: #f1f1f1; }
   .el-tree-node__expand-icon {
     cursor: pointer;
-    color: #b4bccc;
+    color: #bbb;
     font-size: 12px;
     transform: rotate(0deg);
     transition: transform 0.3s ease-in-out; }
@@ -281,7 +281,7 @@
   .el-tree-node__loading-icon {
     margin-right: 8px;
     font-size: 14px;
-    color: #b4bccc; }
+    color: #bbb; }
   .el-tree-node > .el-tree-node__children {
     overflow: hidden;
     background-color: transparent; }
@@ -289,4 +289,4 @@
     display: block; }
 
 .el-tree--highlight-current .el-tree-node.is-current > .el-tree-node__content {
-  background-color: #f3f8fd; }
+  background-color: #fffbee; }

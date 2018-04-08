@@ -1,22 +1,30 @@
 .reposal-tabs{
   > .el-tabs__header{
-    background: #ecf1f5;
-    border: 1px solid #ddd;
-    border-radius: 3px;
+    background: #ffd22c;
+    color: #4f4f4f;
     position: relative;
     z-index: 10;
-    height: 40px;
-    margin-bottom: 50px;
+    height: 42px;
+    border-bottom: none;
     .el-tabs__nav{
       border:none;
       .el-tabs__item{
-        border-radius: 3px;padding: 0 10px;
+        padding: 0 10px;
         min-width: 60px;
         text-align: center;
         border-left: none;
+        height: 42px;
+        line-height: 42px;
+        border-right: 1px solid #ebc433;
+        color: #4f4f4f;
+        font-weight: normal;
+        min-width: 115px;
+        &:hover {
+          color: #4f4f4f;
+        }
         &.is-active{
-          color:#fff;
-          background: #6fade1;
+          color:#e07700;
+          background: white;
         }
       }
     }

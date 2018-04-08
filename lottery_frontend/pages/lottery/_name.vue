@@ -1,64 +1,66 @@
 <template>
   <div class="lottery">
     <div class="lottery_top">
-      <div class="t_l fl_l">
+      <div class="t_l">
         <!-- css selector not support '1min' -->
-        <div class="c_pic fl_l" :class="lottoName"></div>
-        <div class="c_ld fl_l">
-          <a :href="trendHref" target="_blank" v-if="trendHref">
-            <i class="icon iconfont">&#xe6a1;</i>走势图　</a>
-          <button disabled v-else>
-            <i class="icon iconfont">&#xe6a1;</i>走势图
-          </button>
-          <nuxt-link :to="`/${betType[0][1]}/${lottoName}`">
-            <i class="icon iconfont">&#xe66f;</i>{{betType[1][1]}}玩法</nuxt-link>
-        </div>
+        <div class="c_pic" :class="lottoName"></div>
+      </div>
+      <div class="c_ld">
+        <nuxt-link :to="`/${betType[0][1]}/${lottoName}`">
+          {{betType[1][1]}}玩法
+          <span class="transfer-type-icon"></span>
+        </nuxt-link>
       </div>
       <issue ref="issue" />
+      <div class="c_rd">
+        <a :href="trendHref" target="_blank" v-if="trendHref">
+          走势图
+          <span class="trend_icon"></span>
+        </a>
+        <button disabled v-else>
+          走势图
+          <span class="trend_icon"></span>
+        </button>
+        <a href="admin/playhelp/ssc" target="_blank">
+          玩法说明
+          <span class="trend_icon"></span>
+        </a>
+      </div>
     </div>
     <div class="lottery_con">
       <play-nav />
-      <div class="lottery-panel">
-        <help :identifier="playIdentifier" />
-        <layout :identifier="playIdentifier" :type="lottoType" v-bind={playText} ref="layout" />
+      <div class="lottery-content">
+        <div class="lottery-panel">
+          <help :identifier="playIdentifier" />
+          <layout :identifier="playIdentifier" :type="lottoType" v-bind={playText} ref="layout" />
+        </div>
+        <div class="lottery-record">
+          <div class="lottery-record-head">
+            <div>奖期</div>
+            <div>开奖</div>
+          </div>
+          <el-scrollbar>
+            <ul>
+              <li v-for="issue in issueList" :key="issue.issue_no" class="lottery-record-item">
+                <div class="qh">{{issue.issue_no}}</div>
+                <div class="kj">
+                  <span v-for="num in issue.win_number.split(',')">{{num}}</span>
+                </div>
+              </li>
+            </ul>
+          </el-scrollbar>
+        </div>
+      </div>
+      <div class="lottery-operator">
         <options :max="getMaxBonus(playInfo.max_bet_prize_group)" :maxMultiple="maxMultiple" ref="options" />
         <div class="betting-actions">
-          <a class="btn btn-bg btn-betting" lottery="quick_bet" @click="bet(true)">
-            <i class="icon iconfont">&#xe63d;</i>一键投注</a>
-          <a class="btn btn-bg btn-add" id="betting-add" @click="getOrder">
-            <i class="icon iconfont">
-              &#xe604;</i>添加号码</a>
+          <el-button type="primary" class="btn btn-bg btn-betting" lottery="quick_bet" @click="bet(true)">一键投注</el-button>
+          <el-button type="primary" class="btn btn-bg btn-add" id="betting-add" @click="getOrder">添加号码</el-button>
         </div>
       </div>
       <div class="lottery-basket">
-        <div class="g_head">
-          <div class="g_tab">
-            <a href="javascript:void(0)" v-for="(item,index) in ['购彩篮','历史开奖']" :key="index" :class="{active:basketIndex === index}" @click="basketIndex = index">
-              {{item}}
-            </a>
-          </div>
-          <div class="clean" @click="setOrder([])">
-            <i class="icon iconfont">&#xe64c;</i>清空
-          </div>
-        </div>
         <div class="betting-lottery">
-          <order v-show="basketIndex === 0" ref="order" />
-          <div class="b_list kjhm" v-show="basketIndex === 1">
-            <div class="hd">
-              <div class="qihao">期号</div>
-              <div class="kaijiang">开奖号码</div>
-            </div>
-            <el-scrollbar>
-              <ul>
-                <li v-for="issue in issueList" :key="issue.issue_no">
-                  <div class="qh">{{issue.issue_no}}</div>
-                  <div class="kj">
-                    <span v-for="num in issue.win_number.split(',')">{{num}}</span>
-                  </div>
-                </li>
-              </ul>
-            </el-scrollbar>
-          </div>
+          <order ref="order" :setOrder="setOrder" />
         </div>
       </div>
       <component :is="view" ref="chase" />
@@ -84,10 +86,9 @@ import Options from '~/components/lotto/Options'
 import Order from '~/components/lotto/Order'
 import Report from '~/components/lotto/Report'
 import { time } from '~/plugins/filters'
-import { simpleCompress,transformCode } from '~/util/lotto/code'
+import { simpleCompress, transformCode } from '~/util/lotto/code'
 import aesDecrypt from '~/util/aesDecrypt'
-
-import { AsyncComp,noop } from '~/plugins/common'
+import { AsyncComp, noop } from '~/plugins/common'
 
 export default {
   name: 'lotto',
@@ -106,7 +107,6 @@ export default {
       bigWayIndex: 0,
       playIndex: [0, 0],
       playText: {},
-      basketIndex: 0,
       view: ''
     }
   },
@@ -156,10 +156,7 @@ export default {
       if (betCount === 0) {
         return add ? this.checkOrder() : this.order
       }
-      if (
-        !isPlaySimple &&
-        (await this.checkSinglePer().catch(noop)) !== true
-      )
+      if (!isPlaySimple && (await this.checkSinglePer().catch(noop)) !== true)
         return
       const {
         playIdentifier,
@@ -251,7 +248,7 @@ export default {
             )
           })
         )
-        if (!newData.length) return this.isInvoking = false
+        if (!newData.length) return (this.isInvoking = false)
         this.$message({
           message: '投注成功！',
           type: 'success',
@@ -266,15 +263,23 @@ export default {
         this.$lottoOrder.tableData = allBets
           .map(
             (
-              { playName, issue, amount, lottery_info_identifier, buy_number,lottoType },
+              {
+                playName,
+                issue,
+                amount,
+                lottery_info_identifier,
+                buy_number,
+                lottoType
+              },
               index
             ) => {
               if (newData[index]) {
                 const { ...props } = newData[index]
-                const method = this.listMap[lottery_info_identifier].name + '-' + playName
+                const method =
+                  this.listMap[lottery_info_identifier].name + '-' + playName
                 return {
                   ...props,
-                  buy_number: transformCode(buy_number,method,lottoType),
+                  buy_number: transformCode(buy_number, method, lottoType),
                   bonus: 0,
                   method,
                   issue,
@@ -335,7 +340,7 @@ export default {
       const maxMultiple = this.sysConfigs.find(
         _ => _.identify === 'bet_max_multiple'
       )
-      return maxMultiple ? Number(aesDecrypt(maxMultiple.value)) : 100000
+      return maxMultiple ? +aesDecrypt(maxMultiple.value) : 100000
     },
     smallWays() {
       return this.playList[this.bigWayIndex]
@@ -353,9 +358,12 @@ export default {
       return this.playInfo.identifier
     },
     isPlaySimple() {
-      const {playIdentifier} = this
+      const { playIdentifier } = this
       //三不同号单选 sanbutonghao_sanbutonghao_sbthds
-      return playIdentifier.includes('ds') && !/danshuang|tonghao/.test(playIdentifier)
+      return (
+        playIdentifier.includes('ds') &&
+        !/danshuang|tonghao/.test(playIdentifier)
+      )
     },
     singlePer() {
       const singlePer = this.sysConfigs.find(_ => _.identify === 'single_per')
@@ -376,3 +384,4 @@ export default {
   }
 }
 </script>
+\

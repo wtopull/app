@@ -24,11 +24,17 @@ const isSever = process.server
 const getInfo = async context =>
   (await context.$axios.$post('user-balance-account/get-account-info')).data
 
-const setBal = (store, data) =>
+const setBal = (store, { list, currency_list }) => {
   store.commit(
     'pay/setBal',
-    pick(['allow_withdraw_balance', 'total_balance', 'frozen_balance'])(data)
+    zipObject(Object.keys(list))(
+      Object.values(list).map(_ =>
+        pick(['allow_withdraw_balance', 'total_balance', 'frozen_balance'])(_)
+      )
+    )
   )
+  store.commit('setState', { key: 'pay.currencyList', value: currency_list })
+}
 
 const BIND_CARD_URL = '/admin/user?noBankCards=true'
 
@@ -44,6 +50,7 @@ export default {
       return Promise.resolve()
     }
     await store.dispatch('pay/getBankCards')
+    cache.isRequestBankCards = true
     if (!store.getters['pay/bankCards'].length) redirect(BIND_CARD_URL)
     return Promise.resolve()
   },
@@ -62,7 +69,7 @@ export default {
       }
     const data = await getInfo(app)
     setBal(store, data)
-    return data
+    return data.list[store.getters['pay/currency']]
   },
   data() {
     const form = {
@@ -72,6 +79,7 @@ export default {
     }
     return {
       payIndex: 0,
+      payIndexs: 0,
       game_acc: [
         {
           name: '彩票账户'
@@ -125,7 +133,10 @@ export default {
         this.$store.dispatch('pay/getBankCards').then(() => {
           if (this.bankCards.length) {
             getInfo(this).then(data => {
-              Object.assign(this, data)
+              Object.assign(
+                this,
+                data.list[this.$store.getters['pay/currency']]
+              )
               setBal(this.$store, data)
             })
           } else {

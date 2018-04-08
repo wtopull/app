@@ -68,6 +68,19 @@ $spacer: 1rem !default;
 
 $text-muted:                  $--color-text-secondary !default;
 
+// Z-index master list
+//
+// Warning: Avoid customizing these values. They're used for a bird's eye view
+// of components dependent on the z-axis and are designed to all work together.
+
+$zindex-dropdown:                   1000 !default;
+$zindex-sticky:                     1020 !default;
+$zindex-fixed:                      1030 !default;
+$zindex-modal-backdrop:             1040 !default;
+$zindex-modal:                      1050 !default;
+$zindex-popover:                    1060 !default;
+$zindex-tooltip:                    1070 !default;
+
 $headings-margin-bottom:      ($spacer / 2) !default;
 $paragraph-margin-bottom:   1rem !default;
 
@@ -75,3 +88,17 @@ $dt-font-weight:              $font-weight-bold !default;
 
 $table-cell-padding:          .75rem !default;
 $table-cell-padding-sm:       .3rem !default;
+
+$--button-default-hover-color: #eb9d45;
+$--button-default-hover-fill: #fff;
+$--button-default-hover-border: #eb9d45;
+
+$nav-bar-height:42px;
+$nav-height:70px;
+
+@mixin icon-alignment($top:-.1em){
+  //Icon and Text Alignment http://snook.ca/archives/html_and_css/icons-and-type
+  vertical-align: middle;
+  position:relative;
+  top:$top;
+}

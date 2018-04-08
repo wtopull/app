@@ -1,78 +1,104 @@
-<div class="x_con-li">
-    <el-form class="account-recharge withdraw-form" :model="form" :rules="rules" label-width="7em" ref="form">
-        <el-form-item label="账户类型：">
-            <div class="recharge_con2">
-                <ul class="xz">
-                    <li v-for="(game_accs,index) in game_acc">
-                        <a :class="{active:payIndex === index}" href="javascript:void(0)" @click="payIndex = index">{{game_accs.name}}</a>
-                    </li>
-                </ul>
-            </div>
-        </el-form-item>
-        <el-form-item label="提现金额：" prop="amount">
-            <el-input type="number" v-model="form.amount"></el-input>
-            <span style="color:red;">*当天前{{withdraw_count_without_fee}}次提款免收手续费，超过{{withdraw_count_without_fee}}次每次按提款金额{{currentCard && currentCard.bank_withdraw_fee_rebate | defaultRound}}%收取手续费，最低{{currentCard && currentCard.bank_withdraw_min_fee_value | defaultRound}}元，最高{{currentCard && currentCard.bank_withdraw_max_fee_value | defaultRound}}元.</span>
-        </el-form-item>
-        <el-form-item label="银行卡选择：" prop="bankId">
-            <el-select v-model="form.bankId">
-                <el-option v-for="(bank,index) in bankCards" :key="bank.id" :label="bank.bank_name" :value="bank.id"></el-option>
-            </el-select>
-        </el-form-item>
-        <el-form-item label="资金密码；" prop="pw">
-            <el-input v-model="form.pw" type="password" @keyup.native.enter="submit"></el-input>
-            <!-- <span>忘记密码？</span> -->
-        </el-form-item>
-        <el-form-item>
-            <el-button type="primary" @click="submit" :disabled="frozenBal">确定提现</el-button>
-            <div class="el-form-item__error" v-if="frozenBal">
-                有冻结金额不可提现
-            </div>
-        </el-form-item>
-        <el-form-item label="账户详情表：">
-            <div class="czxx">
-                <table>
-                    <tr>
-                        <td>账户总额</td>
-                        <td>{{totalBal | defaultRound}}元</td>
-                        <td>彩票所需消费量</td>
-                        <td>{{lottery_to_consume | defaultRound}}元</td>
-                    </tr>
-                    <tr>
-                        <td>可提金额</td>
-                        <td>{{availableAmount | defaultRound}}元</td>
-                        <td>百家乐所需消费量</td>
-                        <td>0元</td>
-                    </tr>
-                    <tr>
-                        <td>取款时间（24小时制）</td>
-                        <td>{{currentCard && currentCard.bank_withdraw_time}}</td>
-                        <td>单笔限额</td>
-                        <!--todo:100 <td>100.00~{{availableAmount | defaultRound}}元</td> -->
-                        <td>{{availableAmount | defaultRound}}元</td>
-                    </tr>
-                    <tr>
-                        <td>今日已提金额</td>
-                        <td>{{withdraw_amount_today | defaultRound}}元</td>
-                        <td>今日已提次数</td>
-                        <td>{{withdraw_count_today}}次</td>
-                    </tr>
-                    <tr>
-                        <td>每日限制金额</td>
-                        <td>{{withdraw_limit_amount_per_day | defaultRound}}元</td>
-                        <td>每日限制次数</td>
-                        <td>{{withdraw_limit_count_per_day}}次</td>
-                    </tr>
-                    <tr>
-                        <td>提领免手续费次数</td>
-                        <td colspan="3">{{withdraw_count_without_fee}}</td>
-                    </tr>
-                    <tr>
-                        <td>手续费说明</td>
-                        <td colspan="3">提款金额*1%，最小手续费1元，最高手续费 25 元</td>
-                    </tr>
-                </table>
-            </div>
-        </el-form-item>
-        <!-- <el-form-item class="text-danger" v-else> 该银行卡已锁定 </el-form-item> -->
-    </el-form>
+<!--<div class="x_con-li">-->
+<div class="members-withdraw">
+  <div class="members-withdraw-header">
+    <div>
+      <p class="members-record-total">账户总额</p>
+      <p class="members-record-show">￥{{totalBal | round3}}</p>
+    </div>
+    <div>
+      <p class="members-record-total">可提余额</p>
+      <p class="members-record-show">￥{{bal | round3}}</p>
+    </div>
+  </div>
+  <div class="members-record-banks">
+    <div class="members-withdraw-bank-title">
+      <span>
+        <img src="../../../assets/img/members/accounting.png" />账户类型：</span>
+      <ul>
+        <li v-for="(game_accs,index) in game_acc">
+          <a :class="{'active':payIndexs === index}" href="javascript:void(0)" @click="payIndexs = index">{{game_accs.name}}</a>
+        </li>
+      </ul>
+    </div>
+    <div class="members-withdraw-bank-select">
+      <p>银行卡选择：</p>
+      <ul>
+        <li v-for="(bank,index) in bankCards">{{bank.bank_name}}</li>
+        <li>
+          <i class="el-icon-plus"></i>添加银行卡</li>
+        <!--<li :class="{active:payIndex === index}" v-for="(bank,index) in bankList" :key="index" @click="payIndex = index"> {{bank.name || bank.display_name}} </li>-->
+      </ul>
+    </div>
+  </div>
+  <div class="members-withdraw-bank-details">
+    <div class="bank-details-message">
+      <p><span>卡号：</span>666666</p>
+      <p><span>持卡人姓名：</span>666666</p>
+      <p><span>开户地址：</span>安徽-合肥-瑶海</p>
+      <!--<p><span>卡号：</span>{{bank.account_no}}</p>
+      <p><span>持卡人姓名：</span>{{bank.account_name}}</p>
+      <p><span>开户地址：</span>{{bank.bank_name}}</p>-->
+    </div>
+    <div class="bank-details-money">
+      <div class="recharge_tit">提现金额：</div>
+      <div class="recharge_con">
+        <div class="txje">
+          <input type="text" v-model="defaultWithdraw" @blur="keyup()" autocomplete="off">元<span>(最低100元，最高49999元)</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="members-withdraw-bank-pw" v-if="enabled">
+  	<div class="recharge_tit"><span>资金密码：</span><input type="password" v-model="fund_password" placeholder="请输入资金密码"></div>
+		<div class="zjmm">
+    	<p><img src="../../../assets/img/members/warning.png" />*提现金额最少100元，最高49999元，每日免费提款次数3次，超出每笔收取1%手续费，单笔最高25元，如有疑问，请联系
+        <a href="javascript:;" style="color:red">在线客服</a>.</p>
+      <el-button type="primary" @click="submit" :disabled="disabled">确定提现</el-button>
+    </div>
+  </div>
+  
+  
+  
+  <!--<div class="account-recharge" v-if="enabled">
+    <div class="recharge_tit">账户详情表：</div>
+    <div class="czxx recharge_con">
+      <table>
+        <tr>
+          <td>账户总额</td>
+          <td>{{total_balance | round3}}元</td>
+          <td>彩票所需消费量</td>
+          <td>{{lottery_to_consume | round3}}元</td>
+        </tr>
+        <tr>
+          <td>可提金额</td>
+          <td>{{allow_withdraw_balance | round3}}元</td>
+          <td>百家乐所需消费量</td>
+          <td>0.000元</td>
+        </tr>
+        <tr>
+          <td>取款时间（24小时制）</td>
+          <td>{{bankWithdrawTime}}</td>
+          <td>单笔限额</td>
+          <td>100.00~50000.00元</td>
+        </tr>
+        <tr>
+          <td>今日已提金额</td>
+          <td>{{withdraw_amount_today | round3}}元</td>
+          <td>今日已提次数</td>
+          <td>{{withdraw_count_today}}次</td>
+        </tr>
+        <tr>
+          <td>每日限制金额</td>
+          <td>{{withdraw_limit_amount_per_day | round3}}元</td>
+          <td>每日限制次数</td>
+          <td>{{withdraw_limit_count_per_day}}次</td>
+        </tr>
+        <tr>
+          <td>手续费说明</td>
+          <td colspan="3">提款金额*1%，最小手续费1元，最高手续费 25 元</td>
+        </tr>
+      </table>
+    </div>
+  </div>-->
+  <div class="text-warning" v-else> 该银行卡已锁定 </div>
 </div>

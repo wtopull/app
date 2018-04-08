@@ -1,12 +1,6 @@
 /*login*/
-body{background: url('../img/login/login_bg.jpg') no-repeat center 0px  #CEEBFD;background-attachment: fixed;
-}
-.regist
-{
-    /* max-width: 1210px; */
-    width: 600px;
-    margin: 0px auto 0 auto;/* height:100px; */
-}
+body{background: url('../img/login/login_bg.jpg') no-repeat center 0px  #CEEBFD;background-attachment: fixed;}
+.regist{max-width: 1210px;margin: 0px auto 0 auto;/* height:100px; */}
 .l_top{
     overflow: hidden;
     padding-top: 80px;
@@ -25,21 +19,19 @@ body{background: url('../img/login/login_bg.jpg') no-repeat center 0px  #CEEBFD;
     box-shadow: 0px 2px 4px 0px #ACACAC;
     margin-left: 15px;
 }
-.l_top .l_button a:nth-child(1){
-}
-.l_top .l_button a:nth-child(2){
-}
-.regist .l_min{
+.l_top .l_button a:nth-child(1){}
+.l_top .l_button a:nth-child(2){}
+.l_min{
     background: #fff;
     border-radius: 5px;
     margin-right: 50px;
-    padding: 40px;
+    padding: 40px 20px;
     position: relative;
     min-height: 450px;
     box-shadow: 0px 16px 47px -7px #3E82BC;
     border: 5px solid #6FADE1;
 }
-.regist .l_min .yhzc{
+.l_min .yhzc{
     position: absolute;
     right: -57px;
     top: 0px;
@@ -50,25 +42,15 @@ body{background: url('../img/login/login_bg.jpg') no-repeat center 0px  #CEEBFD;
     border-radius: 0px 5px 5px 0px;
     text-align: center;
     box-shadow: 1px 1px 6px 0px #167DD4;
-    left:auto;
 }
-.regist .l_min .yhzc a{
-  line-height: 1.5;
-  
-}
-.regist .l_min .yhzc a i {
-    margin: 0;
-    font-size: 14px;
-}
-.l_min .yhzc span{color: #fef672;
-}
+.l_min .yhzc span{color: #fef672;}
 .l_min .dlk{
     overflow: hidden;
     padding: 0 0 20px 0;
 }
-.regist .l_min .dlk .dlk_l{
-    width: 95%;
-    /* float: left; */
+.l_min .dlk .dlk_l{
+    width: 50%;
+    float: left;
     margin-left: 15px;
 }
 .l_min .dlk .dlk_r{
@@ -77,10 +59,8 @@ body{background: url('../img/login/login_bg.jpg') no-repeat center 0px  #CEEBFD;
     margin: 0px 43px 0px 0;
     position: relative;
 }
-.l_min .dlk .dlk_r .tip{text-align: left;line-height: 35px;margin-top: 10px;
-}
-.l_min .dlk .dlk_r .tip a{color: #FF92A6;
-}
+.l_min .dlk .dlk_r .tip{text-align: left;line-height: 35px;margin-top: 10px;}
+.l_min .dlk .dlk_r .tip a{color: #FF92A6;}
 .loginform{
     width: 100%;
 }
@@ -101,12 +81,9 @@ body{background: url('../img/login/login_bg.jpg') no-repeat center 0px  #CEEBFD;
     padding-left: 9px;
     width: 55%;
 }
-.loginform .help-inline{float:right;line-height: 45px;width: 45%;overflow: hidden;text-indent: 25px;
-}
-.loginform input.xcode{width: 160px;
-}
-.loginform .username{
-}
+.loginform .help-inline{float:right;line-height: 45px;width: 45%;overflow: hidden;text-indent: 25px;}
+.loginform input.xcode{width: 160px;}
+.loginform .username{}
 .loginform .code{
     position: relative;
 }
@@ -119,8 +96,7 @@ body{background: url('../img/login/login_bg.jpg') no-repeat center 0px  #CEEBFD;
     top: 0;
     cursor: pointer;
 }
-.loginform .submite{margin-top: 35px;
-}
+.loginform .submite{margin-top: 35px;}
 .loginform .submite a{
     text-align: center;
     background: #FF92A6;
@@ -140,14 +116,10 @@ body{background: url('../img/login/login_bg.jpg') no-repeat center 0px  #CEEBFD;
 
     float: right;
 }
-.main2-center{height:350px
-}
-.main2-center a{display:block;width:100%;height:350px;border-radius:5px
-}
-.swiper-button-next, .swiper-button-prev{top: 97%;width: 35px;height: 35px;border-radius: 50%;background-color: #6FADE1;background-size: 35%;background: url('../img/login/pn.png') no-repeat 3px 3px #6FADE1;
-}
-.swiper-button-next{background-color: #FF92A6;background: url('../img/login/pn.png') no-repeat -24px 3px #FF92A6;
-}
+.main2-center{height:350px}
+.main2-center a{display:block;width:100%;height:350px;border-radius:5px}
+.swiper-button-next, .swiper-button-prev{top: 97%;width: 35px;height: 35px;border-radius: 50%;background-color: #6FADE1;background-size: 35%;background: url('../img/login/pn.png') no-repeat 3px 3px #6FADE1;}
+.swiper-button-next{background-color: #FF92A6;background: url('../img/login/pn.png') no-repeat -24px 3px #FF92A6;}
 .swiper-container {
     margin: 0 auto;
     position: relative;
@@ -157,10 +129,7 @@ body{background: url('../img/login/login_bg.jpg') no-repeat center 0px  #CEEBFD;
     height: 350px;
 }
 @media screen and (max-width:790px){
-.l_min .dlk .dlk_l{width: 97%;margin: 10px;
-}
-.loginform{margin:1px;width:98%
-}
-.loginform input.xcode{width:120px
-}
+    .l_min .dlk .dlk_l{width: 97%;margin: 10px;}
+    .loginform{margin:1px;width:98%}
+    .loginform input.xcode{width:120px}
 }

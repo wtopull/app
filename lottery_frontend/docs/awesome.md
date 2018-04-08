@@ -60,6 +60,8 @@
 
 ### vscode
 
+测试**webpack-hot-middleware** hmr更新 autosave无法准确响应，建议关闭autosave换成手动保存
+
 #### user settings
 
 ```json

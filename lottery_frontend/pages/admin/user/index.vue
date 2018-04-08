@@ -1,51 +1,50 @@
 <template src="../../../templates/admin/user-center.html">
 </template>
 
+<style lang="scss" src="../../../assets/scss/admin/user-center.scss">
+	
+</style>
 <style lang="scss">
-.userinfo .header {
-  position: relative;
-  display: flex;
-  text-align: center;
-  align-items: center;
-  justify-content: center;
-  > img {
-    width: 100%;
-    border-radius: 50%;
-  }
+.header {
   .avatar-upload {
     position: absolute;
     display: none;
     background: rgba(0, 0, 0, 0.75);
-    left: 0;
+    left: -3px;
     right: 0;
-    top: 0;
+    top: -68px;
     bottom: 0;
     margin: auto;
     border-radius: 50%;
+    height: 90px;
+    width: 90px;
     cursor: pointer;
     > div {
       display: flex;
       align-items: center;
       justify-content: center;
       height: 100%;
+      width: 95px;
+      height: 95px;
     }
-    i {
+    i{
       color: white;
       font-size: 4em;
       &:focus {
-        outline: none;
+        /*outline: none;*/
       }
     }
   }
-  &:hover,
-  &:focus {
+  &:hover,&:focus{
     .avatar-upload {
       display: block;
-    }
+    }  
   }
 }
+.el-dialog{
+	width: 32% !important;
+}
 </style>
-
 
 <script>
 import Vue from 'vue'
@@ -64,8 +63,8 @@ import LoginPw from '~/components/admin/user/LoginPw'
 import PayPw from '~/components/admin/user/PayPw'
 // import AvatarUpload from '~/components/admin/user/AvatarUpload'
 import Avatar from '~/components/admin/user/Avatar'
-
 import { AsyncMultComp } from '~/plugins/common'
+import aesDecrypt from '~/util/aesDecrypt'
 Vue.use(Popover)
 const AsyncComp = AsyncMultComp('admin/user')
 
@@ -75,7 +74,7 @@ export default {
     if (process.server || cache.isRequestBankCards) return Promise.resolve()
     if (query.noBankCards) return Promise.resolve()
     cache.isRequestBankCards = true
-    return store.dispatch('pay/getBankCards')
+    return store.dispatch('/api/user/login')
   },
   data() {
     return {
@@ -85,13 +84,19 @@ export default {
       dialogTitle: '',
       popoverVisible: false,
       newNickName: '',
-      avatarImgSrc: null
+      avatarImgSrc: null,
+      game_acc:[]
     }
   },
   asyncData({ store }) {
     if (process.server) return { avatarImgSrc: null }
     return {
       avatarImgSrc: store.state.user.avatar
+    }
+  },
+  watch:{
+    avatar(val){
+      this.avatarImgSrc = val
     }
   },
   components: {
@@ -109,7 +114,10 @@ export default {
       delayAjax(this.$axios, this.$store, () => {
         this.$store.dispatch('pay/getBankCards')
         this.avatarImgSrc = this.avatar
+        this.getBox()
       })
+    }else{
+      this.getBox()
     }
   },
   methods: {
@@ -120,7 +128,7 @@ export default {
         () => {
           this.setCard(this.bankCards.filter((v, k) => k !== index))
           this.$message({
-            message: '銀行卡刪除成功！',
+            message: '银行卡刪除成功！',
             type: 'success'
           })
         }
@@ -164,9 +172,12 @@ export default {
     },
     resetForm() {
       const modifier = this.$refs.modifier
-      modifier.$form.resetFields()
+      modifier.$form && modifier.$form.resetFields()
       modifier.reset && modifier.reset()
     },
+    ...mapActions({
+      getBox: 'admin/getBox'
+    }),
     ...mapMutations({
       setCard: 'pay/setBankCards',
       setUser: 'setUser'
@@ -185,10 +196,15 @@ export default {
     nickName() {
       return this.userModel.nick_name
     },
+    maxBankCount(){
+      const max = this.sysConfigs.find(_ => _.identify === 'user_bank_card_upper_limit')
+      return max ? +aesDecrypt(max.value) : 5
+    },
     ...mapGetters({
       bal: 'pay/bal',
       totalBal: 'pay/totalBal',
-      bankCards: 'pay/bankCards'
+      bankCards: 'pay/bankCards',
+      unreadCount: 'admin/unreadCount'
     }),
     ...mapGetters([
       'username',
@@ -197,7 +213,8 @@ export default {
       'hasPayPw',
       'hasProtection',
       'GA',
-      'avatar'
+      'avatar',
+      'sysConfigs'
     ])
   },
   mounted() {

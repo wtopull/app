@@ -1,8 +1,30 @@
+@import "~bootstrap/scss/mixins";
 @import 'nav';
 @import 'layout';
 @import 'options';
 @import 'order';
-
-.b_list.kjhm .el-scrollbar__wrap{
+.b_list.kjhm .el-scrollbar__wrap {
   max-height: 232px;
+}
+
+
+.lottery_clock_container {
+  width: 300px;
+  height: 85px;
+  padding: 7px 20px;
+}
+
+.lottery_index {
+  color: #595757;
+  font-size: 12px;
+
+  span {
+    color: #e88620;
+  }
+}
+
+.lottery-content {
+  padding: 20px 25px;
+  display: flex;
+  justify-content: space-between;
 }

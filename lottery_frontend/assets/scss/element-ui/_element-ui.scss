@@ -1,15 +1,50 @@
-@import "tooltip";
-@import "form";
-@import "table";
+@import 'button';
+@import 'tooltip';
+@import 'form';
+@import 'table';
+@import 'pagination';
+@import 'dialog';
 
-.el-table{
-  a.el-button--text,.el-button.el-button--text{
-    &,&:hover,&:focus{
-      color:#248fe9;
+.el-table {
+  a.el-button--text,
+  .el-button.el-button--text {
+    &,
+    &:hover,
+    &:focus {
+      color: #248fe9;
     }
   }
-  a.el-button--text{
-    cursor: pointer
+  a.el-button--text {
+    cursor: pointer;
+  }
+}
+
+.el-scrollbar-show {
+  .el-scrollbar__bar.is-vertical {
+    opacity: 1;
+  }
+}
+.el-tabs{
+  .el-tabs__item:focus.is-active.is-focus:not(:active) {
+    box-shadow: none;
+    border-radius: unset;
+  }
+}
+
+.el-dropdown .el-dropdown-selfdefine.focusing:focus{
+  outline: none;
+}
+
+.el-select-dropdown{
+  .el-select-dropdown__item{
+    &.selected,&.hover{
+      &:hover{
+        color: #fff;
+      }
+    }
+    &.selected.hover,&.hover{
+      color: #fff;
+    }
   }
 }
 

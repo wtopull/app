@@ -12,7 +12,6 @@ const extend = require('./build/webpack.extend')
 const router = require('./build/router')
 let modules = [
   '@nuxtjs/axios',
-  // '@nuxtjs/proxy',
   ['@nuxtjs/component-cache', { maxAge: 1000 * 60 * 60 }]
 ].concat(isDev ? [] : [['@nuxtjs/pwa']])
 
@@ -79,7 +78,7 @@ module.exports = {
    ** Headers of the page
    */
   head: {
-    title: 'Call of Duty',
+    title: 'Caishi Recreation',
     meta: [
       { charset: 'utf-8' },
       {
@@ -88,15 +87,16 @@ module.exports = {
       },
       { 'http-equiv': 'X-UA-Compatible', content: 'IE=edge' },
       { name: 'renderer', content: 'webkit' },
-      { hid: 'description', name: 'description', content: 'alpha go.' },
+      { hid: 'description', name: 'description', content: 'Caishi Recreation' },
       { name: 'google', value: 'notranslate' }
     ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
+    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
+    script:[{src:'/iconfont.js',body:true}]
   },
   /*
    ** Customize the progress bar color
    */
-  loading: { color: '#ff5574' },
+  loading: { color: '#e48633' },
   // <yt-page-navigation-progress aria-valuemin="0" aria-valuemax="100" id="" class="style-scope ytd-app" aria-valuenow="19">
   //   <div id="progress" class="style-scope yt-page-navigation-progress" style="transform: scaleX(0.19);"></div>
   // </yt-page-navigation-progress>
@@ -105,11 +105,10 @@ module.exports = {
   // loadingIndicator: {
   //   name: 'rectangle-bounce',
   //   color: 'white',
-  //   background: '#ff5574'
+  //   background: '#e48633'
   // },
   css: [
     { src: '~assets/scss/index.scss', lang: 'scss' },
-    '~/assets/c8css/swiper.css',
     '~assets/c8css/common.css'
   ],
   // layoutTransition: {
@@ -120,12 +119,13 @@ module.exports = {
   env: {
     appVersion: pkg.version,
     loginName:process.env.npm_config_name,
-    loginPassword:process.env.npm_config_pw
+    loginPassword:process.env.npm_config_pw,
+    fixVersion:process.env.npm_config_fix_version
   },
   manifest: {
-    name: 'Alpha',
-    description: 'Alpha Go',
-    theme_color: '#6FADE1'
+    name: 'caishi',
+    description: 'Caishi Recreation',
+    theme_color: '#f7d453'
   },
   modules,
 
@@ -134,31 +134,9 @@ module.exports = {
   //   '~/server/auth.js'
   // ],
   axios: {
-    // https://github.com/nuxt-community/axios-module/issues/60#issuecomment-361089961
     prefix: '/api',
     proxy: true,
     progress:false,//requests is too more
-    // init(axios) {
-    //   axios.defaults.timeout = '10000000'
-    // },
-    // redirectError: {
-    //   401: '/login'
-    // },
-    // responseInterceptor(response, { redirect, store }) {
-    //   const { data: { errorCode } } = response
-    //   if (errorCode === 102901 || errorCode === 100002) {
-    //     // require('./util/logout')(store),webpack Cannot read property 'call' of undefined
-    //     store.commit('setUser', { ip: store.state.user.ip })
-    //     store.commit('setState', { key: 'isLogout', value: errorCode })
-    //     redirect('/login')
-    //   }
-    //   return response
-    // },
-    // errorHandler(errorReason, { error, route }) {
-    //   if (errorReason.message.includes('timeout') && route) {
-    //     return error(route.path + '相关的的接口网络超时！')
-    //   }
-    // }
   },
   proxy: [
     [

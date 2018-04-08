@@ -247,10 +247,10 @@
     height: 0;
     cursor: pointer;
     border-radius: inherit;
-    background-color: rgba(135, 141, 153, 0.3);
+    background-color: #ecc232;
     transition: .3s background-color; }
     .el-scrollbar__thumb:hover {
-      background-color: rgba(135, 141, 153, 0.5); }
+      background-color: rgba(236, 194, 50, 0.5); }
   .el-scrollbar__bar {
     position: absolute;
     right: 2px;

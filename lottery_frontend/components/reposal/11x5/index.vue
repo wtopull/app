@@ -1,6 +1,7 @@
 <script>
 import {unzip} from 'lodash'
 import Tabs from '../Tabs'
+import Integrate from './Integrate'
 import Both from './Both'
 import createBall from './createBall'
 
@@ -33,29 +34,33 @@ export default{
     const [name,panes] = unzip(group)
     this.panes = ['0'].concat(panes)
     this.labels = name
-    this.$store.commit('reposal/setTabName',this.tabName = '0')
+    // this.$store.commit('reposal/setTabName',this.tabName = '0')
+    this.$store.commit('reposal/setTabName',this.tabName = playList[0] ? playList[0].content.identifier : '')
   },
   render(h){
     const {labels,panes} = this
-    const props = {props:{...this._props,labels,vsLabels:['龙', '虎'],vsListIndex:6}}
+    const props = {props:{...this._props,
+    // labels,
+    vsLabels:['龙', '虎'],vsListIndex:6}}
     
     const views = [
-        () => <Both {...props} />,
-        () => <Ball1 {...props} />,
-        () => <Ball2 {...props} />,
-        () => <Ball3 {...props} />,
-        () => <Ball4 {...props} />,
-        () => <Ball5 {...props} />,
-        () => <DragonTiger {...props} />,
+        // () => <Both {...props} />,
+        // () => <Ball1 {...props} />,
+        // () => <Ball2 {...props} />,
+        // () => <Ball3 {...props} />,
+        // () => <Ball4 {...props} />,
+        // () => <Ball5 {...props} />,
+        // () => <DragonTiger {...props} />,
+        () => <Integrate {...props} />,
         () => <All5in1 {...props} />
     ]
 
     return (
       <div class="reposal-content">
         <Tabs
-          paneNames={['两面盘'].concat(labels)}
+          paneNames={['整合','龙虎斗','全5中1']}
           views={views}
-          panes={this.panes}
+          panes={[this.tabName,'vs']}
         />
       </div>
     )

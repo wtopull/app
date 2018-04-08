@@ -3,16 +3,17 @@ import { Nuxt, Builder } from 'nuxt'
 import api from './api'
 const app = express()
 const bodyParser = require('body-parser')
+// const session = require('express-session')
 const host = process.env.HOST || require('../build/get-ip')
 
 var proxyMiddleware = require('http-proxy-middleware');
 
 /*
-  don't use process.env.PORT in package.json PORT=3300
+  don't use process.env.PORT in package.json PORT=3100
   .nuxt axios (process.env.API_URL || 'http://localhost:3200/api') will use npm_package_config_nuxt_port
   it dispkay server connect ECONNREFUSED 127.0.0.1:3200  when f5 refresh home page on pm2 server
 */
-const port = process.env.npm_package_config_nuxt_port || 3200
+const port = process.env.npm_package_config_nuxt_port || 3100
 
 
 
@@ -20,12 +21,19 @@ app.set('port', port)
 // app.disable('x-powered-by')
 // can't app.set('x-powered-by','xxx')
 app.use(function (req, res, next) {
-  res.setHeader('X-Powered-By', 'alpha')
+  res.setHeader('X-Powered-By', 'caishi')
   next()
 })
 
 // app.use(bodyParser.json({limit:'900kb'}))
 app.use(bodyParser.urlencoded({extended:false}))
+
+// app.use(session({
+//   secret: 'super-secret-key',
+//   resave: false,
+//   saveUninitialized: false,
+//   cookie: { maxAge: 60000 * 60 * 24}
+// }))
 
 // Import API Routes
 app.use('/api', api)
@@ -76,5 +84,5 @@ console.log('Server listening on ' + host + ':' + port) // eslint-disable-line n
 //   })
 // }
 
-// 决定是否开新分页
-// require('opn')(`http://${host}:${port}`)
+
+require('opn')(`http://${host}:${port}`)

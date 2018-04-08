@@ -14,9 +14,20 @@
 }
 
 .table-tool-bar {
+    margin-top: 26px;
+  .el-form-item{
+    display: inline-flex!important;
+    align-items:center;
+  }
+  .el-form-item__content{
+    &,.el-cascader{
+      line-height:$line-height-base;
+    }
+  }
   &.el-form--inline {
     .el-input__inner {
-      width: 120px;
+      width: 87px;
+      height: 27px;
     }
     .el-cascader {
       .el-input__inner {
@@ -24,15 +35,16 @@
       }
     }
     .el-date-editor {
-      width: 270px;
+      width: 240px;
       .el-range-input {
-        width: 90px;
+//      width: 90px;
       }
     }
   }
   .el-form-item__label {
     padding-right: 0px;
     margin-top: 3px;
+    line-height:27px;
   }
   .el-input,
   .el-form-item__label,
@@ -40,9 +52,6 @@
     font-size: $--font-size-base;
   }
   .el-cascader__label {
-    line-height: 31px;
-    height: 31px;
-    top: 4px;
     color: $--input-color;
   }
   .el-date-editor .el-input__icon {
@@ -58,6 +67,10 @@
         vertical-align: -3px;
       }
     }
+    .el-input__suffix{
+      display: flex;
+      align-items: center;
+    }
   }
 }
 
@@ -70,12 +83,10 @@
 .el-date-editor {
   .el-range-separator {
     box-sizing: content-box;
+    line-height: inherit !important;
   }
-}
-
-.el-scrollbar-show {
-  .el-scrollbar__bar.is-vertical {
-    opacity: 1;
+  .el-range__icon{
+      line-height: 20px !important;
   }
 }
 

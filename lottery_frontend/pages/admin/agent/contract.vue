@@ -75,7 +75,7 @@
 <script>
 import { map, find, remove, pick } from 'lodash/fp'
 
-import { getRequiredRule, validNumber } from '~/util/validator'
+import { getRequiredRule, validNumber } from '~/plugins/formValidate'
 import typeList from '~/util/contract/type'
 import conditionList from '~/util/contract/condition'
 import prizeList from '~/util/contract/prize'
@@ -266,7 +266,7 @@ export default {
     },
 
     deleteRow(level, type) {
-      const length = this.form[`${type}Block`][level - 1].conditions.length
+      const length = this.form[`${type}Block`][level - 1][`${type === 'condition' ? 'conditions': 'prizes'}`].length
       if (length === 1) {
         this.$message({
           message: `合约最少设置${length}种${

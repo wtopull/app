@@ -1,0 +1,22 @@
+.el-dialog__wrapper {
+    // display: flex;
+    .el-dialog {
+        border-radius: 10px;
+        // width: auto;
+    }
+    .el-dialog__header {
+        height: 52px;
+        padding-bottom: 15px;
+        background: #000;
+        @include gradient-directional(#e07700, #ffd100, 180 - 147deg);
+        @include border-top-radius(10px);
+        .el-dialog__headerbtn .el-dialog__close {
+            color: #fff;
+            font-size: 24px;
+            font-weight: bold;
+        }
+    }
+    .el-dialog__title {
+        color: #fff;
+    }
+}

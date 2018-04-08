@@ -4,7 +4,7 @@ const buildPath = path.join(rootPath, 'backpack_output')
 
 module.exports = {
   webpack: (config, options, webpack) => {
-    config.entry = {app:'./server/index.js'}
+    config.entry = {caishi:'./server/index.js'}
     config.output.path = buildPath
     return config
   }

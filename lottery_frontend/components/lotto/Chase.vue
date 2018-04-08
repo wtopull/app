@@ -1,6 +1,6 @@
 <template>
   <el-dialog :visible.sync="visible" custom-class="lotto-chase" @open="get" @close="handleClose" width="730px">
-    <div slot="title">
+    <div slot="title" class="el-dialog__title">
       <h3>我要追号</h3>
       当前销售第{{issue}}期
       <countdown :time="countdown" :auto-start="false" @countdownend="timeStart" ref="countdown">

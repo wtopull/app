@@ -353,16 +353,16 @@
       color: #cccccc;
       cursor: not-allowed; }
     .el-color-dropdown__btn:hover {
-      color: #6fade1;
-      border-color: #6fade1; }
+      color: #ffd22c;
+      border-color: #ffd22c; }
   .el-color-dropdown__link-btn {
     cursor: pointer;
-    color: #6fade1;
+    color: #ffd22c;
     text-decoration: none;
     padding: 15px;
     font-size: 12px; }
     .el-color-dropdown__link-btn:hover {
-      color: tint(#6fade1, 20%); }
+      color: tint(#ffd22c, 20%); }
 
 .el-color-picker {
   display: inline-block;
@@ -458,7 +458,8 @@
     position: absolute;
     z-index: 10;
     padding: 6px;
+    box-sizing: content-box;
     background-color: #fff;
     border: 1px solid #e6ebf5;
     border-radius: 2px;
-    box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1); }
+    box-shadow: none; }

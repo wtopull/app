@@ -20,7 +20,7 @@ export default {
   },
   methods: {
     hide() {
-      this.isshow.showPage = true;
+      this.isshow.showPage = false;
       this.$emit("sonclick", this.isshow);
     }
   }
@@ -37,8 +37,8 @@ export default {
     top: 0px;
     height: 46px;
     width: 100%;
-    background: #dc3b40;
-    z-index: 2;
+    background: linear-gradient(to right, #f75f5b , #fead50);
+    z-index: 11;
     & i {
         position: absolute;
         left: 16px;

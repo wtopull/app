@@ -2,6 +2,8 @@
 
 [CSS代码规范参考](http://zoomzhao.github.io/code-guide/)
 
+外置样式很多时不建议使用vue-loader的scoped [Scoped css for dynamic element](https://github.com/vuejs/vue-loader/issues/1033)
+
 更多Google搜索 SMACSS BEM,参考 [OOCSS、SMACSS与BEM](https://segmentfault.com/a/1190000000704006)
 
 仅供参考，根据团队实际情况以下文案中带有`alpha注`为适用于项目的

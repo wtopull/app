@@ -36,18 +36,22 @@ import datepicker, {
 } from '~/util/mixins/datepicker'
 import { mapGetters, mapMutations } from 'vuex'
 import cache, { setExpires } from '~/util/cache'
-import { delayAjax } from '~/plugins/ajax'
-
-const getInfo = context => context.$axios.$post('proxy-manage/find-team-info')
-
 let isMoreMonths
 export default {
   name: 'team-overview',
-  async asyncData({ app, store }) {
+  async asyncData({ app, store, req }) {
     const { value, expires } = cache.memberInfo
     if (process.server) return value
+    // console.log('process.server ',req && req.session.token)
+    // if (process.server && req.session && req.session.token) {
+    //   const { token } = req.session
+    //   app.$axios.setHeader('Token', token)
+    // }
     if (+new Date() > expires) {
-      cache.memberInfo.value = (await getInfo(app)).data
+      // console.log('fuck',app.$axios.defaults.headers.common.Token)
+      cache.memberInfo.value = (await app.$axios.$post(
+        'proxy-manage/find-team-info'
+      )).data
       setExpires(30, 'memberInfo')
     }
     return cache.memberInfo.value
@@ -82,16 +86,6 @@ export default {
       isIndeterminate: true,
       legendSelected: ['充值', '投注', '派奖'],
       legendCheckAll: false
-    }
-  },
-  async created() {
-    if (!cache.memberInfo.value.member_count.length) {
-      delayAjax(this.$axios, this.$store, () =>
-        getInfo(this).then(({ data }) => {
-          cache.memberInfo.value = data
-          Object.assign(this,data)
-        })
-      )
     }
   },
   mixins: [datepicker],

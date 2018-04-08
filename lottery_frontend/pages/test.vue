@@ -107,7 +107,7 @@ export default {
             this.setUser({ token, expires, role, ...user })
             this.setBal(bal)
             this.errorMsg =
-              this.username + '已登錄' + new Date().toLocaleString()
+              this.username + '已登录' + new Date().toLocaleString()
           }
         },
         { errCb: true, showError: false }

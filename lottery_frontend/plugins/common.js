@@ -23,6 +23,9 @@ import {
   Autocomplete,
   Pagination,
   Dialog,
+  Dropdown,
+  DropdownMenu,
+  DropdownItem,
   Input,
   InputNumber,
   Radio,
@@ -62,6 +65,9 @@ DataTablesServer.install = function(Vue) {
 
 Vue.use(Pagination)
 Vue.use(Dialog)
+Vue.use(Dropdown)
+Vue.use(DropdownMenu)
+Vue.use(DropdownItem)
 Vue.use(Autocomplete)
 Vue.use(Input)
 Vue.use(InputNumber)
@@ -146,10 +152,6 @@ Log.install = function(Vue) {
 Vue.use(Log)
 
 if (process.browser) {
-  window.$ = require('jquery')
-  const VueAwesomeSwiper = require('vue-awesome-swiper/dist/ssr')
-  Vue.use(VueAwesomeSwiper)
-
   if (process.env.NODE_ENV === 'production') {
     //https://github.com/nuxt-community/sentry-module can't use exprss in this project ?
     const Raven = require('raven-js')

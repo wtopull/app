@@ -14,7 +14,8 @@ $--color-transition-base: color .2s cubic-bezier(.645,.045,.355,1) !default;
 $--color-white: #fff;
 $--color-black: #000;
 
-$--color-primary: #6fade1 !default;
+$--color-primary: #ffd22c !default;
+$--color-primary-secondary:#dd6800;
 $--color-primary-light-1: mix($--color-white, $--color-primary, 10%); /* 53a8ff */
 $--color-primary-light-2: mix($--color-white, $--color-primary, 20%); /* 66b1ff */
 $--color-primary-light-3: mix($--color-white, $--color-primary, 30%); /* 79bbff */
@@ -26,7 +27,7 @@ $--color-primary-light-8: mix($--color-white, $--color-primary, 80%); /* d9ecff 
 $--color-primary-light-9: mix($--color-white, $--color-primary, 90%); /* ecf5ff */
 
 $--color-success: #67c23a !default;
-$--color-warning: #eb9e05 !default;
+$--color-warning: #f08200 !default;
 $--color-danger: #ff5574 !default;
 $--color-info: #878d99 !default;
 
@@ -40,25 +41,25 @@ $--color-warning-lighter: mix($--color-white, $--color-warning, 90%);
 $--color-danger-lighter: mix($--color-white, $--color-danger, 90%);
 $--color-info-lighter: mix($--color-white, $--color-info, 90%);
 
-$--color-text-primary: #2d2f33 !default;
-$--color-text-regular: #5a5e66 !default;
-$--color-text-secondary: #878d99 !default;
-$--color-text-placeholder: #b4bccc !default;
+$--color-text-primary: #444 !default;
+$--color-text-regular: #666 !default;
+$--color-text-secondary: #7b7b7b !default;
+$--color-text-placeholder: #bbb !default;
 
 /* Link
 -------------------------- */
-$--link-color: #fff;
+$--link-color: #dd6800;
 $--link-hover-color: #fff;
 
 /* Background
 -------------------------- */
-$--background-color-base: #f5f7fa;
+$--background-color-base: #f1f1f1;
 
 /* Border
 -------------------------- */
 $--border-width-base: 1px;
 $--border-style-base: solid;
-$--border-color-base: #ddd !default;
+$--border-color-base: #e7e7e7 !default;
 $--border-color-light: #dfe4ed !default;
 $--border-color-lighter: #e6ebf5 !default;
 $--border-color-extra-light: #edf2fc !default;
@@ -83,7 +84,7 @@ $--fill-base: $--color-white;
 $--font-path: 'fonts' !default;
 $--font-size-base: 14px;
 $--font-size-small: 13px;
-$--font-size-large: 18px;
+$--font-size-large: 16px;
 $--font-color-disabled-base: #bbb;
 $--font-weight-primary: 500;
 $--font-line-height-primary: 24px;
@@ -130,12 +131,12 @@ $--checkbox-disabled-checked-input-fill: $--border-color-extra-light;
 $--checkbox-disabled-checked-input-border-color: $--border-color-base;
 $--checkbox-disabled-checked-icon-color: $--color-text-placeholder;
 
-$--checkbox-checked-text-color: $--color-primary;
-$--checkbox-checked-input-border-color: $--color-primary;
-$--checkbox-checked-input-fill: $--color-primary;
+$--checkbox-checked-text-color: $--color-primary-secondary;
+$--checkbox-checked-input-border-color: $--color-primary-secondary;
+$--checkbox-checked-input-fill: $--color-primary-secondary;
 $--checkbox-checked-icon-color: $--fill-base;
 
-$--checkbox-input-border-color-hover: $--color-primary;
+$--checkbox-input-border-color-hover: #ecc233;
 
 $--checkbox-bordered-height:1px;
 $--checkbox-bordered-medium-height:2px;
@@ -158,9 +159,9 @@ $--checkbox-bordered-mini-input-height: 12px;
 $--checkbox-bordered-mini-input-width: 12px;
 
 $--checkbox-button-font-size: $--font-size-base;
-$--checkbox-button-checked-fill: $--color-primary;
+$--checkbox-button-checked-fill: #dd6800;
 $--checkbox-button-checked-color: $--color-white;
-$--checkbox-button-checked-border-color: $--color-primary;
+$--checkbox-button-checked-border-color: #dd6800;
 
 
 
@@ -185,12 +186,12 @@ $--radio-disabled-checked-input-border-color: $--disabled-border-base;
 $--radio-disabled-checked-input-fill: $--disabled-fill-base;
 $--radio-disabled-checked-icon-color: $--color-text-placeholder;
 
-$--radio-checked-text-color: $--color-primary;
-$--radio-checked-input-border-color: $--color-primary;
+$--radio-checked-text-color: #dd6800;
+$--radio-checked-input-border-color: #dd6800;
 $--radio-checked-input-fill: $--color-white;
-$--radio-checked-icon-color: $--color-primary;
+$--radio-checked-icon-color: #dd6800;
 
-$--radio-input-border-color-hover: $--color-primary;
+$--radio-input-border-color-hover: #dd6800;
 
 $--radio-bordered-padding: 10px 20px 10px 10px;
 $--radio-bordered-medium-padding: 8px 20px 8px 10px;
@@ -204,9 +205,9 @@ $--radio-bordered-mini-input-height: 12px;
 $--radio-bordered-mini-input-width: 12px;
 
 $--radio-button-font-size: $--font-size-base;
-$--radio-button-checked-fill: $--color-primary;
+$--radio-button-checked-fill: #dd6800;
 $--radio-button-checked-color: $--color-white;
-$--radio-button-checked-border-color: $--color-primary;
+$--radio-button-checked-border-color: #dd6800;
 $--radio-button-disabled-checked-fill: $--border-color-extra-light;
 
 /* Select
@@ -218,20 +219,20 @@ $--select-close-hover-color: $--color-text-secondary;
 
 $--select-input-color: $--color-text-placeholder;
 $--select-multiple-input-color: #666;
-$--select-input-focus-background: $--color-primary;
+$--select-input-focus-background:#ecc233;
 $--select-input-font-size: 14px;
 
 $--select-tag-height: 24px;
 $--select-tag-color: $--color-white;
-$--select-tag-background: $--color-primary;
+$--select-tag-background: $--color-primary-secondary;
 
 $--select-option-color: $--color-text-regular;
 $--select-option-disabled-color: $--color-text-placeholder;
 $--select-option-disabled-background: $--color-white;
 $--select-option-height: 34px;
-$--select-option-hover-background: $--background-color-base;
-$--select-option-selected: $--color-primary;
-$--select-option-selected-hover: $--background-color-base;
+$--select-option-hover-background: #ecc233;
+$--select-option-selected: $--color-primary-secondary;
+$--select-option-selected-hover: #fff;
 
 $--select-group-color: $--color-info;
 $--select-group-height: 30px;
@@ -337,7 +338,7 @@ $--input-clear-hover-color:$--border-color-base;
 
 $--input-hover-border: $--border-color-hover;
 
-$--input-focus-border: $--color-primary;
+$--input-focus-border: #ecc233;
 $--input-focus-fill: $--color-white;
 
 $--input-disabled-fill: $--disabled-fill-base;
@@ -402,7 +403,7 @@ $--tab-vertical-header-count-fill: $--color-text-secondary;
 $--button-font-size: 14px;
 $--button-font-weight: $--font-weight-primary;
 $--button-border-radius: $--border-radius-base;
-$--button-padding-vertical: 12px;
+$--button-padding-vertical: 10px;
 $--button-padding-horizontal: 20px;
 
 $--button-medium-font-size: 14px;
@@ -420,17 +421,17 @@ $--button-mini-border-radius: #{$--border-radius-base - 1};
 $--button-mini-padding-vertical: 7px;
 $--button-mini-padding-horizontal: 15px;
 
-$--button-default-color: #333;
-$--button-default-fill: #f1f1f1;
-$--button-default-border: #dedede;
+$--button-default-color: #444;
+$--button-default-fill: #fff;
+$--button-default-border: #e0e0e0;
 
 $--button-disabled-color: $--color-text-placeholder;
 $--button-disabled-fill: $--color-white;
 $--button-disabled-border: $--border-color-lighter;
 
-$--button-primary-border: $--color-primary;
+$--button-primary-border: #dd6800;
 $--button-primary-color: $--color-white;
-$--button-primary-fill: $--color-primary;
+$--button-primary-fill: #dd6800;
 
 $--button-success-border: $--color-success;
 $--button-success-color: $--color-white;
@@ -473,20 +474,20 @@ $--switch-button-size: 16px;
 -------------------------- */
 $--dialog-background-color: $--color-primary-light-4;
 $--dialog-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
-$--dialog-close-hover-color: $--color-primary;
-$--dialog-title-font-size: $--font-size-large;
+$--dialog-close-hover-color: #fff;
+$--dialog-title-font-size: 20px;
 $--dialog-font-size: 14px;
 $--dialog-line-height: $--font-line-height-primary;
 $--dialog-padding-primary: 15px;
 
 /* Table
 -------------------------- */
-$--table-border:  1px solid $--border-color-lighter;
+$--table-border:  1px solid #e8e8e8;
 $--table-text-color: $--color-text-regular;
-$--table-header-color: $--color-text-secondary;
+$--table-header-color: #3b3b3b;
 $--table-row-hover-background: $--background-color-base;
 $--table-current-row-background: $--color-primary-light-9;
-$--table-header-background: #fff;
+$--table-header-background: #f8f9fa;
 $--table-footer-background: $--color-text-placeholder;
 $--table-fixed-box-shadow: 0 0 10px rgba(0, 0, 0, .12);
 
@@ -495,13 +496,13 @@ $--table-fixed-box-shadow: 0 0 10px rgba(0, 0, 0, .12);
 $--pagination-font-size: 13px;
 $--pagination-fill: $--color-white;
 $--pagination-color: $--color-text-primary;
-$--pagination-border-radius: 3px;
+$--pagination-border-radius: 0px;
 $--pagination-button-color: $--color-text-primary;
 $--pagination-button-width: 35.5px;
 $--pagination-button-height: 28px;
 $--pagination-button-disabled-color: $--color-text-placeholder;
 $--pagination-button-disabled-fill: $--color-white;
-$--pagination-hover-fill: $--color-primary;
+$--pagination-hover-fill: #ecc233;
 $--pagination-hover-color: $--color-white;
 
 /* Popover
@@ -561,9 +562,9 @@ $--tree-expand-icon-color: $--color-text-placeholder;
 
 /* Dropdown
 -------------------------- */
-$--dropdown-menu-box-shadow: $--box-shadow-light;
-$--dropdown-menuItem-hover-fill: #f00;
-$--dropdown-menuItem-hover-color: $--link-color;
+$--dropdown-menu-box-shadow: none;
+$--dropdown-menuItem-hover-fill: #ecc233;
+$--dropdown-menuItem-hover-color: #fff;
 
 /* Badge
 -------------------------- */
@@ -635,8 +636,8 @@ $--loading-fullscreen-spinner-size: 50px;
 
 /* Scrollbar
 --------------------------*/
-$--scrollbar-background-color: rgba($--color-text-secondary, .3);
-$--scrollbar-hover-background-color: rgba($--color-text-secondary, .5);
+$--scrollbar-background-color: #ecc232;
+$--scrollbar-hover-background-color: rgba(#ecc232, .5);
 
 /* Carousel
 --------------------------*/

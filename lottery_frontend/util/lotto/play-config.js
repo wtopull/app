@@ -183,12 +183,12 @@ playConfig = {
   quwei_quwei_sx: ['上下盘', ['上', '中', '下'], { tool: toggleButton }],
   quwei_quwei_jo: ['奇偶盘', ['奇', '和', '偶'], { tool: toggleButton }],
   hezhi_hezhi_hz: ['和值', num(16, num => beginNum(num,3)), { className: 'k3-hezhi' }],
-  santonghao_santonghao_sthdx:['三同号',repeatNum(6,3),{ tool: toggleButton}],
+  santonghao_santonghao_sthdx:['三同号',repeatNum(6,3),{ tool: toggleButton,className:'dice3'}],
   santonghao_santonghao_sthtx:['三同号',['通选'],{ tool: false }],
-  ertonghao_ertonghao_ethdx:[['同号','不同号'],[repeatNum(6,2),num(6,beginNum)],[{ tool: removeButton},{ tool: removeButton}]],
-  ertonghao_ertonghao_ethfx:['号码',repeatNum(6,2),{ tool: toggleButton}],
-  sanbutonghao_sanbutonghao_sbthds:['号码',num(6,beginNum),{ tool: toggleButton}],
-  erbutonghao_erbutonghao_ebth:['号码',num(6,beginNum),{ tool: toggleButton}],
+  ertonghao_ertonghao_ethdx:[['同号','不同号'],[repeatNum(6,2),num(6,beginNum)],[{ tool: removeButton,className:'dice2'},{ tool: removeButton,className:'dice1'}]],
+  ertonghao_ertonghao_ethfx:['号码',repeatNum(6,2),{ tool: toggleButton,className:'dice2'}],
+  sanbutonghao_sanbutonghao_sbthds:['号码',num(6,beginNum),{ tool: toggleButton,className:'dice1'}],
+  erbutonghao_erbutonghao_ebth:['号码',num(6,beginNum),{ tool: toggleButton,className:'dice1'}],
   daxiaodanshuang_daxiao_dx:['号码',SIZE.slice(0,2),{tool:false}],
   daxiaodanshuang_danshuang_ds:['号码',SIZE.slice(2),{tool:false}]
 }

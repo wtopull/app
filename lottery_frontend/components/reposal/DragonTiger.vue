@@ -1,57 +1,65 @@
 <template>
-  <div :class="['reposal-play-layout','reposal-vs',{'reposal-vs-shortcut':shortcut,'reposal-vs-only':labelLength === 2}]">
+  <div :class="['reposal-play-layout','reposal-vs',{'reposal-vs-only':labelLength === 2}]">
     <ul>
       <li v-for="(v,k) in 4">
-        <h4>{{title[k]}}</h4>
-        <ul>
-          <li v-for="(i,j) in labelLength" @click="select(sequence[0](k,j))" :class="{selected:shortcut && +vs[k][j]}">
-            <div>{{vsLabels[j]}}</div>
-            <div>
+        <div class="title" v-html="title[k]"></div>
+        <div class="reposal-odds-view">
+          <div v-for="(i,j) in labelLength">
               {{getOdds(vsListIndex,k,j) | round3}}
-            </div>
-            <el-autocomplete @input.native="validate(sequence[0](k,j))" v-model="vs[k][j]" v-show="!shortcut" :fetch-suggestions="querySearch" :debounce="0" popper-class="vs-autocomplete-suggestion" ref="input" />
+          </div>
+        </div>
+        <ul>
+          <li v-for="(i,j) in labelLength" :class="{selected:selected(vs[k][j])}">
+            <div @click="select(sequence[0](k,j))">{{vsLabels[j]}}</div>
+            <el-input type="number" @input.native="validate(sequence[0](k,j))" v-model="vs[k][j]" ref="input" />
           </li>
         </ul>
       </li>
     </ul>
     <ul>
       <li v-for="(v,k) in 3">
-        <h4>{{title[k + 4]}}</h4>
-        <ul>
-          <li v-for="(i,j) in labelLength" @click="select(sequence[1](k,j))" :class="{selected:shortcut&& +vs[k + 4][j]}">
-            <div>{{vsLabels[j]}}</div>
-            <div>
+        <div class="title" v-html="title[k + 4]"></div>
+        <div class="reposal-odds-view">
+          <div v-for="(i,j) in labelLength">
               {{getOdds(vsListIndex,k+4,j) | round3}}
-            </div>
-            <el-autocomplete @input.native="validate(sequence[1](k,j))" v-model="vs[k + 4][j]" v-show="!shortcut" :fetch-suggestions="querySearch" :debounce="0" popper-class="vs-autocomplete-suggestion" ref="input" />
+          </div>
+        </div>
+        <ul>
+          <li v-for="(i,j) in labelLength" :class="{selected:selected(vs[k + 4][j])}">
+            <div @click="select(sequence[1](k,j))">{{vsLabels[j]}}</div>
+            <el-input type="number" @input.native="validate(sequence[1](k,j))" v-model="vs[k + 4][j]" ref="input" />
           </li>
         </ul>
       </li>
     </ul>
     <ul>
       <li v-for="(v,k) in 2">
-        <h4>{{title[k + 7]}}</h4>
-        <ul>
-          <li v-for="(v,j) in labelLength" @click="select(sequence[2](k,j))" :class="{selected:shortcut&& +vs[k + 7][j]}">
-            <div>{{vsLabels[j]}}</div>
-            <div>
+        <div class="title" v-html="title[k + 7]"></div>
+        <div class="reposal-odds-view">
+          <div v-for="(i,j) in labelLength">
               {{getOdds(vsListIndex,k+7,j) | round3}}
-            </div>
-            <el-autocomplete @input.native="validate(sequence[2](k,j))" v-model="vs[k + 7][j]" v-show="!shortcut" :fetch-suggestions="querySearch" :debounce="0" popper-class="vs-autocomplete-suggestion" ref="input" />
+          </div>
+        </div>
+        <ul>
+          <li v-for="(v,j) in labelLength" :class="{selected:selected(vs[k + 7][j])}">
+            <div @click="select(sequence[2](k,j))">{{vsLabels[j]}}</div>
+            <el-input type="number" @input.native="validate(sequence[2](k,j))" v-model="vs[k + 7][j]" ref="input" />
           </li>
         </ul>
       </li>
     </ul>
     <ul>
       <li>
-        <h4>{{title[title.length - 1]}}</h4>
-        <ul>
-          <li v-for="(v,j) in labelLength" @click="select(sequence[3](j))" :class="{selected:shortcut&& +vs[title.length - 1][j]}">
-            <div>{{vsLabels[j]}}</div>
-            <div>
+        <div class="title" v-html="title[title.length - 1]"></div>
+        <div class="reposal-odds-view">
+          <div v-for="(i,j) in labelLength">
               {{getOdds(vsListIndex,title.length - 1,j) | round3}}
-            </div>
-            <el-autocomplete @input.native="validate(sequence[3](j))" v-model="vs[title.length - 1][j]" v-show="!shortcut" :fetch-suggestions="querySearch" :debounce="0" popper-class="vs-autocomplete-suggestion" ref="input" />
+          </div>
+        </div>
+        <ul>
+          <li v-for="(v,j) in labelLength" :class="{selected:selected(vs[title.length - 1][j])}">
+            <div @click="select(sequence[3](j))">{{vsLabels[j]}}</div>
+            <el-input type="number" @input.native="validate(sequence[3](j))" v-model="vs[title.length - 1][j]" ref="input" />
           </li>
         </ul>
       </li>
@@ -85,7 +93,12 @@ export default {
 
     return {
       //playList ? f5 refresh,name[name.length - 1]
-      title: playList ? playList.bets.map(_ => _.show_name) : [[]],
+      titleText: playList ? playList.bets.map(_ => _.show_name) : [[]],
+      title: playList ? playList.bets.map(_ => {
+        const [pos,label] = _.show_name.split(' ')
+        const [t1,t2] = label.split('VS')
+        return `<strong>${pos}</strong>` + [t1,'VS',t2].map(_ => `<div>${_}</div>`).join('')
+      }) : [[]],
       labelLength,
       sequence,
       modelType: 'vs',
@@ -122,7 +135,7 @@ export default {
       if (this.validOrder() !== true) return
       let order = [...this.orderVS]
       order.forEach((v, k) =>
-        v.forEach(i => (i[0] = this.title[k] + '：' + i[0]))
+        v.forEach(i => (i[0] = this.titleText[k] + '：' + i[0]))
       )
       this.setOrder(flatten(order))
       return true

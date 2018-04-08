@@ -329,7 +329,7 @@ export default {
       if (typeof layout[0] === 'string') {
         return (
           //just class not className
-          <ul class={['play-layout', options && options.className,{'play-ball-text':/san_qita|santonghao/.test(identifier)}]}>
+          <ul class={['play-layout', options && options.className,{'play-ball-text':/san_qita|sthtx/.test(identifier)}]}>
             <li>
               <label>{layout[0]}</label>
               <BallList

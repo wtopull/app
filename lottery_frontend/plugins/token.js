@@ -30,8 +30,7 @@ export default function({ store, app, redirect, route: { name } }) {
         redirect('/login')
       } else if (token) {
         app.$axios.setHeader('Token', token)
-        ;(name === 'index' || name === 'login') &&
-          store.dispatch('lotto/getTypes').then(() => redirect('/home'))
+        ;(name === 'index' || name === 'login') && redirect('/home')
       }
     })
     .catch(() => redirect('/'))

@@ -1,15 +1,16 @@
 <template>
   <div class="play-help">
-      <el-popover 
+      <el-popover
         placement="bottom-start"
         trigger="hover"
         popper-class="lotto-play-note"
         :visible-arrow="false"
-      > 
+      >
         <div>{{help[1]}}</div>
-        <i class="el-icon-question" slot="reference"></i>
+        <i class="el-icon-info" slot="reference"></i>
       </el-popover>
-      <span>{{help[0]}}</span>
+      <label>选号提示：</label>
+      <span class="help-desc">{{help[0]}}</span>
     </div>
 </template>
 
@@ -54,7 +55,7 @@ export default {
   },
   created() {
     if (cache.helps) return
-    import(/* webpackChunkName: "play-help" */ '~/assets/config/play-helps').then(
+    import('~/assets/config/play-helps').then(
       data => {
         cache.helps = this.helps = data.default
       }

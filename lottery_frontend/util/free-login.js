@@ -1,3 +1,3 @@
-const freeLogin = ['signup','issues','domains','docs','issues']
+const freeLogin = ['signup','issues','domains','docs','issues','test']
 
-export default routeName => freeLogin.every(name => !routeName.includes(name))
+export default routeName => routeName && freeLogin.every(name => !routeName.includes(name))

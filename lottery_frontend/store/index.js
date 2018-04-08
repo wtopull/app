@@ -11,9 +11,12 @@ export const state = () => ({
   },
   news: [],
   _3rdGames: [],
+  _3rdPlatform: [],
+  _3rdGameList: [],
   passwords: {},
   sysConfigs: [],
-  docable: false
+  docable: false,
+  GACollection: {}
 })
 
 export const getters = {
@@ -51,14 +54,34 @@ export const actions = {
       .$post('third-party-game/all-balance')
       .then(({ data }) => commit('setState', { key: '_3rdGames', value: data }))
   },
+  // 获取所有第三方游戏平台
+  get3rdGamePlatform({ commit }, callback = () => {}) {
+    return this.$axios
+      .$post('/static-data/third-party-game-platform')
+      .then(({ data }) => {
+        commit('setState', { key: '_3rdPlatform', value: data })
+        callback(data)
+      })
+  },
+  // 获取所有第三方游戏列表
+  get3rdGameList({ commit }, callback = () => {}) {
+    return this.$axios
+      .$post('/static-data/third-party-game')
+      .then(({ data }) => {
+        commit('setState', { key: '_3rdGameList', value: data })
+        callback(data)
+      })
+
+  },
   getUser({ commit, state: { user } }, callback = () => {}) {
     return this.$axios.$post('user/find-info').then(({ data }) => {
-      const result = { ...user, ...data }
+      const result = {...user, ...data }
       commit('setUser', result)
       callback(result)
     })
   },
   getAvatar({ commit, state: { user } }) {
+    if (!user.token) return Promise.resolve()
     return this.$axios.$post('user/get-chat-avatar').then(({ data }) => {
       commit('setUser', {
         ...user,

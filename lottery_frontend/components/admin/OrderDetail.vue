@@ -16,7 +16,7 @@
           <tr>
             <td>投注号码</td>
             <td colspan="3">
-              <el-scrollbar tag="div" v-if="orderTable.detail.buy_number.length > 200">
+              <el-scrollbar class="el-scrollbar-show" v-if="orderTable.detail.buy_number.length > 200">
                 {{orderTable.detail.buy_number}}
               </el-scrollbar>
               <div v-else>
@@ -47,7 +47,6 @@
   }
   .el-scrollbar {
     .is-vertical {
-      opacity: 1;
       .el-scrollbar__thumb {
         //fix height calc
         min-height: 50px;

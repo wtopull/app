@@ -20,12 +20,13 @@ axios.post(`${HOST}/oauth/token`, oauthParms)
         console.log(chalk.green('token.json build version ' + version))
       })
     }
-    const outPutFile = (filename,data,v) => {
-      fs.outputJson(`${OUTPUT}${filename}.${v || version}.json`, data, err => {
+    const outPutFile = (filename,data) => {
+      const fixVersion = process.env.npm_config_fix_version
+      fs.outputJson(`${OUTPUT}${filename}${fixVersion ? '' : `.${version}`}.json`, data, err => {
         if (err) {
           console.log(chalk.red(err))
         }
-        console.log(chalk.green(`${filename}.${v || version}.json build`))
+        console.log(chalk.green(`${filename}${fixVersion ? '' : `.${version}`}.json build`))
       })
     }
     let playHelps = {}

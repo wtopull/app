@@ -6,6 +6,9 @@ import reposalType from '~/util/mixins/reposal-type'
 export default {
   name:'k3',
   mixins: [reposalType],
+  created(){
+    this.$store.commit('reposal/setTabName',this.tabName = '0')
+  },
   render(h) {
     const props = { props: { ...this._props } }
     const views = [() => <BigSmall {...props} />]

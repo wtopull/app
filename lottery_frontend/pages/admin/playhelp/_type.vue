@@ -1,7 +1,9 @@
 <template>
   <div class="m_center WanFaJieShao">
-    <div class="x_header">
-      <nuxt-link v-for="(type,index) in types" :key="type.type" :to="`/admin/playhelp/${type.type}`" v-if="index !== 0">{{type.name}}</nuxt-link>
+    <div class="x_header members-content-nav">
+    	<ul>
+      <nuxt-link tag="li" v-for="(type,index) in types" :key="type.type" :to="`/admin/playhelp/${type.type}`" v-if="index !== 0">{{type.name}}</nuxt-link>
+      </ul>
     </div>
     <div class="x_con lotto-play-help">
       <h2>{{isSSC && types && types.length ? lottos[1].name : lottos.name}}玩法</h2>
@@ -71,6 +73,37 @@
     }
   }
 }
+.members-content-nav {
+    height: 58px;
+    width: 100%;
+    background: #F9F9F9;
+    & ul {
+      display: flex;
+      flex-direction: row;
+      margin: 0;
+      & li {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #848484;
+        width: 107px;
+        height: 38px;
+        font-size: 14px;
+        margin-top: 20px;
+        cursor: pointer;
+      }
+      & li.active {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        line-height: 28px;
+        border: 1px solid #E8E8E8;
+        border-top: 4px solid #F08200;
+        border-bottom: 0px;
+        color: #F08200;
+      }
+    }
+  }
 </style>
 
 

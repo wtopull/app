@@ -35,9 +35,6 @@ let data = await $axios.$get('...')
 
 ```js
 //pages\events.vue:30 获取活动列表
-
-//全局影响的ajax建议使用Promise,非全局可直接用 async/await
-
 async asyncData({ app }) {
   return {
     events: (await app.$axios.$post('event/get')).data
@@ -163,8 +160,6 @@ methods: {
       'advertisement/get', { type: 1, device_type: DeviceType },
       ({ advertisements }) => {
         this.advertisements = advertisements.map(_ => ({..._.content }))
-
-        this.jQueryRun()
       }
     )
   }

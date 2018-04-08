@@ -92,8 +92,8 @@ created() {
             <!-- d-flex -> display:flex,flex下align-items-center垂直居中 -->
             <div class="d-flex align-items-center">
                 <label>账户总额</label>
-                <!-- defaultRound:plugins\filters.js:9 https://cn.vuejs.org/v2/api/#Vue-filter -->
-                <span class="text-danger">￥<strong>{{totalBal | defaultRound}}</strong></span>
+                <!-- round3:plugins\filters.js:9 https://cn.vuejs.org/v2/api/#Vue-filter -->
+                <span class="text-danger">￥<strong>{{totalBal | round3}}</strong></span>
             </div>
             <!-- <nuxt-link> 组件 https://zh.nuxtjs.org/api/components-nuxt-link -->
             <nuxt-link to="/admin/payment">
@@ -114,7 +114,7 @@ created() {
                 <div>
                     <!-- getStatus方法判断，只有已注册游戏显示余额 -->
                     <h4>{{item.prefix}}</h4><span v-if="getStatus(item) === '进入'">
-                        余额：{{availableGames[item.prefix].balance | defaultRound}}
+                        余额：{{availableGames[item.prefix].balance | round3}}
                     </span>
                 </div>
                 <!-- disabled 禁用未开放游戏，loadings分配绑定各个游戏的加载状态 -->
@@ -225,7 +225,7 @@ $platform-border-color-base;
 import { mapState,mapGetters, mapActions, mapMutations } from 'vuex'
 //判断用户代理设置是网页还是app,此处简单用isMobile来代替app
 import { isMobile } from '~/plugins/UA'
-import { pwReg, getRequiredRule,camelCase } from '~/util/validator'
+import { pwReg, getRequiredRule, camelCase } from '~/plugins/formValidate'
 
 //初始化转入转出 数组函数
 const initTransList = _ => ({
@@ -298,7 +298,7 @@ export default {
                   ? this.bal
                   : this.availableGames[form.transOut].balance) < form.amount
               ) {
-                callback(new Error('余额不足！'))
+                callback(new Error(`余额不足！`))
               }
               callback()
             },

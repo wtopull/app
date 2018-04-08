@@ -161,8 +161,8 @@ export default {
   },
   computed: {
     paginationDef() {
-      const { currentPage, total, pageSize } = this
-      return paginationDef(total, pageSize, currentPage)
+      const { currentPage, total, initPageSize } = this
+      return paginationDef(total, initPageSize, currentPage)
     },
     version() {
       return this.$store.state.version

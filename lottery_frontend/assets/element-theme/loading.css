@@ -259,7 +259,7 @@
   text-align: center;
   position: absolute; }
   .el-loading-spinner .el-loading-text {
-    color: #6fade1;
+    color: #ffd22c;
     margin: 3px 0;
     font-size: 14px; }
   .el-loading-spinner .circular {
@@ -271,10 +271,10 @@
     stroke-dasharray: 90, 150;
     stroke-dashoffset: 0;
     stroke-width: 2;
-    stroke: #6fade1;
+    stroke: #ffd22c;
     stroke-linecap: round; }
   .el-loading-spinner i {
-    color: #6fade1; }
+    color: #ffd22c; }
 
 .el-loading-fade-enter,
 .el-loading-fade-leave-active {

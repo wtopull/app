@@ -1,16 +1,30 @@
 <template>
   <div class="lottery">
     <div class="lottery_top">
-      <div class="t_l fl_l">
-        <div class="c_pic fl_l" :class="lottoName"></div>
-        <div class="c_ld fl_l">
-          <a :href="trendHref" target="_blank">
-            <i class="icon iconfont">&#xe6a1;</i>走势图　</a>
-          <nuxt-link :to="`/${betType[0][1]}/${lottoName}`">
-            <i class="icon iconfont">&#xe66f;</i>{{betType[1][1]}}玩法</nuxt-link>
-        </div>
+      <div class="t_l">
+        <div class="c_pic" :class="lottoName"></div>
+      </div>
+      <div class="c_ld">
+        <nuxt-link :to="`/${betType[0][1]}/${lottoName}`">
+          {{betType[1][1]}}玩法
+          <span class="transfer-type-icon"></span>
+        </nuxt-link>
       </div>
       <issue ref="issue" />
+      <div class="c_rd">
+        <a :href="trendHref" target="_blank" v-if="trendHref">
+          走势图
+          <span class="trend_icon"></span>
+        </a>
+        <button disabled v-else>
+          走势图
+          <span class="trend_icon"></span>
+        </button>
+        <a href="admin/playhelp/ssc" target="_blank">
+          玩法说明
+          <span class="trend_icon"></span>
+        </a>
+      </div>
     </div>
     <div class="lottery_con reposal-wrap">
       <options :max="getMaxBonus(playMaxGroup)" ref="options" />
@@ -18,11 +32,13 @@
         <component v-bind={playList,playMaxGroup,checkOrder,lottoType} :is="lottoType.replace('11x5','x11to5')" ref="type" />
       </transition>
       <!-- avoid reposal change page. Flash of Unstyled Content -->
-      <div class="text-center" v-show="tabMounted">
-        <el-autocomplete @input.native="_validate($hotNumInput)" @keyup.enter.native="getOrder" v-model="hotNum" v-show="shortcut" :fetch-suggestions="querySearch" :debounce="0" ref="hot-num-input" />
-        <el-button type="warning" @click="getOrder(false)" size="mini">一键投注</el-button>
-        <el-button type="primary" @click="getOrder" size="mini">确定</el-button>
-        <el-button @click="reset" size="mini">清空</el-button>
+      <div class="text-right" v-show="tabMounted">
+        预设金额
+        <el-autocomplete label="hot-num" @input.native="_validate($hotNumInput)" @keyup.enter.native="getOrder" v-model="hotNum"  :fetch-suggestions="querySearch" :debounce="0" ref="hot-num-input" />元
+        <span>可用余额<strong>{{bal}}元</strong></span>
+        <!-- <el-button type="warning" @click="getOrder(false)" size="mini">一键投注</el-button> -->
+        <el-button type="primary" @click="getOrder">确定</el-button>
+        <el-button type="primary" @click="reset">清空</el-button>
       </div>
       <order ref="order" />
       <component :is="view" v-bind={itemLeave,removeItem} ref="hot-nums" />
@@ -126,7 +142,9 @@ export default {
       })
     },
     reset() {
-      Object.assign(this.playView, this.playView.initData())
+      const {playView} = this
+      Object.assign(this.playView, playView.initData())
+      playView.$refs.input.forEach(input => input.selected = false)
     },
     getViewOrder(valid = false) {
       const { playView } = this
@@ -148,18 +166,27 @@ export default {
       this.playView.order() &&
         (check === false ? this.bet(true) : (this.$order.visible = true))
     },
-    orderFormat(buyValue, endIndex = -1) {
-      let value = buyValue.slice(endIndex)
+    orderFormat(buyValue) {
+      let value = buyValue.split(/：|:/)[1]
       let result = value
       switch (value) {
         case '大':
+        case '总大':
+        case '总尾大':
         case '单':
+        case '总单':
+        case '上':
+        case '奇':
         case '龙':
         case '豹子':
           result = 0
           break
         case '小':
+        case '总小':
         case '双':
+        case '总双':
+        case '下':
+        case '偶':
         case '虎':
         case '顺子':
           result = 1
@@ -183,7 +210,7 @@ export default {
         money_unit: 1
       }
     },
-    bet(oneKey) {
+    async bet(oneKey) {
       const { $order, orderFormat, shortcut, ip, hotNum, playView } = this
       if (!this.isInvoking && this.checkBal($order.sum)) {
         const isOneKey = oneKey === true
@@ -192,7 +219,7 @@ export default {
         // this._getOrder('valid')
         // this.playView.submit(this.bet)
         this.isInvoking = true
-        this.$axiosPlus(
+        await this.$axiosPlus(
           'user-bet-lottery/create',
           {
             ip,
@@ -203,7 +230,8 @@ export default {
                 return {
                   //components/reposal/All5in1.vue:41,all5in1 only 1 identifier
                   lottery_method_identifier: _[5] || playView.identifier,
-                  buy_number: orderFormat(_[0]),
+                  //_[6],components/reposal/k3/BigSmall.vue:167 getLoopItem
+                  buy_number: _[6] || orderFormat(_[0]),
                   one_bet_amount: shortcut ? hotNum : _[2],
                   ...this.getBet()
                 }
@@ -219,11 +247,11 @@ export default {
               onClose: () => {
                 this.reset()
                 this.$order.visible = false
-                this.isInvoking = false
               }
             })
           }
-        )
+        ).catch(() => {})
+        this.isInvoking = false
       }
     },
     ...mapMutations({
@@ -257,7 +285,7 @@ export default {
     }
   },
   mounted() {
-    this.$hotNumInput = this.$refs['hot-num-input']
+    this.$hotNumInput = this.$refs['hot-num-input'].$refs.input
   },
   destroyed() {
     // this.$store.commit('reposal/toggleView', '一般')

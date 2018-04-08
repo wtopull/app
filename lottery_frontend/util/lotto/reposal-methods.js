@@ -6,35 +6,33 @@ export default {
     querySearch(queryString, cb) {
       cb(this.hotNums)
     },
-    _validate(autocomplete) {
-      //vue 2.5 require nextTick
+    _validate(input) {
       this.$nextTick(() => {
-        let value = isWebkit
-          ? autocomplete.value
-          : autocomplete.$refs.input.currentValue
+        const isHotNum = input.label === 'hot-num'
+        let value = input.currentValue
         if (value >= 1) {
-          autocomplete.activated = false
-          autocomplete.$refs.input.setCurrentValue(value.replace('.', '')) //replace decimals
+          isHotNum && (input.$parent.activated = false)
+          value = value.replace('.', '')
+          input.$emit('input', input.selected || isHotNum ? value : +value)
         } else {
-          autocomplete.$refs.input.setCurrentValue('')
-          !isWebkit && autocomplete.$refs.input.$emit('change', '')
-          autocomplete.activated = true
+          input.setCurrentValue('')
+          !isWebkit && input.$emit('change', '')
+          isHotNum && (input.$parent.activated = true)
         }
+        isHotNum && this.selectHotNum(value)
       })
     },
     _select($vm, i) {
-      if (!this.shortcut) return
-      let autocomplete = $vm.$refs.input[i]
-      //Expected String, got Number.<ElAutocomplete>
-      autocomplete.$refs.input.$emit('input', +autocomplete.value ? '0' : '1')
-      // if(!+autocomplete.value) {
-      //   $vm.lastSelectedInput.push(i)
-      // }else{
-      //   $vm.lastSelectedInput = $vm.lastSelectedInput.filter(v => v !== i)
-      // }
+      let input = $vm.$refs.input[i]
+      let value = input.value
+      const isValueStr = value && typeof value === 'string'
+      input.$emit(
+        'input',
+        isValueStr || value === null
+          ? ''
+          : value ? '' + value : this.lottoRoot.hotNum || null
+      )
+      input.selected = value !== null && !isValueStr
     }
   }
 }
-
-// https://github.com/valerybugakov/react-selectable-fast
-// https://github.com/stephan281094/vue-drag-select/tree/master/example

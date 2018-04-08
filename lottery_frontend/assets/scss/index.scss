@@ -7,13 +7,12 @@
 @import "utilities/utilities";
 @import "reset";
 @import "element-ui/element-ui";
-
+@import "icon";
 #__nuxt{
   &.loaded ~ #cssload-loader{
     display: none;
   }
 }
-
 
 // .page-enter-active, .page-leave-active {
 //   transition: opacity .3s
@@ -21,6 +20,26 @@
 // .page-enter, .page-leave-active {
 //   opacity: 0
 // }
+
+body{
+  color:$--color-text-primary;
+}
+
+.notice{
+  background-color: #f5f5f5;
+  @include gradient-striped(rgba(255,255,255,.35),90deg);
+  background-size: 5rem;
+  border-bottom: 1px  solid #e1e1e1;
+  height: 36px;
+  line-height: 35px;
+  .marquee3k{
+    overflow: hidden;
+    white-space: nowrap;
+  }
+  a{
+    color: $--color-text-primary;
+  }
+}
 
 .bounce-enter-active {
   animation: bounce-in .5s;

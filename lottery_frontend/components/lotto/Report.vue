@@ -1,19 +1,19 @@
 <template>
   <div class="lottery-tabs">
-        <div class="tab_left">
-            <a v-for="(label,index) in ['游戏记录','追号记录']" :key="label" @click="tabIndex = index" :class="{active:tabIndex === index}">
-              {{label}}
-            </a>
+    <el-tabs type="border-card">
+      <el-tab-pane label="我的投注">
+        <div class="t_li YouXiJiLu">
+          <lotto-order :hideForm="true" ref="lottoOrder" />
         </div>
-        <div class="tab_right">
-            <div class="t_li YouXiJiLu" v-show="tabIndex === 0">
-              <lotto-order :hideForm="true" ref="lottoOrder" />
-            </div>
-            <div class="t_li YouXiJiLu" v-show="tabIndex === 1">
-              <lotto-order :hideForm="true" :isChase="true" ref="chaseOrder" />
-            </div>
+      </el-tab-pane>
+      </el-tab-pane>
+      <el-tab-pane label="我的追号">
+        <div class="t_li YouXiJiLu">
+          <lotto-order :hideForm="true" :isChase="true" ref="chaseOrder" />
         </div>
-    </div>
+      </el-tab-pane>
+    </el-tabs>
+  </div>
 </template>
 
 <script>

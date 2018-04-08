@@ -3,14 +3,48 @@
         <div class="menber_head">
             <div class="t">
                 <ul>
-                    <li><i class="icon iconfont">&#xe687;</i><span class="js">团队成员</span><span class="td">{{member_count[1]}}人（在线人数{{member_count[0]}}人）</span></li>
-                    <li><i class="icon iconfont">&#xe698;</i><span class="js">直属下级</span><span class="td">{{proxy_count[1]}}人</span></li>
-                    <li><i class="icon iconfont">&#xe669;</i><span class="js">非直属下级</span><span class="td">{{no_proxy_count[1]}}人</span></li>
-                    <li><i class="icon iconfont">&#xe675;</i><span class="js">彩票总余额</span><span class="td">{{team_total_balance | defaultRound}}元</span></li>
+                    <li><i class="icon iconfont"></i>
+                    <!--<li><i class="icon iconfont">&#xe687;</i>-->
+                    	<div>
+                    		<h3 class="js">团队成员</h3>
+                    		<div class="td">
+                    			<p>代理：<span>{{member_count[1]}}</span>人</p>
+                    			<p>玩家：<span>{{member_count[0]}}</span>人</p>
+                    		</div>
+                    	</div>
+                    </li>
+                    <li><i class="icon iconfont"></i>
+                    <!--<li><i class="icon iconfont">&#xe675;</i>-->
+                    	<div>
+                    		<h3 class="js">团队余额</h3>
+                    		<div class="td"><span>{{team_total_balance | round3}}</span>元</div>
+                    	</div>
+                    </li>
+                    <li><i class="icon iconfont"></i>
+                    <!--<li><i class="icon iconfont">&#xe675;</i>-->
+                    	<div>
+                    		<h3 class="js">昨日收入</h3>
+                    		<div class="td"><span>{{team_total_balance | round3}}</span>元</div>
+                    	</div>
+                    </li>
+                    <li><i class="icon iconfont"></i>
+                    <!--<li><i class="icon iconfont">&#xe675;</i>-->
+                    	<div>
+                    		<h3 class="js">累计收入</h3>
+                    		<div class="td"><span>{{team_total_balance | round3}}</span>元</div>
+                    	</div>
+                    </li>
+                    <!--<li><i class="icon iconfont">&#xe698;</i><div><h3 class="js">直属下级</h3><p class="td"><span>{{proxy_count[1]}}</span>人</p></div></li>
+                    <li><i class="icon iconfont">&#xe669;</i><div><h3 class="js">非直属下级</h3><p class="td"><span>{{no_proxy_count[1]}}</span>人</p></div></li>-->
                 </ul>
             </div>
             <div class="d">
                 <div class="dt">
+                	<div class="dt-top">
+                		<p>项目选择：</p>
+                		<button class="active">团队</button>
+                		<button>代理</button>
+                	</div>
                     <div class="kx fl_l">
                         <el-button :type="dayIndex === index ? 'primary' : ''" v-for="(item,index) in daysRange" :key="index" @click="getDaysRange(item[1],index)">{{item[0]}}
                         </el-button>

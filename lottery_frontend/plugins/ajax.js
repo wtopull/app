@@ -91,7 +91,7 @@ export default ({ $axios, app, store, route, error, redirect }) => {
             console.error('axios catch', url, err) //require!,it can be catch error,otherwise you don't know response error
 
             this.$message({
-              message: `${url}超时，请联系相关相关人员留意！`,
+              message: '系统超时，请等待刷新或联系客服！',
               type: 'error',
               duration: 2000
             })
@@ -106,26 +106,27 @@ export default ({ $axios, app, store, route, error, redirect }) => {
   Vue.use(axiosPlus)
 
   Vue.prototype.$getJson = app.$getJson = function(api, callback) {
-    const _v = store.state.version
-    if (!_v) {
+    const _v = process.env.fixVersion || store.state.version 
+    let _version = _v === 'fix' ? '' : `.${_v}`
+    if (!store.state.version) {
       return app.$axios
         .$post('static-data/lottery-version')
         .then(({ data: { version } }) => {
           store.commit('setState', { key: 'version', value: version })
           if (process.env.NODE_ENV === 'development') {
-            return import(`~/assets/config/${api}.${version}.json`).then(() =>
-              axios.get(`${publicPath}config/${api}.${version}.json`)
+            _version = _v === 'fix' ? '' : `.${version}`
+            return import(`~/assets/config/${api}${_version}.json`).then(() =>
+              axios.get(`${publicPath}config/${api}${_version}.json`)
             )
           }
-
           return axios
             .get(`${publicPath}config/${api}.${version}.json`)
             .catch(error)
         })
     }
     if (process.env.NODE_ENV === 'development') {
-      return import(`~/assets/config/${api}.${_v}.json`).then(() =>
-        axios.get(`${publicPath}config/${api}.${_v}.json`)
+      return import(`~/assets/config/${api}${_version}.json`).then(() =>
+        axios.get(`${publicPath}config/${api}${_version}.json`)
       )
     }
     return axios.get(`${publicPath}config/${api}.${_v}.json`).catch(error)

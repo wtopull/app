@@ -9,7 +9,11 @@ import props from '~/util/lotto/reposal-props'
 import mapMethods from '~/util/lotto/reposal-methods'
 export default {
   props,
+  inject: ['lottoRoot'],
   methods:{
+    selected(value){
+      return typeof value === 'string' && value || value === null
+    },
     getOdds(listIndex,betIndex,_index){
       if(!this.playList.length) return 0
       let index = _index
@@ -28,17 +32,17 @@ export default {
       if(!_flatten) return result
       return _flatten(result)
     },
-    _getLoopItem(data,_buyValue,orderTypeIndex,{fn,col2} = {}){
+    _getLoopItem(data,_buyValue,orderTypeIndex,{fn,col2,increment = 0} = {}){
       return data.map((i,col) => i.map((amount,j) => {
           if (amount >= 1){
-              let buyValue = j
+              let buyValue = j + increment
               if(Array.isArray(_buyValue)) {
                 buyValue = _buyValue[j]
               }
               if (typeof buyValue == 'function') {
                 buyValue = _buyValue(j)
               }
-              //reslut [buyValue:'大',odds:1.95,amount:100,14:$refs.input index,orderTypeIndex,playIdentifier]
+              //reslut [buyValue:'大',odds:1.95,amount:100,14:$refs.input index,orderTypeIndex,playIdentifier,function:components/reposal/k3/BigSmall.vue:173 getLoopItem]
               let result = [
                 buyValue,
                 this.getOdds(col,orderTypeIndex,j),
@@ -68,16 +72,11 @@ export default {
       bonus:'reposal/bonus',
       shortcut:'reposal/shortcut',
       hotNums:'reposal/nums'
-    }),
-    // odds(){
-    //   return this.playList.map(_ => _.bets.map(_ => _.odds.map(_ => defaultRound((this.bonus || this.playMaxGroup)/2000/eval(_)))))
-    // }
-    
+    })
   },
   mounted(){
     this.validate = i => this._validate(this.$refs.input[i])
     this.select = i => this._select(this, i)
-    
   },
 }
 

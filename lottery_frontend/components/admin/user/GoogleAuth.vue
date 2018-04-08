@@ -2,8 +2,7 @@
   <div>
     <div v-if="GA">
       解除Google身份验证器绑定
-      <br>
-      解除绑定后再次绑定Google验证器请重新扫描二维码
+      <br> 解除绑定后再次绑定Google验证器请重新扫描二维码
     </div>
     <div v-else>
       安装Google身份验证器 （
@@ -24,14 +23,17 @@
     </el-form>
   </div>
 </template>
-<style>
+<style scoped>
 .qrcode {
+  height: 150px;
+  display: block;
 }
 </style>
 <script>
 import { getRequiredRule, validNumber } from '~/util/validator'
-import {createQR} from '~/plugins/common'
+import { createQR } from '~/plugins/common'
 import cache from '~/util/cache'
+import { mapState, mapGetters, mapMutations } from 'vuex'
 export default {
   name: 'google-auth',
   props: ['visible', 'userModel', 'setUser'],
@@ -99,6 +101,13 @@ export default {
                     ...this.userModel,
                     is_open_google: !GA
                   })
+                  this.setState({
+                    key: 'GACollection',
+                    value: {
+                      ...this.GACollection,
+                      [`${this.username}`]: !GA
+                    }
+                  })
                 }
               })
 
@@ -112,15 +121,12 @@ export default {
     },
     close() {
       this.$emit('update:visible', false)
-    }
+    },
+    ...mapMutations(['setState'])
   },
   computed: {
-    username() {
-      return this.userModel.name
-    },
-    GA() {
-      return this.$store.getters.GA
-    }
+    ...mapGetters(['GA', 'username']),
+    ...mapState(['GACollection'])
   },
   mounted() {
     this.$form = this.$refs.form

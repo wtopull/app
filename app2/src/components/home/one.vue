@@ -10,7 +10,7 @@
     <div class="one-center">
     	<ul>
     		<router-link v-for="(item,index) in 16" :key="index" tag="li" to="/one">
-    			<img src="../../assets/img/one/中宏时时彩.png" alt="images"/>
+    			<img src="../../assets/img/one/zhssc.png" alt="images"/>
     			<h5>大发</h5>
     		</router-link>
     	</ul>

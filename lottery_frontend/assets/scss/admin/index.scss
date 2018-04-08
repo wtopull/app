@@ -24,6 +24,29 @@
   }
 }
 
+@mixin Bg($bgcolor,$pic, $width, $height,$bgtop,$bgleft) {
+    background:$bgcolor url('../assets/img/members/'+$pic) no-repeat $bgleft $bgtop;
+    height: $height;
+    width: $width;
+}
+
+@mixin cBg($bgcolor,$pic, $width, $height,$bgtop,$bgleft) {
+    background:$bgcolor url('../../assets/img/members/'+$pic) no-repeat $bgleft $bgtop;
+    height: $height;
+    width: $width;
+}
+
+@mixin kBg($bgcolor,$pic, $width, $height,$bgtop,$bgleft) {
+    background:$bgcolor url('../../assets/img/members/banks/'+$pic) no-repeat $bgleft $bgtop;
+    height: $height;
+    width: $width;
+}
+
+@mixin iBg($bgcolor,$pic, $width, $height,$bgtop,$bgleft) {
+    background:$bgcolor url('assets/img/members/'+$pic) no-repeat $bgleft $bgtop;
+    height: $height;
+    width: $width;
+}
 
 .card-id .bankicon {
   width: 75px;
@@ -55,4 +78,3 @@
     }
   }
 }
-

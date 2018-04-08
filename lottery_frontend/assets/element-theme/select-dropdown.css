@@ -546,10 +546,10 @@
   box-sizing: border-box;
   margin: 5px 0; }
   .el-select-dropdown.is-multiple .el-select-dropdown__item.selected {
-    color: #6fade1;
+    color: #dd6800;
     background-color: #fff; }
     .el-select-dropdown.is-multiple .el-select-dropdown__item.selected.hover {
-      background-color: #f5f7fa; }
+      background-color: #ecc233; }
     .el-select-dropdown.is-multiple .el-select-dropdown__item.selected::after {
       position: absolute;
       right: 20px;

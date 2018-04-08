@@ -22,22 +22,22 @@
 import '~/assets/c8css/active.css'
 import Vue from 'vue'
 import { Collapse, CollapseItem } from 'element-ui'
+import ad from '../components/ad.vue'
 Vue.use(Collapse)
 Vue.use(CollapseItem)
 
-const getEvents = context => context.$axios.$post('event/get')
-
 export default {
   name: 'events',
-  async asyncData({ app }) {
-    if(process.server) return {events:[]}
-    return {
-      events: (await getEvents(app)).data
-    }
+  data(){
+  	return{
+  		isshow:false,
+  		eventsactive:0,
+  		menu:[{name:'全部优惠'},{name:'彩票优惠'},{name:'真人优惠'},{name:'电子优惠'},{name:'体育优惠'}],
+  	}
   },
-  async created(){
-    if(!this.events.length) {
-      this.events = (await getEvents(this)).data
+  async asyncData({ app }) {
+    return {
+      events: (await app.$axios.$post('event/get')).data
     }
   },
   methods: {
@@ -47,7 +47,24 @@ export default {
           console.log('data',data)
         })
       }
+    },
+    show(){
+    	$(".list li a").click(function(){
+    		$(this).children('i').removeClass('el-icon-caret-right').addClass('el-icon-caret-bottom');
+    		$(this).parents('li').siblings().children().find('i').removeClass('el-icon-caret-bottom').addClass('el-icon-caret-right');
+    		$(this).parents('li').addClass('active');
+    		$(this).parents('li').siblings().removeClass('active');
+    		
+    		$(this).parents('li').children().find('.list-bottom').addClass('active');
+    		$(this).parents('li').siblings().children().find('.list-bottom').removeClass('active');
+    	})
     }
+  },
+  mounted(){
+	this.show();
+  },
+  components:{
+  	ad
   }
 }
 </script>

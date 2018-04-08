@@ -31,7 +31,7 @@
           <span>交易记录</span>
         </router-link>
         <router-link to="" tag="li">
-          <img src="../../assets/img/five/形状-370.png" />
+          <img src="../../assets/img/five/370.png" />
           <span>投注记录</span>
         </router-link>
       </ul>

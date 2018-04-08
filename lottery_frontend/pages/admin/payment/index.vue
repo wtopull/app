@@ -24,6 +24,14 @@ export default {
       typeIndex: 0,
       step: 0,
       payIndex: 0,
+      payIndexs: 0,
+        num8: 500,
+        game_acc: [{
+          name: "微信支付"
+        }, {
+          name: "网银"
+        }],
+        jinbis: ['500', '1000', '10000'],
       form: {
         data: '',
         link: '',
@@ -51,6 +59,10 @@ export default {
     }
   },
   methods: {
+  	jinbiC(index) {
+        var _this = this;
+        _this.num8 = _this.jinbis[index];
+      },
     submit() {
       this.$form.validate(valid => {
         if (valid) {

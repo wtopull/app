@@ -1,0 +1,25 @@
+a,a:focus,a:active,a:hover,a:visited{
+  border:none;
+  text-decoration:none;
+}
+#app {
+  font-family:'Microsoft YaHei' !important;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color:#2c3e50;
+  width:100%;
+  height:100%;
+  position:relative;
+  margin:0 auto;
+}
+body,div,html,p,li{
+  margin:0;
+  padding:0;
+}
+li{
+  list-style:none;
+}
+:root{
+  background-color:#222222;
+}

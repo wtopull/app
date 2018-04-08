@@ -32,8 +32,7 @@ export const transformCode = (code, method, type, identifier) => {
     return code.split(',').map(num => sanTongHao[num - 1]).join()
   }
   else if(method.includes('二同号')){
-    let t,b
-    [t,b] = code.split('|')
+    const [t,b] = code.split('|')
     const tonghao = t.split(',').map(num => erTongHao[num - 1]).join() 
     return b ? tonghao + '|' + b : tonghao
   }

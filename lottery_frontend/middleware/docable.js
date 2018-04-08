@@ -7,7 +7,7 @@ export default function({ app, store, error }) {
   //   { baseURL: '/' }
   // )
   return app.$axios.$get(
-    '/api/doc_auth',
-    {params: { pw: store.state.docable },baseURL:'/'}
+    '/doc_auth',
+    {params: { pw: store.state.docable }}
   )
 }

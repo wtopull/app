@@ -15,21 +15,6 @@ html{height: 100%;}
     -moz-osx-font-smoothing: grayscale;
 }
 
-::-webkit-scrollbar {
-    width: 3px;
-    height: 3px;
-    background-color: #EEE;
-}
-
-::-webkit-scrollbar-track {
-    background-color: #EEE;
-}
-
-::-webkit-scrollbar-thumb {
-    background-color: #DDD;
-    border-radius:10px;
-}
-
 * {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
@@ -55,20 +40,19 @@ textarea {
     font-family: inherit;
 }
 body {
-    font-size: 14px;
+    /* font-size: 14px; */
     font-family: Microsoft YaHei, Arial, Helvetica, sans-serif;
     margin: 0;
     padding: 0;
-    color: #666666;
     height: 100%;
 }
-a {
+/* a {
     outline: 0;
     text-decoration: none;
     color: #FFFFFF;
     display: inline-block;
     transition: all ease 0.3s;
-}
+} */
 a.btnn:hover{opacity: .9;}
 img {
     vertical-align: middle;
@@ -99,20 +83,20 @@ ul,ol,li{list-style:none;}
     color:#000;
   }
 
-#top .nav{
+#top .nav1{
     float: left;
     height: 68px;
     line-height: 68px;
     position: relative;
 }
-#top .nav a{
+#top .nav1 a{
     color: #fff;
     position: relative;
     width: 95px;
     text-align: center;
 }
 
-#top .nav .n_bg{
+#top .nav1 .n_bg{
     position: absolute;
     display: block;
     width: 85px;
@@ -134,6 +118,7 @@ ul,ol,li{list-style:none;}
     top: 0;
     left: 0;
     z-index: 1000;
+    display: none;
 }
 .user_info{}
 .user_icon{
@@ -321,15 +306,11 @@ ul,ol,li{list-style:none;}
     line-height: 28px;
 }
 .content{overflow:hidden}
-.page-box > div > .content {
-  min-height: 100vh;
-  padding-bottom: 30px;
-}
 .page-box{
     height: 98%;
-    padding-top: 88px;
-    padding-left: 220px;background: #ecf1f5;
-    min-height: 800px;
+    padding-top: 125px;
+    /*padding-left: 220px;*/
+    /* background: #ecf1f5; */
 }
 .mobliem{
     width: 81px;
@@ -377,9 +358,8 @@ ul,ol,li{list-style:none;}
 @media screen and (max-width:1217px){
      #top .logo{display: none;}
 }
-@media screen and (max-width:1350px){
+@media screen and (max-width:1200px){
      #top .logo,.nav_list{display: none;}
-    .page-box {padding-left: 95px;}
     .menu_active{}
     .mob .nav_list{display: block;}
     .menu_active .mo_men{}
@@ -391,16 +371,12 @@ ul,ol,li{list-style:none;}
 @media screen and (max-width:930px){
     #top .logo{display:none}
 #top{min-width: 396px;}
-    #top .nav a{
+    #top .nav1 a{
     width: 100%;
 }
-     #top .nav{display: none;height: 500px;background: #57678D;position: absolute;top: 68px;z-index: 100;width: 100%;}
+     #top .nav1{display: none;height: 500px;background: #57678D;position: absolute;top: 68px;z-index: 100;width: 100%;}
 
     .mobliem{display:block}
-#top .nav a.active{/* background: #3C4D75; */}
-#top .nav .n_bg{display: none !important;}
-.page-box {padding-left: 85px;}
-
-
-
+#top .nav1 a.active{/* background: #3C4D75; */}
+#top .nav1 .n_bg{display: none !important;}
 }

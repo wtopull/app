@@ -207,6 +207,7 @@ export default {
                   page-size={ this.innerPaginationDef.pageSize }
                   layout={ this.innerPaginationDef.layout }
                   total={ this.total }
+                  background
                   on-size-change={ this.handleSizeChange }
                   on-current-change={ this.handlePageChange }
                   >
@@ -374,8 +375,8 @@ export default {
     },
     innerTableProps() {
       return Object.assign({
-        border: true,
-        stripe: true,
+        // border: true,
+        // stripe: true,
         fit: true
       }, this.tableProps)
     },

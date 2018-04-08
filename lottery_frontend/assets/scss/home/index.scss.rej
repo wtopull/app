@@ -1,0 +1,254 @@
+diff a/assets/scss/home/index.scss b/assets/scss/home/index.scss	(rejected hunks)
+@@ -428,17 +428,118 @@
+           z-index: 2;
+           font-size: 14px;
+         }
+         .ganmeBut {
+           ul {
+             display: flex;
++<<<<<<< HEAD
++            justify-content: center;
++            background: #ECC233;
++            height: 392px;
++            position: relative;
++            & .gameCon.active{
++                display: block;
++            }
++            & .gameCon {
++                width: 1100px;
++                position: absolute;
++                padding-top: 57px;
++                display: none;
++                & .gameTop {
++                    background: url(~assets/img/indexHome/five-game-platform.jpg) no-repeat;
++                    width: 273px;
++                    height: 114px;
++                    position: absolute;
++                    top: -57px;
++                }
++                & .gameTopZr, & .gameTopSt, & .gameTopLot {
++                    background: url(~assets/img/indexHome/six-game-platform.jpg) no-repeat;
++                    width: 273px;
++                    height: 114px;
++                    position: absolute;
++                    top: -57px;
++                }
++                & .gameTitle {
++                    display: flex;
++                    align-items: center;
++                    font-size: 24px;
++                    height: 64px;
++                    & b {
++                        display: flex;
++                        height: 64px;
++                        line-height: 64px;
++                        border-bottom: 2px solid #474443;
++                        margin-right: 13px;
++                        color: #161616;
++                    }
++                    & span {
++                        display: flex;
++                        font-size: 14px;
++                        color: #262626;
++                    }
++                }
++                & .gameConSize {
++                    position: relative;
++                    z-index: 2;
++                    font-size: 14px;
++                    margin: 16px 0px 6px;
++                    color: #3C2924;
++                }
++                & .ganmeBut {
++                    & ul {
++                        display: flex;
++                        margin: 0;
++                        padding: 0;
++                        & li {
++                            display: flex;
++                            cursor: pointer;
++                        }
++                    }
++                    & .ganmeButUls {
++                        margin-left: 52px;
++                    }
++                }
++                & .gameRight {
++                    position: absolute;
++                    top: -76px;
++                    right: -90px;
++                    background: url(~assets/img/indexHome/gameRight.jpg) no-repeat;
++                    width: 816px;
++                    height: 468px;
++                }
++                & .gameRightZr {
++                    position: absolute;
++                    top: -76px;
++                    right: -90px;
++                    background: url(~assets/img/indexHome/zr_game.jpg) no-repeat;
++                    width: 816px;
++                    height: 468px;
++                }
++                & .gameRightSt {
++                    position: absolute;
++                    top: -76px;
++                    right: -90px;
++                    background: url(~assets/img/indexHome/st_game.jpg) no-repeat;
++                    width: 816px;
++                    height: 468px;
++                }
++                & .gameRightLot {
++                    position: absolute;
++                    top: -76px;
++                    right: -90px;
++                    background: url(~assets/img/indexHome/lot_game.jpg) no-repeat;
++                    width: 816px;
++                    height: 468px;
++                }
++=======
+             margin: 0;
+             padding: 0;
+             li {
+               display: flex;
+               margin-right: 20px;
++>>>>>>> 650d251399df69e8b1fa7fa96ff5919164958fd4
+             }
+           }
+           .ganmeButUls {
+             margin-left: 52px;
+           }
+         }
+@@ -507,12 +608,106 @@
+         font-size: 12px;
+       }
+     }
+   }
+ }
+ 
++<<<<<<< HEAD
++//.game-animate{
++//  width: 1100px;
++//  height: 471px;
++//  position: absolute;
++//  top: -80px;
++//  padding-top: 79px;
++//  overflow: hidden;
++//  .game-animate-box{
++//      position: absolute;
++//      height: 471px;
++//      width: 4800px;
++//  }
++//}
++
++
++@mixin Bg($pic, $width, $height) {
++    background: url('../../img/indexHome/'+$pic) no-repeat;
++    height: $height;
++    width: $width;
++}
++
++.ganmeButZr{
++    position: relative;
++    z-index: 101;
++    @for $i from 1 through 3 {
++      & li:nth-child(#{$i}) {
++        @include Bg('zr_game'+$i+'.jpg', 114px, 114px);
++        margin:34px 20px 0px 0px;
++      }
++      & li:nth-child(#{$i}):hover {
++        @include Bg('zr_game_'+$i+'.jpg', 114px, 114px);
++      }
++    }
++}
++.ganmeButSt{
++    @for $i from 1 through 2 {
++      & li:nth-child(#{$i}) {
++        @include Bg('st_game'+$i+'.jpg', 114px, 114px);
++        margin:34px 30px 0px 0px;
++      }
++      & li:nth-child(#{$i}):hover {
++        @include Bg('st_game_'+$i+'.jpg', 114px, 114px);
++      }
++    }
++}
++.ganmeButLot{
++    @for $i from 1 through 3 {
++      & li:nth-child(#{$i}) {
++        @include Bg('lot_game'+$i+'.jpg', 94px, 94px);
++        margin:0px 30px 0px 0px;
++      }
++      & li:nth-child(#{$i}):hover {
++        @include Bg('lot_game_'+$i+'.jpg', 94px, 94px);
++      }
++    }
++}
++.ganmeButLots{
++    @for $i from 1 through 3 {
++      & li:nth-child(#{$i}) {
++        @include Bg('lot_games'+$i+'.jpg', 94px, 94px);
++        margin:4px 30px 0px 0px;
++      }
++      & li:nth-child(#{$i}):hover {
++        @include Bg('lot_games_'+$i+'.jpg', 94px, 94px);
++      }
++    }
++}
++
++.ganmeButf{
++    @for $i from 1 through 2 {
++      & li:nth-child(#{$i}) {
++        @include Bg('dz_game_'+$i+'.jpg', 94px, 94px);
++        margin:0px 20px 0px 0px;
++      }
++      & li:nth-child(#{$i}):hover {
++        @include Bg('dz_game'+$i+'.jpg', 94px, 94px);
++      }
++    }
++}
++
++.ganmeButUls{
++    @for $i from 1 through 3 {
++      & li:nth-child(#{$i}) {
++        @include Bg('dz_games_'+$i+'.jpg', 94px, 94px);
++        margin:0px 20px 0px 0px;
++      }
++      & li:nth-child(#{$i}):hover {
++        @include Bg('dz_games'+$i+'.jpg', 94px, 94px);
++      }
++    }
++}
++
++=======
+ .ganmeButf li:nth-child(1) {
+   background: url(~assets/img/indexHome/game_11.jpg) no-repeat;
+   width: 94px;
+   height: 94px;
+ }
+ 
+@@ -566,12 +761,13 @@
+ 
+ .ganmeButUls li:nth-child(3):hover {
+   background: url(~assets/img/indexHome/game55.jpg) no-repeat;
+   width: 94px;
+   height: 94px;
+ }
++>>>>>>> 650d251399df69e8b1fa7fa96ff5919164958fd4
+ 
+ .footer {
+   display: flex;
+   justify-content: center;
+   height: 72px;
+   background: #1B1B1B;
+@@ -805,8 +1001,12 @@
+               }
+             }
+           }
+         }
+       }
+     }
++<<<<<<< HEAD
++}
++=======
+   }
+ }
++>>>>>>> 650d251399df69e8b1fa7fa96ff5919164958fd4
