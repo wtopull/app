@@ -17,6 +17,7 @@
             width: 33.33%;
         }
         & li:nth-child(2) {
+            width: 46%;
             text-align: center;
             font-size: 12px;
             display: flex;
@@ -48,11 +49,20 @@
                 flex-direction: column;
                 width: 100%;
                 & .menu-list-top {
+                    padding-left: 16px;
                     display: flex;
+                    & p {
+                        margin: 0;
+                        margin-right: 10px;
+                        border: 1px solid #dc3b40;
+                        background: #dc3b40;
+                    }
                 }
                 & ul {
                     display: flex;
+                    flex-direction: column;
                     & li {
+                        display: flex;
                         width: 100%;
                     }
                 }
@@ -64,9 +74,6 @@
         & i {
             color: #fff;
             font-size: 20px;
-        }
-        & p {
-            // color: #fff;
         }
     }
     & .betbjkl8-content {
