@@ -11,7 +11,8 @@
     color: #dc3b40;
 }
 
-.van-nav-bar,.van-nav-bar__right {
+.van-nav-bar,
+.van-nav-bar__right {
     height: 46px;
 }
 
@@ -21,9 +22,7 @@
     border-bottom: 1px solid #E9E9E9;
     background: #fff;
 }
-.one .el-carousel{
-    margin-top: 46px;;
-}
+
 .one-center {
     ul {
         display: flex;
@@ -44,17 +43,24 @@
             padding: 5px 0 10px;
             & img {
                 margin: 5px 0px 10px;
-                width: 55px;
-                height: 55px;
+                width: 48px;
+                height: 48px;
                 border-radius: 50%;
             }
-            & h5{
+            & h5 {
                 font-weight: 400;
                 color: #333;
             }
         }
-        & li:nth-child(3n){
-            border-right:0px;
+        & .lotter-list {
+            & i {
+                margin: 5px 0px 10px;
+                color: #fa7e00;
+                font-size: 50px !important;
+            }
+        }
+        & li:nth-child(3n) {
+            border-right: 0px;
         }
     }
 }
@@ -65,23 +71,26 @@
     opacity: 0.75;
     margin: 0;
 }
-.el-carousel__container{
+
+.el-carousel__container {
     height: 180px !important;
 }
+
 .el-carousel {
     height: 180px !important;
 }
-.el-carousel__indicators{
+
+.el-carousel__indicators {
     display: none;
 }
 
 .el-carousel {
-//  margin-top: 46px;
+    //  margin-top: 46px;
 }
 
 .el-carousel__item:nth-child(2n+1),
 .el-carousel__item:nth-child(2n) {
-    background: url('https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1523517614&di=c89353908a351e1da119b975cb2c67a0&imgtype=jpg&er=1&src=http%3A%2F%2Fpic.58pic.com%2F58pic%2F16%2F47%2F53%2F32658PICXjm_1024.jpg')  no-repeat center center;
-//  background: url(../../assets/img/home/one/banner.jpg) no-repeat center center;
+    background: url('https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1523517614&di=c89353908a351e1da119b975cb2c67a0&imgtype=jpg&er=1&src=http%3A%2F%2Fpic.58pic.com%2F58pic%2F16%2F47%2F53%2F32658PICXjm_1024.jpg') no-repeat center center;
+    //  background: url(../../assets/img/home/one/banner.jpg) no-repeat center center;
     background-size: 100% 100%;
 }

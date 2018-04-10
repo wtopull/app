@@ -27,7 +27,7 @@
     & .login-form {
       display: flex;
       flex-direction: column;
-      & form {
+//    & form {
         > div {
           display: flex;
           align-items: center;
@@ -47,7 +47,7 @@
             border: none;
           }
         }
-      }
+//    }
       .login-pwd,
       .login-pwdshow {
         border-top: none;

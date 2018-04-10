@@ -31,7 +31,7 @@
 		  <div class="datum-img-box">
 		  	<div class="datum-hide">
 		  		<ul class="datum-imgs">
-				  	<li v-for="(img,index) in imgs" ><img :src="img.paths" @click="nickname(img,$event,index)"/></li>
+				  	<li v-for="(img,index) in imgs" :key="index"><img :src="img.paths" @click="nickname(img,$event,index)"/></li>
 				  </ul>
 		  	</div>
 		  </div>

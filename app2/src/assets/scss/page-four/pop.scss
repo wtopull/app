@@ -3,10 +3,12 @@
     height: $height;
     width: $width;
 }
-.van-nav-bar{
+
+.van-nav-bar {
     width: 100%;
     background: #dc3b40 !important;
 }
+
 .pop {
     background: #fff;
     height: 100%;
@@ -14,10 +16,10 @@
         height: 46px;
         width: 100%;
         position: fixed;
-//      background: #dc3b40 !important;
-        background: linear-gradient(to right, #f75f5b , #fead50) !important;
+        //      background: #dc3b40 !important;
+        background: linear-gradient(to right, #f75f5b, #fead50) !important;
         z-index: 2;
-        & .pop-top{
+        & .pop-top {
             width: 100%;
             display: flex;
             justify-content: center;
@@ -25,7 +27,7 @@
             font-size: 20px;
             color: #fff;
             position: relative;
-            & i{
+            & i {
                 position: absolute;
                 left: 16px;
             }
@@ -129,14 +131,16 @@
                 display: flex;
                 flex-wrap: wrap;
                 padding: 0px 30px;
-                @for $i from 1 through 8{
-                   & li:nth-child(#{$i}){
-                     display:block;
-                      @include Bg('haaa.png',55px,55px)
-                      background-size:100%;
-                      margin: 5px 10px;
-                   }
-                 }
+                @for $i from 1 through 8 {
+                    & li:nth-child(#{$i}) {
+                        display: block;
+                        @include Bg('haaa.png',
+                        55px,
+                        55px);
+                        background-size: 100%;
+                        margin: 5px 10px;
+                    }
+                }
             }
         }
     }
