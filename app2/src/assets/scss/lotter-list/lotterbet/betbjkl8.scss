@@ -147,9 +147,14 @@
                     & span {
                         color: #1143e6;
                         margin-right: 6px;
+                        & i{
+                            color: #1143e6;
+                            margin-left: 6px;
+                        }
                     }
                     & i {
                         color: #e2dddd;
+                        font-style: normal;
                     }
                 }
                 & .lottery-ms {

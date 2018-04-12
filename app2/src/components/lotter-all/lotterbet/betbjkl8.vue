@@ -28,14 +28,18 @@
     <div class="betbjkl8-content">
       <div class="lottery-box">
         <div class="lottery-top" @click="lottery = !lottery">
-          <p>888888开奖：<ul><li v-for="(item,index) in 10" :key="index">1</li>...</ul></p>
+          <p>888888开奖：
+          	<ul>
+          		<li v-for="(item,index) in 10" :key="index">
+          			<yd-countup :endnum="item"  duration="2" use-easing="true" decimals="0"  separator=""  prefix="" suffix=""></yd-countup>
+          		</li>...
+          	</ul></p>
           <p>888888投注：
             <span>
-              <yd-countdown time="2018/08/08 08:08:08">
-                <span style="color:red;">{%d}<i>天</i></span>
-                <span style="color:gray;">{%h}<i>时</i></span>
-                <span style="color:blue;">{%m}<i>分</i></span>
-                <span style="color:orange;">{%s}<i>秒</i></span>
+              <yd-countdown time="2018/04/12 22:00:00">
+                <span>{%h}<i>:</i></span>
+                <span>{%m}<i>:</i></span>
+                <span>{%s}</span>
             </yd-countdown>
             </span>
           <i :class=" lottery ? 'el-icon-arrow-down' :'el-icon-arrow-up'"></i></p>
