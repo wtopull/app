@@ -9,7 +9,7 @@
             <i class="el-icon-plus"></i>
             <div>
                 <p>共0注，{{allmoney | keepTwoNum}}元</p>
-                <p><span>01</span><span>01</span><span>01</span><span>01</span><span>01</span><span>01</span><span>01</span><span>01</span><span>01</span><span>01</span><span>01</span></p>
+                <p><span>{{cart}}</span></p>
             </div>
         </div>
         <div class="basket-right"><van-icon name="shopping-cart" info="0"/>号码篮</div>
@@ -24,6 +24,11 @@ export default{
             lists:0,
             allmoney:0,
             money:['元','角','分']
+        }
+    },
+    props:{
+        cart:{
+            type:String
         }
     },
     methods:{
