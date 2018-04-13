@@ -1,5 +1,5 @@
 //数字滚动
-;(function($, window, document) {
+(function($, window, document) {
     "use strict";
     var defaults = {
         deVal: 0,       //传入值

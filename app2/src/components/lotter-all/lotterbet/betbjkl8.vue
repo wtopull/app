@@ -31,16 +31,16 @@
           <p>888888开奖：
           	<ul>
           		<li v-for="(item,index) in 10" :key="index">
-          			<yd-countup :endnum="item"  duration="2" use-easing="true" decimals="0"  separator=""  prefix="" suffix=""></yd-countup>
+          			<yd-countup :endnum="item" duration="1" decimals="0"  separator="" suffix=""></yd-countup>
           		</li>...
           	</ul></p>
           <p>888888投注：
             <span>
-              <yd-countdown time="2018/04/12 22:00:00">
+              <yd-countdown time="2018/04/13 22:00:00">
                 <span>{%h}<i>:</i></span>
                 <span>{%m}<i>:</i></span>
                 <span>{%s}</span>
-            </yd-countdown>
+              </yd-countdown>
             </span>
           <i :class=" lottery ? 'el-icon-arrow-down' :'el-icon-arrow-up'"></i></p>
           <div class="lottery-ms" v-show=" !lottery">
@@ -86,7 +86,7 @@
             <div class="lottery-scoll lottery-scoll1">
               <p><span>上盘</span></p>
               <ul>
-                <li v-for="(val,shang) in 40" class="choose1" :key="shang" @click="selecNumShang($event,shang,val)">{{ shang < 9 ? '0'+(shang+1) : (shang+1)}}</li>
+                <li v-for="(val,shang) in 40" class="choose1" :key="shang" @click="selecNumShang($event,shang,val)">{{ shang < 9 ? '0'+(shang+1) : (shang+1) }}</li>
               </ul>
             </div>
             <div class="lottery-scoll lottery-scoll2">
@@ -164,7 +164,7 @@
             </div>
           </van-popup>
         </div>
-        <cart :cart="con"></cart>
+        <cart :cart="con,selected" ref="cart"></cart>
       </div>
     </div>
   </div>
@@ -212,7 +212,7 @@ import cart from '../../public/cart'
           this.navs = index;
         }
       },
-      showrenxuan(event,item,index){
+      showrenxuan(e,item,index){
         this.titles = item;
         this.renxuanlist = index;
         this.show = !this.show;
@@ -227,29 +227,40 @@ import cart from '../../public/cart'
       selecNumShang(e,shang,val){
         switch (this.renxuanlist) {
           case 0:
-            if (e.target.className.indexOf("choose1") == -1) {
-              e.target.className = "choose1"; //切换按钮样式
-            } else{
-              e.target.className = "choose1 active";//切换按钮样式
+            if (e.target.className.indexOf("choose1 active")) {
+              e.target.className = "choose1 active"; //切换按钮样式
+              this.selected.push(e.target.innerHTML);
+            } else {
+              e.target.className = "choose1";
+              this.selected.pop(e.target.innerHTML);
             }
-            this.selected.push(e.target.innerHTML);
             this.selected = [...new Set(this.selected)];//ES6去重
             this.con = this.selected.join(' ');
             return this.con;
             break;
           case 1:
-            break;
+          	if (e.target.className.indexOf("choose1 active")) {
+              e.target.className = "choose1 active"; //切换按钮样式
+              this.selected.push(e.target.innerHTML);
+            } else {
+              e.target.className = "choose1";
+              this.selected.pop(e.target.innerHTML);
+            }
+            this.selected = [...new Set(this.selected)];//ES6去重
+            this.con = this.selected.join(' ');
+            return this.con;
         }
       },
       selecNumXia(e,xia,val){
-        switch (this.renxuanlist) {
+      	switch (this.renxuanlist) {
           case 0:
-            if (e.target.className.indexOf("choose2") == -1) {
-              e.target.className = "choose2"; //切换按钮样式
-            } else{
-              e.target.className = "choose2 active";//切换按钮样式
+            if (e.target.className.indexOf("choose2 active")) {
+              e.target.className = "choose2 active"; //切换按钮样式
+              this.selected.push(e.target.innerHTML);
+            } else {
+              e.target.className = "choose2";
+              this.selected.pop(e.target.innerHTML);
             }
-            this.selected.push(e.target.innerHTML);
             this.selected = [...new Set(this.selected)];//ES6去重
             this.con = this.selected.join(' ');
             return this.con;
