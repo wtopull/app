@@ -43,10 +43,11 @@ import betssc from '@/components/lotter-all/lotterbet/betssc'
 
 Vue.use(Router)
 export default new Router({
-    mode: 'history',
+//  mode: 'history',
     routes: [
         { path: '*', name: 'ErrorPage', component: require('../components/public/ErrorPage'), meta: { title: '操作失败' } },
-        { path: "/login", name: 'login', component: resolve => require(['@/components/login/login.vue'], resolve), meta: { keepAlive: true } },
+        { path: "/login", name: 'login', component: resolve => require(['@/components/login/login.vue'], resolve), meta: {title:'登陆', keepAlive: true } },
+        { path: "/registered", name: 'registered', component: resolve => require(['@/components/login/registered.vue'], resolve), meta: { keepAlive: true } },
         { path: "/betbj10", name: 'betbj10', component: resolve => require(['@/components/lotter-all/lotterbet/betbj10.vue'], resolve), meta: { keepAlive: true } },
         { path: "/betbjkl8", name: 'betbjkl8', component: resolve => require(['@/components/lotter-all/lotterbet/betbjkl8.vue'], resolve), meta: { keepAlive: true } },
         { path: "/betetf", name: 'betetf', component: resolve => require(['@/components/lotter-all/lotterbet/betetf.vue'], resolve), meta: { keepAlive: true } },

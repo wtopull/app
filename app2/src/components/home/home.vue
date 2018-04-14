@@ -20,6 +20,7 @@
 export default {
   data() {
     return {
+    	five:2,
       navbat: [
         {
         	icon:'icon-shouye',
@@ -39,11 +40,12 @@ export default {
         {
         	icon:'icon-wode',
           name: '我的',
-          pathbat: 'five'
+          pathbat: 'login'
         }
       ]
     }
-  }
+  },
+  
 }
 </script>
 <style lang='scss'>

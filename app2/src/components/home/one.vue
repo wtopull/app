@@ -26,12 +26,6 @@
   export default {
     data() {
       return {
-      	content:[
-      		{title:'购彩大厅',show:'one'},
-      		{title:'UU直播',show:'second'},
-      		{title:'活动中心',show:'three'},
-      		{title:'我的账户',show:'five'},
-      	],
         lotters:[
           {name:'中宏时时彩',paths: require('../../assets/img/one/zhssc.png'),title:'betssc',sort:'ssc'},
           {name:'江苏快3',paths: require('../../assets/img/one/zsk3.png'),title:'betk3',sort:'k3'},

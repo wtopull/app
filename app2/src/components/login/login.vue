@@ -9,25 +9,29 @@
         <div></div>
       </div>
       <div class="login-form">
-        <!--<form action="/login?">-->
         <div class="login-user">
           <van-icon name="contact" />
-          <input type="text" v-model="username" placeholder="请输入用户名"> </div>
+          <input type="text" v-model="$store.state.Globalusername" placeholder="请输入用户名" onfocus="this.select()"> </div>
         <div class="login-pwd">
           <i class="iconfont icon-mima"></i>
-          <input :type="pwd ? 'text' : 'password'" v-model="password" placeholder="请输入密码">
+          <input :type="pwd ? 'text' : 'password'" v-model="$store.state.Globalpassword" placeholder="请输入密码" onfocus="this.select()">
           <i class="iconfont" :class="pwd ? 'icon-guanbi' : 'icon-buxianshimima'" @click="pwd = !pwd"></i>
         </div>
         <div class="login-go">
-          <button @click="form">立即登陆</button>
-          <button @click="axiosgo">立即登陆</button>
+          <button @click="login">立即登陆</button>
+          <!--<button @click="axiosgo">接口测试</button>-->
         </div>
         <div class="login-live">
-          <router-link to="">立即注册</router-link>
+          <router-link to="registered">立即注册</router-link>
           <router-link to="">忘记密码</router-link>
         </div>
-        <!--</form>-->
       </div>
+      <!--<div class="counta">
+	      <p>{{ $store.state.count }}</p>
+	      <button>{{ $store.state.count }}</button>
+	      <button @click="increment">+1</button>
+	      <button @click="decrement">-1</button>
+	    </div>-->
     </div>
     <div class="login-pop" v-show="pop" @click="pop = false">
       <div>
@@ -37,42 +41,60 @@
 </template>
 <script>
   import md5 from 'js-md5';
-  import headers from '../public/header'
+  import headers from '../public/header';
+  import { mapGetters, mapActions } from 'vuex'
   export default {
     data() {
       return {
         pop: false,
         pwd: false,
-        username: '',
-        password: '',
         content: '',
         arr: md5("aaaaaaa")
       }
     },
+    mounted: function() {
+      this.$store.state.Globalusername = "";
+      this.$store.state.Globalpassword = "";
+    },
     methods: {
-    	
+    	...mapActions(['increment', 'decrement']),
+//    increment() {
+//      this.$store.dispatch('increment')
+//    },
+//    decrement() {
+//      this.$store.dispatch('decrement')
+//    },
       axiosgo() {
-      	const _url = this.$store.state.url;
+        const _url = this.$store.state.url;
         let _this = this;
-//      http://alpha-frontend.test.bestsnake.com/api/static-data/lottery-infos
-//      http://115.144.238.217/api/user/logout
-//      _this.axios.git('/api/logout')
-        _this.axios.get(_url+'user/logout')
-        .then(function(response) {
+        _this.axios.get(_url + 'user/logout').then(function(response) {
           console.log(response);
         }).catch(function(error) {
           console.log(error, "No..............");
         });
       },
-      form() {
-        if (!this.username) {
-          this.content = '用户名不能为空'
+      login() {
+        const username = this.$store.state.Globalusername;
+        const password = this.$store.state.Globalpassword;
+        const user_yz = /^[A-Za-z][A-Za-z1-9]{5,20}$/;
+        const pwd_yz = /^[A-Za-z1-9]{6,20}$/;
+        let yzuser = user_yz.test(username);
+        let yzpwd = pwd_yz.test(password);
+        if (!username) {
+          this.content = '用户名不能为空';
+          this.pop = true;
+        } else if (!password) {
+          this.content = '密码不能为空';
+          this.pop = true;
+        } else if (yzuser == false) {
+        // 用户名包括:最少6位，字母开头 + 数字/字母/下划线
+        // 密码：最少6位，至少包括1个字母，1个数字
+          this.content = '用户名：字母开头，6-20位，包括大小字母、数字'
           this.pop = true
-        } else if (!this.password) {
-          this.content = '密码不能为空'
+        } else if (yzpwd == false) {
+          this.content = '密码：6-20位，包括大小字母、数字'
           this.pop = true
-        } else if (this.username) {
-          this.content = '用户名必须包括：字母，数字，下划线'
+        } else if (yzuser == true && yzpwd == true) {
           this.$router.push('/one')
         }
       }

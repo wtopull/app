@@ -8,7 +8,7 @@
         </div>
         <div class="five-top-right">
           <p>账号：
-            <span>haaa</span>
+            <span>{{this.$store.state.Globalusername}}</span>
           </p>
           <p>余额：
             <span v-show="!money">*****</span>
