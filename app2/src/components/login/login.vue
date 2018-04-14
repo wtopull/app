@@ -7,7 +7,7 @@
     <div class="login-conter">
       <div class="login-center-img">
         <div></div>
-      </div> {{arr}}
+      </div>
       <div class="login-form">
         <!--<form action="/login?">-->
         <div class="login-user">
@@ -50,12 +50,14 @@
       }
     },
     methods: {
+    	
       axiosgo() {
+      	const _url = this.$store.state.url;
         let _this = this;
 //      http://alpha-frontend.test.bestsnake.com/api/static-data/lottery-infos
 //      http://115.144.238.217/api/user/logout
 //      _this.axios.git('/api/logout')
-        _this.axios.get('/api/movie/in_theaters')
+        _this.axios.get(_url+'user/logout')
         .then(function(response) {
           console.log(response);
         }).catch(function(error) {

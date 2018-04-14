@@ -6,6 +6,7 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
   	headers:{'Content-Type':'application/x-www-form-urlencoded'},
+  	url:'http://115.144.238.217/api/',
     platform: '',
     loginStatus: null, //登陆状态
     Globalusername: "",//全局账号

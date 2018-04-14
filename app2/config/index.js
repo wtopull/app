@@ -10,15 +10,15 @@ module.exports = {
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
     proxyTable: {
-    	"/api":{
+//  	"/api":{
 //				target:"http://alpha-frontend.test.bestsnake.com/api/static-data/",
-				target:"https://115.182.201.8/v2/",
+//				target:"https://115.182.201.8/v2/",
 //				target:"http://115.144.238.217/api/user/",
-				changeOrigin:true,
-				pathRewrite:{
-					"^/api":""
-				}
-			}
+//				changeOrigin:true,
+//				pathRewrite:{
+//					"^/api":""
+//				}
+//			}
     },
 
     // Various Dev Server settings
