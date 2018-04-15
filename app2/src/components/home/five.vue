@@ -8,11 +8,11 @@
         </div>
         <div class="five-top-right">
           <p>账号：
-            <span>{{this.$store.state.Globalusername}}</span>
+            <span>{{cookieName}}</span>
           </p>
           <p>余额：
-            <span v-show="!money">*****</span>
-            <span v-show="money">111111</span>
+            <span v-show=" !money ">*****</span>
+            <span v-show=" money ">111111</span>
             <button v-show="!money" @click="money = !money">显示</button>
           </p>
         </div>
@@ -50,10 +50,12 @@
   </div>
 </template>
 <script>
-  import headers from '../public/header'
+  import headers from '../public/header';
+  import VueCookie from "vue-cookie";
   export default {
     data() {
       return {
+      	cookieName:'',
       	money:false,
         fiveNav: [{
           name: '个人信息',
@@ -77,6 +79,14 @@
           paths: 'mymsg'
         }, ]
       }
+    },
+    mounted(){
+    	this.getCookie();
+    },
+    methods:{
+    	getCookie(){
+    		this.cookieName = VueCookie.get("username");
+    	}
     },
     components: {
       headers

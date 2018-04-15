@@ -18,6 +18,11 @@
             <span>{{cart}}</span>
           </p>
         </div>
+        <div class="ball-container">
+        	<div class="ball" transition="drop" v-for="ball in balls" v-show="ball.show">
+        		<div class="inner"></div>
+        	</div>
+        </div>
       </div>
       <div class="basket-right" @click="basketTo">
         <van-icon name="shopping-cart" />
@@ -33,7 +38,14 @@
         badge: 0, //购物篮数
         lists: 0,
         allmoney: 2, //共多少钱
-        money: ['元', '角', '分']
+        money: ['元', '角', '分'],
+        balls:[
+        	{show:false},
+        	{show:false},
+        	{show:false},
+        	{show:false},
+        	{show:false}
+        ]
       }
     },
     props: {
@@ -176,5 +188,23 @@
         background: #000;
       }
     }
+  }
+  .ball-container{
+  	& .ball{
+  		position: fixed;
+  		right: 100px;
+  		bottom: 22px;
+  		z-index: 200;
+  		& .drop-transition{
+  			transition: all 0.4s;
+  			& .inner{
+  				width: 16px;
+  				height: 16px;
+  				border-radius: 50%;
+  				background: #f56c6c;
+  				transition: all 0.4s;
+  			}
+  		}
+  	}
   }
 </style>

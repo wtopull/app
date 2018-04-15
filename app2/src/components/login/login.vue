@@ -26,12 +26,6 @@
           <router-link to="">忘记密码</router-link>
         </div>
       </div>
-      <!--<div class="counta">
-	      <p>{{ $store.state.count }}</p>
-	      <button>{{ $store.state.count }}</button>
-	      <button @click="increment">+1</button>
-	      <button @click="decrement">-1</button>
-	    </div>-->
     </div>
     <div class="login-pop" v-show="pop" @click="pop = false">
       <div>
@@ -48,6 +42,8 @@
       return {
         pop: false,
         pwd: false,
+        username:'',
+        password:'',
         content: '',
         arr: md5("aaaaaaa")
       }
@@ -57,22 +53,6 @@
       this.$store.state.Globalpassword = "";
     },
     methods: {
-    	...mapActions(['increment', 'decrement']),
-//    increment() {
-//      this.$store.dispatch('increment')
-//    },
-//    decrement() {
-//      this.$store.dispatch('decrement')
-//    },
-      axiosgo() {
-        const _url = this.$store.state.url;
-        let _this = this;
-        _this.axios.get(_url + 'user/logout').then(function(response) {
-          console.log(response);
-        }).catch(function(error) {
-          console.log(error, "No..............");
-        });
-      },
       login() {
         const username = this.$store.state.Globalusername;
         const password = this.$store.state.Globalpassword;
@@ -80,10 +60,10 @@
         const pwd_yz = /^[A-Za-z1-9]{6,20}$/;
         let yzuser = user_yz.test(username);
         let yzpwd = pwd_yz.test(password);
-        if (!username) {
+        if (this.$store.state.Globalusername === '') {
           this.content = '用户名不能为空';
           this.pop = true;
-        } else if (!password) {
+        } else if (this.$store.state.Globalpassword === '') {
           this.content = '密码不能为空';
           this.pop = true;
         } else if (yzuser == false) {
@@ -96,6 +76,7 @@
           this.pop = true
         } else if (yzuser == true && yzpwd == true) {
           this.$router.push('/one')
+          this.$store.dispatch('login');
         }
       }
     },

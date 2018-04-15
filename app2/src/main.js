@@ -3,6 +3,7 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
+import VueCookie from "vue-cookie";
 import Carousel from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 import {Icon,NoticeBar,Actionsheet,Popup,Stepper,Dialog} from 'vant';
@@ -21,6 +22,7 @@ import md5 from 'js-md5';
 Vue.prototype.axios = axios
 Vue.component(CountUp.name, CountUp);
 Vue.component(CountDown.name, CountDown);
+Vue.use(VueCookie);
 Vue.use(Stepper);
 Vue.use(Popup);
 Vue.use(Tab).use(Tabs);
