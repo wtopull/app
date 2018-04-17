@@ -173,7 +173,7 @@
                 }else{
                     this.RECORD_USERINFO(this.userInfo);
                     this.$router.go(-1);
-
+                    console.log(this.userAccount);
                 }
             },
             closeTip(){
