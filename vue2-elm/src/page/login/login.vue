@@ -15,7 +15,7 @@
         </form>
         <form class="loginForm" v-else>
             <section class="input_container">
-                <input type="text" placeholder="账号" v-model.lazy="userAccount">
+                <input type="text" placeholder="账号" v-model="userAccount">
             </section>
             <section class="input_container">
                 <input v-if="!showPassword" type="password" placeholder="密码"  v-model="passWord">
@@ -164,6 +164,7 @@
                     }
                     //用户名登录
                     this.userInfo = await accountLogin(this.userAccount, this.passWord, this.codeNumber);
+                    console.log(this.userInfo,this.userAccount, this.passWord, this.codeNumber);
                 }
                 //如果返回的值不正确，则弹出提示框，返回的值正确则返回上一页
                 if (!this.userInfo.user_id) {
@@ -172,8 +173,7 @@
                     if (!this.loginWay) this.getCaptchaCode();
                 }else{
                     this.RECORD_USERINFO(this.userInfo);
-                    this.$router.go(-1);
-
+                    this.$router.push('/profile');
                 }
             },
             closeTip(){

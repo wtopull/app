@@ -10,10 +10,12 @@ const state = {
   headers: {
     'Content-Type': 'application/x-www-form-urlencoded'
   },
-  url: 'http://115.144.238.217/api/',
+  url: 'http://115.144.238.217',
   loginStatus: null, //登陆状态
   Globalusername: "", //全局账号
   Globalpassword: "", //全局密码
+  newDate:new Date().getTime(),//获取时间戳
+  captchaCodeImg:{}, //验证码地址
 }
 
 export default new Vuex.Store({
