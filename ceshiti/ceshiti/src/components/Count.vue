@@ -6,11 +6,11 @@
           <div class="ball-num-warp">
             <h3 class="ball-title">{{item.title}}</h3>
             <template class="">
-              <span v-for="(b,index) in item.balls" :key="index" :class='[b.choose ? "active": ""]' @click="curBall(b,item)" class="ball-num"> {{ b.ball}} </span>
+              <span v-for="b in item.balls" :class='[b.choose ? "active": ""]' @click="curBall(b,item)" class="ball-num"> {{ b.ball}} </span>
             </template>
           </div>
           <div class="ball-tools-warp">
-            <a v-for="(tools,index )in ballTools" @click="toolsCur(tools,item)" :key="index">{{tools.name}}</a>
+            <a v-for="tools in ballTools" @click="toolsCur(tools,item)">{{tools.name}}</a>
           </div>
         </li>
       </template>
@@ -57,7 +57,7 @@
         });
       },
       //大
-      big({ball}){
+      big({ball}) {
         this.empty({ball});
         let len = Math.ceil(ball.length / 2)
         ball.filter((list, idx) => {
@@ -80,7 +80,7 @@
       single({ball}) {
         this.empty({ball});
         ball.filter((list) => {
-          if(list.ball % 2 === 1) {
+          if(list.ball % 2 === 0) {
             list.choose = true
           }
         })
@@ -89,7 +89,7 @@
       double({ball}) {
         this.empty({ball});
         ball.filter((list) => {
-          if(list.ball % 2 === 0) {
+          if(list.ball % 2 === 1) {
             list.choose = true
           }
         })
@@ -108,7 +108,7 @@
         } else if(Object.is(tools.fncode, 'small')) {
           this.small({ball: item.balls});
         } else if(Object.is(tools.fncode, 'single')) {
-          this.small({ball: item.balls});
+          this.single({ball: item.balls});
         } else if(Object.is(tools.fncode, 'double')) {
           this.double({ball: item.balls});
         } else {
